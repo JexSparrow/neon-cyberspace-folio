@@ -19,6 +19,7 @@ interface Project {
   tags: string[];
   liveUrl?: string;
   githubUrl?: string;
+  videoUrl?: string;
   details: string;
 }
 
@@ -36,6 +37,7 @@ const Projects = () => {
       tags: ["React", "TypeScript", "Tailwind", "Supabase"],
       liveUrl: "#",
       githubUrl: "#",
+      videoUrl: "dQw4w9WgXcQ",
       details: "Sistema completo de e-commerce com carrinho, checkout, autenticação de usuários e painel administrativo. Inclui integração com gateway de pagamento e sistema de notificações em tempo real.",
     },
     {
@@ -46,6 +48,7 @@ const Projects = () => {
       tags: ["React", "Charts.js", "Node.js", "PostgreSQL"],
       liveUrl: "#",
       githubUrl: "#",
+      videoUrl: "dQw4w9WgXcQ",
       details: "Dashboard completo com visualização de dados em tempo real, gráficos interativos, filtros avançados e exportação de relatórios. Integrado com API REST para busca de dados.",
     },
     {
@@ -56,6 +59,7 @@ const Projects = () => {
       tags: ["React", "Framer Motion", "Three.js", "Vite"],
       liveUrl: "#",
       githubUrl: "#",
+      videoUrl: "dQw4w9WgXcQ",
       details: "Portfolio interativo com animações 3D, efeitos parallax, scroll reveal e transições suaves. Design responsivo e otimizado para performance.",
     },
   ];
@@ -173,42 +177,74 @@ const Projects = () => {
 
       {/* Project Detail Modal */}
       <Dialog open={!!selectedProject} onOpenChange={() => setSelectedProject(null)}>
-        <DialogContent className="glass-card border-primary/30 max-w-2xl">
+        <DialogContent className="glass-card border-primary/30 max-w-6xl max-h-[90vh] overflow-y-auto">
           <DialogHeader>
             <DialogTitle className="text-3xl font-orbitron text-foreground">
               {selectedProject?.title}
             </DialogTitle>
-            <DialogDescription className="text-muted-foreground pt-4">
-              {selectedProject?.details}
-            </DialogDescription>
           </DialogHeader>
-          <div className="space-y-4 pt-4">
-            <div className="flex flex-wrap gap-2">
-              {selectedProject?.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="text-sm px-4 py-2 rounded-full bg-primary/20 text-secondary border border-primary/30"
-                >
-                  {tag}
-                </span>
-              ))}
+          
+          <div className="grid lg:grid-cols-2 gap-6 pt-4">
+            {/* Video Section */}
+            <div className="space-y-4">
+              {selectedProject?.videoUrl && (
+                <div className="relative w-full rounded-xl overflow-hidden glass-card border border-primary/30">
+                  <div className="aspect-video">
+                    <iframe
+                      width="100%"
+                      height="100%"
+                      src={`https://www.youtube.com/embed/${selectedProject.videoUrl}`}
+                      title={selectedProject.title}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      className="w-full h-full"
+                    />
+                  </div>
+                </div>
+              )}
             </div>
-            <div className="flex gap-3">
-              <Button
-                className="bg-gradient-to-r from-primary to-secondary flex-1"
-                onClick={() => window.open(selectedProject?.liveUrl, "_blank")}
-              >
-                <ExternalLink className="w-4 h-4 mr-2" />
-                Ver Projeto
-              </Button>
-              <Button
-                variant="outline"
-                className="neon-border flex-1"
-                onClick={() => window.open(selectedProject?.githubUrl, "_blank")}
-              >
-                <Github className="w-4 h-4 mr-2" />
-                GitHub
-              </Button>
+
+            {/* Info Section */}
+            <div className="space-y-6">
+              <DialogDescription className="text-muted-foreground text-base leading-relaxed">
+                {selectedProject?.details}
+              </DialogDescription>
+
+              {/* Tags */}
+              <div>
+                <h4 className="text-sm font-orbitron font-semibold text-secondary mb-3">
+                  Tecnologias Utilizadas
+                </h4>
+                <div className="flex flex-wrap gap-2">
+                  {selectedProject?.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="text-sm px-4 py-2 rounded-full bg-primary/20 text-secondary border border-primary/30 hover:bg-primary/30 transition-colors"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="flex flex-col sm:flex-row gap-3 pt-2">
+                <Button
+                  className="bg-gradient-to-r from-primary to-secondary hover:shadow-neon-purple transition-shadow flex-1"
+                  onClick={() => window.open(selectedProject?.liveUrl, "_blank")}
+                >
+                  <ExternalLink className="w-4 h-4 mr-2" />
+                  Ver Projeto ao Vivo
+                </Button>
+                <Button
+                  variant="outline"
+                  className="neon-border flex-1 hover:bg-primary/10"
+                  onClick={() => window.open(selectedProject?.githubUrl, "_blank")}
+                >
+                  <Github className="w-4 h-4 mr-2" />
+                  Ver Código
+                </Button>
+              </div>
             </div>
           </div>
         </DialogContent>
