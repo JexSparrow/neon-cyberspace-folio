@@ -1,7 +1,17 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { ExternalLink, Github } from "lucide-react";
+import { 
+  ExternalLink, 
+  Github, 
+  ShoppingCart, 
+  BarChart3, 
+  Palette, 
+  UtensilsCrossed, 
+  FileText, 
+  Settings2,
+  LucideIcon 
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -15,7 +25,8 @@ interface Project {
   id: number;
   title: string;
   description: string;
-  image: string;
+  icon: LucideIcon;
+  iconColor: string;
   tags: string[];
   liveUrl?: string;
   githubUrl?: string;
@@ -34,7 +45,8 @@ const Projects = () => {
       id: 1,
       title: "E-Commerce Futurista",
       description: "Plataforma de e-commerce com design moderno e animações interativas",
-      image: "🛒",
+      icon: ShoppingCart,
+      iconColor: "text-primary",
       tags: ["React", "TypeScript", "Tailwind", "Supabase"],
       liveUrl: "#",
       githubUrl: "#",
@@ -45,7 +57,8 @@ const Projects = () => {
       id: 2,
       title: "Dashboard Analytics",
       description: "Dashboard interativo com gráficos e métricas em tempo real",
-      image: "📊",
+      icon: BarChart3,
+      iconColor: "text-secondary",
       tags: ["React", "Charts.js", "Node.js", "PostgreSQL"],
       liveUrl: "#",
       githubUrl: "#",
@@ -56,7 +69,8 @@ const Projects = () => {
       id: 3,
       title: "Portfolio Criativo",
       description: "Site portfolio com animações 3D e efeitos de scroll",
-      image: "🎨",
+      icon: Palette,
+      iconColor: "text-accent",
       tags: ["React", "Framer Motion", "Three.js", "Vite"],
       liveUrl: "#",
       githubUrl: "#",
@@ -67,7 +81,8 @@ const Projects = () => {
       id: 4,
       title: "App de Delivery",
       description: "Aplicativo para pedidos online com rastreamento em tempo real",
-      image: "🍕",
+      icon: UtensilsCrossed,
+      iconColor: "text-neon-green",
       tags: ["React Native", "Firebase", "Maps API", "Redux"],
       liveUrl: "#",
       githubUrl: "#",
@@ -78,7 +93,8 @@ const Projects = () => {
       id: 5,
       title: "Sistema de Blog",
       description: "CMS completo para criação e gestão de conteúdo",
-      image: "📝",
+      icon: FileText,
+      iconColor: "text-primary",
       tags: ["Next.js", "MongoDB", "Markdown", "AWS"],
       liveUrl: "#",
       githubUrl: "#",
@@ -89,7 +105,8 @@ const Projects = () => {
       id: 6,
       title: "API RESTful",
       description: "Backend escalável com documentação completa",
-      image: "⚙️",
+      icon: Settings2,
+      iconColor: "text-secondary",
       tags: ["Node.js", "Express", "PostgreSQL", "Docker"],
       liveUrl: "#",
       githubUrl: "#",
@@ -137,20 +154,21 @@ const Projects = () => {
               className="glass-card rounded-2xl overflow-hidden hover-glow cursor-pointer group"
               onClick={() => setSelectedProject(project)}
             >
-              {/* Project Image/Icon */}
+              {/* Project Icon */}
               <div className="relative h-48 bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center overflow-hidden">
                 <motion.div
-                  className="text-8xl"
                   animate={{
-                    rotate: [0, 10, -10, 0],
+                    y: [0, -10, 0],
+                    rotate: [0, 5, -5, 0],
                   }}
                   transition={{
                     duration: 4,
                     repeat: Infinity,
                     ease: "easeInOut",
                   }}
+                  className={`${project.iconColor} transition-all duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_20px_currentColor]`}
                 >
-                  {project.image}
+                  <project.icon size={80} strokeWidth={1.5} />
                 </motion.div>
                 <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                   <span className="text-foreground font-semibold">Ver Detalhes</span>
