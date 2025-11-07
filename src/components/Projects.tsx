@@ -27,6 +27,7 @@ const Projects = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [showAll, setShowAll] = useState(false);
 
   const projects: Project[] = [
     {
@@ -62,7 +63,42 @@ const Projects = () => {
       videoUrl: "dQw4w9WgXcQ",
       details: "Portfolio interativo com animações 3D, efeitos parallax, scroll reveal e transições suaves. Design responsivo e otimizado para performance.",
     },
+    {
+      id: 4,
+      title: "App de Delivery",
+      description: "Aplicativo para pedidos online com rastreamento em tempo real",
+      image: "🍕",
+      tags: ["React Native", "Firebase", "Maps API", "Redux"],
+      liveUrl: "#",
+      githubUrl: "#",
+      videoUrl: "dQw4w9WgXcQ",
+      details: "Aplicativo mobile para delivery com rastreamento GPS, pagamentos integrados, notificações push e sistema de avaliações. Interface intuitiva e responsiva.",
+    },
+    {
+      id: 5,
+      title: "Sistema de Blog",
+      description: "CMS completo para criação e gestão de conteúdo",
+      image: "📝",
+      tags: ["Next.js", "MongoDB", "Markdown", "AWS"],
+      liveUrl: "#",
+      githubUrl: "#",
+      videoUrl: "dQw4w9WgXcQ",
+      details: "Plataforma de blog com editor Markdown, SEO otimizado, sistema de comentários, categorias, tags e busca avançada. Painel admin completo para gestão de conteúdo.",
+    },
+    {
+      id: 6,
+      title: "API RESTful",
+      description: "Backend escalável com documentação completa",
+      image: "⚙️",
+      tags: ["Node.js", "Express", "PostgreSQL", "Docker"],
+      liveUrl: "#",
+      githubUrl: "#",
+      videoUrl: "dQw4w9WgXcQ",
+      details: "API REST completa com autenticação JWT, validação de dados, rate limiting, documentação Swagger e testes automatizados. Arquitetura limpa e escalável.",
+    },
   ];
+
+  const displayedProjects = showAll ? projects : projects.slice(0, 3);
 
   return (
     <section id="projects" ref={ref} className="py-20 relative overflow-hidden">
@@ -91,7 +127,7 @@ const Projects = () => {
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
+          {displayedProjects.map((project, index) => (
             <motion.div
               key={project.id}
               initial={{ opacity: 0, y: 50 }}
@@ -173,6 +209,31 @@ const Projects = () => {
             </motion.div>
           ))}
         </div>
+
+        {/* Show More Button */}
+        {projects.length > 3 && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.8 }}
+            className="text-center mt-12"
+          >
+            <Button
+              size="lg"
+              onClick={() => setShowAll(!showAll)}
+              className="glass-card neon-border hover-glow px-8 py-6 text-lg font-orbitron"
+            >
+              {showAll ? "Mostrar Menos" : "Mostrar Mais Projetos"}
+              <motion.span
+                animate={{ y: showAll ? [0, -3, 0] : [0, 3, 0] }}
+                transition={{ duration: 1, repeat: Infinity }}
+                className="ml-2"
+              >
+                {showAll ? "↑" : "↓"}
+              </motion.span>
+            </Button>
+          </motion.div>
+        )}
       </div>
 
       {/* Project Detail Modal */}
