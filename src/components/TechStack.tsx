@@ -128,7 +128,7 @@ const TechStack = () => {
 
         {/* Slide 1 - Right to Left */}
         <div
-          className="relative py-4 overflow-hidden mb-8"
+          className="relative py-4 overflow-hidden mb-4"
           onMouseEnter={() => setHoveredSlide(1)}
           onMouseLeave={() => setHoveredSlide(null)}
         >
@@ -159,7 +159,7 @@ const TechStack = () => {
 
         {/* Slide 2 - Left to Right */}
         <div
-          className="relative py-4 overflow-hidden mb-8"
+          className="relative py-4 overflow-hidden mb-4"
           onMouseEnter={() => setHoveredSlide(2)}
           onMouseLeave={() => setHoveredSlide(null)}
         >
