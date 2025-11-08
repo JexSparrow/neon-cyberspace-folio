@@ -1,28 +1,28 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { 
-  Code2, 
-  Palette, 
-  Zap, 
-  Atom, 
-  Wind, 
-  Server, 
-  Database, 
-  Leaf, 
-  Flame, 
-  Container, 
-  Plug, 
-  Users, 
-  Trello, 
-  Bot, 
-  Sparkles, 
-  GitBranch, 
-  Github, 
-  Figma, 
-  PenTool, 
+import {
+  Code2,
+  Palette,
+  Zap,
+  Atom,
+  Wind,
+  Server,
+  Database,
+  Leaf,
+  Flame,
+  Container,
+  Plug,
+  Users,
+  Trello,
+  Bot,
+  Sparkles,
+  GitBranch,
+  Github,
+  Figma,
+  PenTool,
   Monitor,
-  type LucideIcon
+  type LucideIcon,
 } from "lucide-react";
 
 interface Tech {
@@ -69,40 +69,36 @@ const TechStack = () => {
 
   const renderTechCard = (tech: Tech, slideIndex: number, techIndex: number) => {
     const IconComponent = tech.icon;
-    
+
     return (
-      <div
-        key={`${slideIndex}-${tech.name}-${techIndex}`}
-        className="flex-shrink-0 w-[200px] mx-3"
-      >
+      <div key={`${slideIndex}-${tech.name}-${techIndex}`} className="flex-shrink-0 w-[200px] mx-3">
         <div className="glass-card p-6 rounded-2xl text-center cursor-pointer relative overflow-hidden h-full group transition-all duration-300 hover:shadow-[var(--shadow-neon-purple)]">
           {/* Animated background glow */}
           <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-          
+
           {/* Neon border effect */}
-          <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" 
-               style={{ 
-                 boxShadow: '0 0 20px hsl(var(--primary-glow) / 0.5), inset 0 0 20px hsl(var(--primary-glow) / 0.1)' 
-               }} 
+          <div
+            className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+            style={{
+              boxShadow: "0 0 20px hsl(var(--primary-glow) / 0.5), inset 0 0 20px hsl(var(--primary-glow) / 0.1)",
+            }}
           />
-          
+
           <div className="relative z-10">
             {/* Icon */}
             <div className="mb-4 flex justify-center">
-              <div className={`${tech.color} transition-all duration-300 group-hover:drop-shadow-[0_0_12px_currentColor]`}>
+              <div
+                className={`${tech.color} transition-all duration-300 group-hover:drop-shadow-[0_0_12px_currentColor]`}
+              >
                 <IconComponent size={48} strokeWidth={1.5} />
               </div>
             </div>
-            
+
             {/* Tech Name */}
-            <h3 className="text-sm font-orbitron font-bold text-foreground mb-2">
-              {tech.name}
-            </h3>
-            
+            <h3 className="text-sm font-orbitron font-bold text-foreground mb-2">{tech.name}</h3>
+
             {/* Description */}
-            <p className="text-xs text-muted-foreground leading-relaxed">
-              {tech.description}
-            </p>
+            <p className="text-xs text-muted-foreground leading-relaxed">{tech.description}</p>
           </div>
         </div>
       </div>
@@ -123,9 +119,7 @@ const TechStack = () => {
             whileHover={{ scale: 1.05 }}
           >
             <span className="text-2xl">⚙️</span>
-            <span className="text-secondary text-sm font-medium tracking-wider uppercase">
-              Stack Tecnológica
-            </span>
+            <span className="text-secondary text-sm font-medium tracking-wider uppercase">Stack Tecnológica</span>
           </motion.div>
           <h2 className="text-4xl md:text-5xl font-orbitron font-bold text-glow-purple">
             Tecnologias que <span className="text-secondary">Utilizo</span>
@@ -133,89 +127,95 @@ const TechStack = () => {
         </motion.div>
 
         {/* Slide 1 - Right to Left */}
-        <div 
-          className="relative overflow-hidden mb-8"
+        <div
+          className="relative py-4 overflow-hidden mb-8"
           onMouseEnter={() => setHoveredSlide(1)}
           onMouseLeave={() => setHoveredSlide(null)}
         >
           <motion.div
             initial={{ opacity: 0 }}
-            animate={isInView ? { 
-              opacity: 1,
-              x: [0, -1344]
-            } : { opacity: 0 }}
-            transition={{ 
+            animate={
+              isInView
+                ? {
+                    opacity: 1,
+                    x: [0, -1344],
+                  }
+                : { opacity: 0 }
+            }
+            transition={{
               opacity: { duration: 0.6 },
               x: {
                 duration: hoveredSlide === 1 ? 60 : 30,
                 repeat: Infinity,
                 ease: "linear",
-                repeatType: "loop"
-              }
+                repeatType: "loop",
+              },
             }}
             className="flex"
           >
-            {[...slide1, ...slide1].map((tech, index) => 
-              renderTechCard(tech, 1, index)
-            )}
+            {[...slide1, ...slide1].map((tech, index) => renderTechCard(tech, 1, index))}
           </motion.div>
         </div>
 
         {/* Slide 2 - Left to Right */}
-        <div 
-          className="relative overflow-hidden mb-8"
+        <div
+          className="relative py-4 overflow-hidden mb-8"
           onMouseEnter={() => setHoveredSlide(2)}
           onMouseLeave={() => setHoveredSlide(null)}
         >
           <motion.div
             initial={{ opacity: 0 }}
-            animate={isInView ? { 
-              opacity: 1,
-              x: [-1344, 0]
-            } : { opacity: 0 }}
-            transition={{ 
+            animate={
+              isInView
+                ? {
+                    opacity: 1,
+                    x: [-1344, 0],
+                  }
+                : { opacity: 0 }
+            }
+            transition={{
               opacity: { duration: 0.6, delay: 0.2 },
               x: {
                 duration: hoveredSlide === 2 ? 60 : 30,
                 repeat: Infinity,
                 ease: "linear",
-                repeatType: "loop"
-              }
+                repeatType: "loop",
+              },
             }}
             className="flex"
           >
-            {[...slide2, ...slide2].map((tech, index) => 
-              renderTechCard(tech, 2, index)
-            )}
+            {[...slide2, ...slide2].map((tech, index) => renderTechCard(tech, 2, index))}
           </motion.div>
         </div>
 
         {/* Slide 3 - Right to Left */}
-        <div 
-          className="relative overflow-hidden"
+        <div
+          className="relative py-4 overflow-hidden"
           onMouseEnter={() => setHoveredSlide(3)}
           onMouseLeave={() => setHoveredSlide(null)}
         >
           <motion.div
             initial={{ opacity: 0 }}
-            animate={isInView ? { 
-              opacity: 1,
-              x: [0, -2016]
-            } : { opacity: 0 }}
-            transition={{ 
+            animate={
+              isInView
+                ? {
+                    opacity: 1,
+                    x: [0, -2016],
+                  }
+                : { opacity: 0 }
+            }
+            transition={{
               opacity: { duration: 0.6, delay: 0.4 },
               x: {
                 duration: hoveredSlide === 3 ? 70 : 35,
                 repeat: Infinity,
                 ease: "linear",
-                repeatType: "loop"
-              }
+                repeatType: "loop",
+              },
             }}
             className="flex"
           >
-            {[...slide3, ...slide3].map((tech, index) => 
-              renderTechCard(tech, 3, index)
-            )}
+            {[...slide3, ...slide3].map((tech, index) => renderTechCard(tech, 3, index))}
           </motion.div>
         </div>
       </div>
