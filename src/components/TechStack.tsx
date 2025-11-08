@@ -145,12 +145,7 @@ const TechStack = () => {
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ duration: 0.6 }}
-            className="flex"
-            style={{
-              animation: hoveredSlide === 1 
-                ? 'scroll-left 60s linear infinite' 
-                : 'scroll-left 30s linear infinite',
-            }}
+            className={`flex ${hoveredSlide === 1 ? 'scroll-left-slow' : 'scroll-left-normal'}`}
           >
             {[...slide1, ...slide1, ...slide1].map((tech, index) => 
               renderTechCard(tech, 1, index)
@@ -168,12 +163,7 @@ const TechStack = () => {
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex"
-            style={{
-              animation: hoveredSlide === 2 
-                ? 'scroll-right 60s linear infinite' 
-                : 'scroll-right 30s linear infinite',
-            }}
+            className={`flex ${hoveredSlide === 2 ? 'scroll-right-slow' : 'scroll-right-normal'}`}
           >
             {[...slide2, ...slide2, ...slide2].map((tech, index) => 
               renderTechCard(tech, 2, index)
@@ -191,12 +181,7 @@ const TechStack = () => {
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="flex"
-            style={{
-              animation: hoveredSlide === 3 
-                ? 'scroll-left 70s linear infinite' 
-                : 'scroll-left 35s linear infinite',
-            }}
+            className={`flex ${hoveredSlide === 3 ? 'scroll-left-slow-slower' : 'scroll-left-slower'}`}
           >
             {[...slide3, ...slide3, ...slide3].map((tech, index) => 
               renderTechCard(tech, 3, index)

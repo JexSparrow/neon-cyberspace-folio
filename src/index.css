@@ -169,21 +169,46 @@ All colors MUST be HSL.
 
   /* Infinite Scroll Animations */
   @keyframes scroll-left {
-    0% {
+    from {
       transform: translateX(0);
     }
-    100% {
+    to {
       transform: translateX(-33.333%);
     }
   }
 
   @keyframes scroll-right {
-    0% {
+    from {
       transform: translateX(-33.333%);
     }
-    100% {
+    to {
       transform: translateX(0);
     }
+  }
+
+  /* Smooth infinite scroll classes */
+  .scroll-left-normal {
+    animation: scroll-left 30s linear infinite;
+  }
+
+  .scroll-left-slow {
+    animation: scroll-left 60s linear infinite;
+  }
+
+  .scroll-right-normal {
+    animation: scroll-right 30s linear infinite;
+  }
+
+  .scroll-right-slow {
+    animation: scroll-right 60s linear infinite;
+  }
+
+  .scroll-left-slower {
+    animation: scroll-left 70s linear infinite;
+  }
+
+  .scroll-left-slow-slower {
+    animation: scroll-left 140s linear infinite;
   }
 }
 
