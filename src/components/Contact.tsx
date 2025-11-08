@@ -167,7 +167,7 @@ const Contact = () => {
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   placeholder="Seu nome"
                   required
-                  className="neon-border bg-background/50"
+                  className="bg-background/50 border border-[#00f0ff]/50 shadow-[0_0_10px_rgba(0,240,255,0.3)] focus:border-[#00f0ff] focus:shadow-[0_0_20px_rgba(0,240,255,0.5)] transition-all duration-300"
                 />
               </div>
 
@@ -179,7 +179,7 @@ const Contact = () => {
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   placeholder="seu@email.com"
                   required
-                  className="neon-border bg-background/50"
+                  className="bg-background/50 border border-[#00f0ff]/50 shadow-[0_0_10px_rgba(0,240,255,0.3)] focus:border-[#00f0ff] focus:shadow-[0_0_20px_rgba(0,240,255,0.5)] transition-all duration-300"
                 />
               </div>
 
@@ -191,7 +191,7 @@ const Contact = () => {
                   placeholder="Conte-me sobre seu projeto..."
                   required
                   rows={5}
-                  className="neon-border bg-background/50 resize-none"
+                  className="custom-scrollbar bg-background/50 border border-[#00f0ff]/50 shadow-[0_0_10px_rgba(0,240,255,0.3)] focus:border-[#00f0ff] focus:shadow-[0_0_20px_rgba(0,240,255,0.5)] transition-all duration-300 resize-none"
                 />
               </div>
 

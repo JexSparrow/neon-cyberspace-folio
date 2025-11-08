@@ -140,6 +140,32 @@ All colors MUST be HSL.
       box-shadow: 0 0 40px hsl(277 100% 60% / 0.8), 0 0 60px hsl(277 100% 60% / 0.4);
     }
   }
+
+  /* Custom Scrollbar Styles */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: hsl(265 50% 8% / 0.2);
+    border-radius: 4px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: hsl(277 100% 60% / 0.5);
+    border-radius: 4px;
+    transition: background 0.3s ease;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: hsl(277 100% 60% / 0.7);
+  }
+
+  /* Firefox */
+  .custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(277 100% 60% / 0.5) hsl(265 50% 8% / 0.2);
+  }
 }
 
 @layer base {
