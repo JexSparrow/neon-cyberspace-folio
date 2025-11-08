@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { Mail, MessageSquare, Send, Copy, CheckCircle } from "lucide-react";
+import { Mail, MessageSquare, Send, Copy, CheckCircle, Github, Linkedin, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -89,7 +89,7 @@ const Contact = () => {
               {/* Email */}
               <motion.div
                 whileHover={{ scale: 1.02 }}
-                className="flex items-center justify-between p-4 bg-primary/10 rounded-lg neon-border cursor-pointer"
+                className="flex items-center justify-between p-4 bg-primary/10 rounded-lg border border-[#00f0ff]/50 shadow-[0_0_10px_rgba(0,240,255,0.3)] cursor-pointer"
                 onClick={handleCopyEmail}
               >
                 <div className="flex items-center space-x-3">
@@ -107,32 +107,42 @@ const Contact = () => {
               </motion.div>
 
               {/* WhatsApp Button */}
-              <Button
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                className="flex items-center justify-between p-4 bg-primary/10 rounded-lg border border-[#00f0ff]/50 shadow-[0_0_10px_rgba(0,240,255,0.3)] cursor-pointer"
                 onClick={handleWhatsApp}
-                className="w-full bg-neon-green hover:bg-neon-green/90 text-background text-lg py-6 animate-pulse-glow"
-                size="lg"
               >
-                <MessageSquare className="w-5 h-5 mr-2" />
-                📞 Chamar no WhatsApp
-              </Button>
+                <div className="flex items-center space-x-3">
+                  <MessageSquare className="w-5 h-5 text-secondary" />
+                  <div>
+                    <p className="text-sm text-muted-foreground">WhatsApp</p>
+                    <p className="text-foreground font-medium">Chamar no WhatsApp</p>
+                  </div>
+                </div>
+                <MessageSquare className="w-5 h-5 text-secondary" />
+              </motion.div>
 
               {/* Social Links */}
               <div className="pt-6 border-t border-primary/20">
-                <p className="text-sm text-muted-foreground mb-4">Me siga nas redes:</p>
-                <div className="flex gap-3">
+                <p className="text-sm text-muted-foreground mb-4 text-center">Me siga nas redes:</p>
+                <div className="flex gap-3 justify-center">
                   {[
-                    { icon: "🐙", label: "GitHub", url: "#" },
-                    { icon: "💼", label: "LinkedIn", url: "#" },
-                    { icon: "📸", label: "Instagram", url: "#" },
+                    { icon: Github, label: "GitHub", url: "https://github.com/jeferson-santos" },
+                    { icon: Linkedin, label: "LinkedIn", url: "#" },
+                    { icon: Instagram, label: "Instagram", url: "#" },
+                    { icon: Mail, label: "E-mail", url: "mailto:jeferson@exemplo.com" },
                   ].map((social) => (
-                    <motion.button
+                    <motion.a
                       key={social.label}
-                      whileHover={{ scale: 1.1, y: -5 }}
-                      className="glass-card p-3 rounded-lg hover-glow text-2xl"
-                      onClick={() => window.open(social.url, "_blank")}
+                      href={social.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ scale: 1.2, y: -5 }}
+                      className="glass-card p-3 rounded-lg hover-glow group"
+                      aria-label={social.label}
                     >
-                      {social.icon}
-                    </motion.button>
+                      <social.icon className="w-5 h-5 text-secondary group-hover:text-primary transition-colors" />
+                    </motion.a>
                   ))}
                 </div>
               </div>

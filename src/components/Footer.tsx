@@ -1,15 +1,8 @@
 import { motion } from "framer-motion";
-import { Github, Linkedin, Instagram, Mail, Heart } from "lucide-react";
+import { Heart } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-
-  const socialLinks = [
-    { icon: Github, label: "GitHub", url: "https://github.com/jeferson-santos" },
-    { icon: Linkedin, label: "LinkedIn", url: "#" },
-    { icon: Instagram, label: "Instagram", url: "#" },
-    { icon: Mail, label: "E-mail", url: "mailto:jeferson@exemplo.com" },
-  ];
 
   return (
     <footer className="relative py-12 border-t border-primary/20 overflow-hidden">
@@ -34,29 +27,6 @@ const Footer = () => {
             <p className="text-muted-foreground mt-4">
               {"< Front-End Developer />"}
             </p>
-          </motion.div>
-
-          {/* Social Links */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="flex gap-4"
-          >
-            {socialLinks.map((social) => (
-              <motion.a
-                key={social.label}
-                href={social.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.2, y: -5 }}
-                className="glass-card p-3 rounded-lg hover-glow group"
-                aria-label={social.label}
-              >
-                <social.icon className="w-5 h-5 text-secondary group-hover:text-primary transition-colors" />
-              </motion.a>
-            ))}
           </motion.div>
 
           {/* Quick Links */}
