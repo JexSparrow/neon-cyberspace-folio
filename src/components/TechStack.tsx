@@ -71,12 +71,11 @@ const TechStack = () => {
     const IconComponent = tech.icon;
     
     return (
-      <motion.div
+      <div
         key={`${slideIndex}-${tech.name}-${techIndex}`}
         className="flex-shrink-0 w-[200px] mx-3"
       >
-        <div className="glass-card p-6 rounded-2xl text-center cursor-pointer relative overflow-hidden h-full group transition-all duration-300 hover:shadow-[var(--shadow-neon-purple)]"
-        >
+        <div className="glass-card p-6 rounded-2xl text-center cursor-pointer relative overflow-hidden h-full group transition-all duration-300 hover:shadow-[var(--shadow-neon-purple)]">
           {/* Animated background glow */}
           <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
           
@@ -106,7 +105,7 @@ const TechStack = () => {
             </p>
           </div>
         </div>
-      </motion.div>
+      </div>
     );
   };
 
@@ -141,12 +140,22 @@ const TechStack = () => {
         >
           <motion.div
             initial={{ opacity: 0 }}
-            animate={isInView ? { opacity: 1 } : {}}
-            transition={{ duration: 0.6 }}
-            className="flex scroll-container-left"
-            style={{ '--animation-duration': hoveredSlide === 1 ? '60s' : '30s' } as React.CSSProperties}
+            animate={isInView ? { 
+              opacity: 1,
+              x: [0, -1344]
+            } : { opacity: 0 }}
+            transition={{ 
+              opacity: { duration: 0.6 },
+              x: {
+                duration: hoveredSlide === 1 ? 60 : 30,
+                repeat: Infinity,
+                ease: "linear",
+                repeatType: "loop"
+              }
+            }}
+            className="flex"
           >
-            {[...slide1, ...slide1, ...slide1, ...slide1].map((tech, index) => 
+            {[...slide1, ...slide1].map((tech, index) => 
               renderTechCard(tech, 1, index)
             )}
           </motion.div>
@@ -160,12 +169,22 @@ const TechStack = () => {
         >
           <motion.div
             initial={{ opacity: 0 }}
-            animate={isInView ? { opacity: 1 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex scroll-container-right"
-            style={{ '--animation-duration': hoveredSlide === 2 ? '60s' : '30s' } as React.CSSProperties}
+            animate={isInView ? { 
+              opacity: 1,
+              x: [-1344, 0]
+            } : { opacity: 0 }}
+            transition={{ 
+              opacity: { duration: 0.6, delay: 0.2 },
+              x: {
+                duration: hoveredSlide === 2 ? 60 : 30,
+                repeat: Infinity,
+                ease: "linear",
+                repeatType: "loop"
+              }
+            }}
+            className="flex"
           >
-            {[...slide2, ...slide2, ...slide2, ...slide2].map((tech, index) => 
+            {[...slide2, ...slide2].map((tech, index) => 
               renderTechCard(tech, 2, index)
             )}
           </motion.div>
@@ -179,12 +198,22 @@ const TechStack = () => {
         >
           <motion.div
             initial={{ opacity: 0 }}
-            animate={isInView ? { opacity: 1 } : {}}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="flex scroll-container-left"
-            style={{ '--animation-duration': hoveredSlide === 3 ? '70s' : '35s' } as React.CSSProperties}
+            animate={isInView ? { 
+              opacity: 1,
+              x: [0, -2016]
+            } : { opacity: 0 }}
+            transition={{ 
+              opacity: { duration: 0.6, delay: 0.4 },
+              x: {
+                duration: hoveredSlide === 3 ? 70 : 35,
+                repeat: Infinity,
+                ease: "linear",
+                repeatType: "loop"
+              }
+            }}
+            className="flex"
           >
-            {[...slide3, ...slide3, ...slide3, ...slide3].map((tech, index) => 
+            {[...slide3, ...slide3].map((tech, index) => 
               renderTechCard(tech, 3, index)
             )}
           </motion.div>
