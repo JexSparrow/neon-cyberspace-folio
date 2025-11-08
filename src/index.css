@@ -167,6 +167,24 @@ All colors MUST be HSL.
     scrollbar-color: hsl(277 100% 60% / 0.5) hsl(265 50% 8% / 0.2);
   }
 
+  /* Gradient mask for infinite slides */
+  .slide-mask {
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      black 10%,
+      black 90%,
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      black 10%,
+      black 90%,
+      transparent 100%
+    );
+  }
+
 }
 
 @layer base {
