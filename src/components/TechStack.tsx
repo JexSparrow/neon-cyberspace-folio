@@ -75,9 +75,7 @@ const TechStack = () => {
         key={`${slideIndex}-${tech.name}-${techIndex}`}
         className="flex-shrink-0 w-[200px] mx-3"
       >
-        <motion.div
-          whileHover={{ scale: 1.05, y: -8 }}
-          className="glass-card p-6 rounded-2xl text-center cursor-pointer relative overflow-hidden h-full group"
+        <div className="glass-card p-6 rounded-2xl text-center cursor-pointer relative overflow-hidden h-full group transition-all duration-300 hover:shadow-[var(--shadow-neon-purple)]"
         >
           {/* Animated background glow */}
           <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -107,7 +105,7 @@ const TechStack = () => {
               {tech.description}
             </p>
           </div>
-        </motion.div>
+        </div>
       </motion.div>
     );
   };
@@ -145,9 +143,10 @@ const TechStack = () => {
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ duration: 0.6 }}
-            className={`flex ${hoveredSlide === 1 ? 'scroll-left-slow' : 'scroll-left-normal'}`}
+            className="flex scroll-container-left"
+            style={{ '--animation-duration': hoveredSlide === 1 ? '60s' : '30s' } as React.CSSProperties}
           >
-            {[...slide1, ...slide1, ...slide1].map((tech, index) => 
+            {[...slide1, ...slide1, ...slide1, ...slide1].map((tech, index) => 
               renderTechCard(tech, 1, index)
             )}
           </motion.div>
@@ -163,9 +162,10 @@ const TechStack = () => {
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className={`flex ${hoveredSlide === 2 ? 'scroll-right-slow' : 'scroll-right-normal'}`}
+            className="flex scroll-container-right"
+            style={{ '--animation-duration': hoveredSlide === 2 ? '60s' : '30s' } as React.CSSProperties}
           >
-            {[...slide2, ...slide2, ...slide2].map((tech, index) => 
+            {[...slide2, ...slide2, ...slide2, ...slide2].map((tech, index) => 
               renderTechCard(tech, 2, index)
             )}
           </motion.div>
@@ -181,9 +181,10 @@ const TechStack = () => {
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className={`flex ${hoveredSlide === 3 ? 'scroll-left-slow-slower' : 'scroll-left-slower'}`}
+            className="flex scroll-container-left"
+            style={{ '--animation-duration': hoveredSlide === 3 ? '70s' : '35s' } as React.CSSProperties}
           >
-            {[...slide3, ...slide3, ...slide3].map((tech, index) => 
+            {[...slide3, ...slide3, ...slide3, ...slide3].map((tech, index) => 
               renderTechCard(tech, 3, index)
             )}
           </motion.div>

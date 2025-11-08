@@ -167,48 +167,34 @@ All colors MUST be HSL.
     scrollbar-color: hsl(277 100% 60% / 0.5) hsl(265 50% 8% / 0.2);
   }
 
-  /* Infinite Scroll Animations */
+  /* Infinite Scroll Animations - Smooth with CSS Variables */
   @keyframes scroll-left {
     from {
       transform: translateX(0);
     }
     to {
-      transform: translateX(-33.333%);
+      transform: translateX(-25%);
     }
   }
 
   @keyframes scroll-right {
     from {
-      transform: translateX(-33.333%);
+      transform: translateX(-25%);
     }
     to {
       transform: translateX(0);
     }
   }
 
-  /* Smooth infinite scroll classes */
-  .scroll-left-normal {
-    animation: scroll-left 30s linear infinite;
+  /* Scroll containers with variable duration for smooth transitions */
+  .scroll-container-left {
+    animation: scroll-left var(--animation-duration, 30s) linear infinite;
+    transition: all 0.3s ease-out;
   }
 
-  .scroll-left-slow {
-    animation: scroll-left 60s linear infinite;
-  }
-
-  .scroll-right-normal {
-    animation: scroll-right 30s linear infinite;
-  }
-
-  .scroll-right-slow {
-    animation: scroll-right 60s linear infinite;
-  }
-
-  .scroll-left-slower {
-    animation: scroll-left 70s linear infinite;
-  }
-
-  .scroll-left-slow-slower {
-    animation: scroll-left 140s linear infinite;
+  .scroll-container-right {
+    animation: scroll-right var(--animation-duration, 30s) linear infinite;
+    transition: all 0.3s ease-out;
   }
 }
 
