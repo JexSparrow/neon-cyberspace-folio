@@ -69,7 +69,6 @@ const TechStack = () => {
 
   const renderTechCard = (tech: Tech, slideIndex: number, techIndex: number) => {
     const IconComponent = tech.icon;
-    const isHovered = hoveredSlide === slideIndex;
     
     return (
       <motion.div
@@ -78,7 +77,7 @@ const TechStack = () => {
       >
         <motion.div
           whileHover={{ scale: 1.05, y: -8 }}
-          className="glass-card p-6 rounded-2xl text-center cursor-pointer relative overflow-hidden h-full"
+          className="glass-card p-6 rounded-2xl text-center cursor-pointer relative overflow-hidden h-full group"
         >
           {/* Animated background glow */}
           <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -92,15 +91,11 @@ const TechStack = () => {
           
           <div className="relative z-10">
             {/* Icon */}
-            <motion.div
-              animate={isHovered ? { rotate: [0, -10, 10, -10, 0] } : {}}
-              transition={{ duration: 0.5 }}
-              className="mb-4 flex justify-center"
-            >
+            <div className="mb-4 flex justify-center">
               <div className={`${tech.color} transition-all duration-300 group-hover:drop-shadow-[0_0_12px_currentColor]`}>
                 <IconComponent size={48} strokeWidth={1.5} />
               </div>
-            </motion.div>
+            </div>
             
             {/* Tech Name */}
             <h3 className="text-sm font-orbitron font-bold text-foreground mb-2">
