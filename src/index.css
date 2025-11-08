@@ -166,6 +166,25 @@ All colors MUST be HSL.
     scrollbar-width: thin;
     scrollbar-color: hsl(277 100% 60% / 0.5) hsl(265 50% 8% / 0.2);
   }
+
+  /* Infinite Scroll Animations */
+  @keyframes scroll-left {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-33.333%);
+    }
+  }
+
+  @keyframes scroll-right {
+    0% {
+      transform: translateX(-33.333%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
 }
 
 @layer base {
