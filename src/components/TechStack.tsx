@@ -78,7 +78,7 @@ const TechStack = () => {
       >
         <motion.div
           whileHover={{ scale: 1.05, y: -8 }}
-          className="glass-card p-6 rounded-2xl text-center cursor-pointer relative overflow-hidden h-full"
+          className="glass-card p-6 rounded-2xl text-center cursor-pointer relative overflow-hidden h-full group"
         >
           {/* Animated background glow */}
           <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -103,12 +103,12 @@ const TechStack = () => {
             </motion.div>
             
             {/* Tech Name */}
-            <h3 className="text-sm font-orbitron font-bold text-foreground mb-2">
+            <h3 className="text-sm font-orbitron font-bold text-foreground mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
               {tech.name}
             </h3>
             
             {/* Description */}
-            <p className="text-xs text-muted-foreground leading-relaxed">
+            <p className="text-xs text-muted-foreground leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-300">
               {tech.description}
             </p>
           </div>
@@ -150,12 +150,7 @@ const TechStack = () => {
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ duration: 0.6 }}
-            className="flex"
-            style={{
-              animation: hoveredSlide === 1 
-                ? 'scroll-left 60s linear infinite' 
-                : 'scroll-left 30s linear infinite',
-            }}
+            className={`flex ${hoveredSlide === 1 ? 'scroll-left-slow' : 'scroll-left-normal'}`}
           >
             {[...slide1, ...slide1, ...slide1].map((tech, index) => 
               renderTechCard(tech, 1, index)
@@ -173,12 +168,7 @@ const TechStack = () => {
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex"
-            style={{
-              animation: hoveredSlide === 2 
-                ? 'scroll-right 60s linear infinite' 
-                : 'scroll-right 30s linear infinite',
-            }}
+            className={`flex ${hoveredSlide === 2 ? 'scroll-right-slow' : 'scroll-right-normal'}`}
           >
             {[...slide2, ...slide2, ...slide2].map((tech, index) => 
               renderTechCard(tech, 2, index)
@@ -196,12 +186,7 @@ const TechStack = () => {
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="flex"
-            style={{
-              animation: hoveredSlide === 3 
-                ? 'scroll-left 70s linear infinite' 
-                : 'scroll-left 35s linear infinite',
-            }}
+            className={`flex ${hoveredSlide === 3 ? 'scroll-left-slowest' : 'scroll-left-slow'}`}
           >
             {[...slide3, ...slide3, ...slide3].map((tech, index) => 
               renderTechCard(tech, 3, index)

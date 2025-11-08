@@ -185,6 +185,36 @@ All colors MUST be HSL.
       transform: translateX(0);
     }
   }
+
+  /* Scroll animation classes with smooth transitions */
+  .scroll-left-normal {
+    animation: scroll-left 30s linear infinite;
+  }
+
+  .scroll-left-slow {
+    animation: scroll-left 60s linear infinite;
+  }
+
+  .scroll-left-slowest {
+    animation: scroll-left 70s linear infinite;
+  }
+
+  .scroll-right-normal {
+    animation: scroll-right 30s linear infinite;
+  }
+
+  .scroll-right-slow {
+    animation: scroll-right 60s linear infinite;
+  }
+
+  /* Smooth transition between animation speeds */
+  .scroll-left-normal,
+  .scroll-left-slow,
+  .scroll-left-slowest,
+  .scroll-right-normal,
+  .scroll-right-slow {
+    transition: animation-duration 1s ease-in-out;
+  }
 }
 
 @layer base {
