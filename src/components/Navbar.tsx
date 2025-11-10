@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Menu, X, Github, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
+import logo from "@/assets/jslogo.png";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -35,26 +36,34 @@ const Navbar = () => {
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "glass-card" : "bg-transparent"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "glass-card" : "bg-transparent"
+        }`}
     >
       <div className="container mx-auto px-4 py-4">
+
         <div className="flex items-center justify-between">
-          {/* Logo */}
           <motion.div
-            whileHover={{ scale: 1.05 }}
+            animate={{
+              scale: [1, 1.10, 1],
+              filter: [
+                "drop-shadow(0 0 12px rgba(174, 0, 255, 0.6))",  // brilho roxo inicio
+                "drop-shadow(0 0 20px rgba(0, 255, 255, 0.9))", // pico do brilho
+                "drop-shadow(0 0 16px rgba(174, 0, 255, 0.6))",  // volta ao normal
+              ],
+            }}
+            transition={{
+              duration: 4,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+
             className="flex items-center space-x-2"
           >
-            <div className="relative">
-              <span className="font-orbitron text-2xl font-bold text-primary text-glow-purple">
-                JS
-              </span>
-              <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-primary to-secondary"></span>
-            </div>
-            <div className="hidden md:block">
-              <p className="text-xs text-muted-foreground">Dev Front-End</p>
-            </div>
+            <img
+              src={logo}
+              alt="Logo Jeferson Santos"
+              className="w-12 h-12 md:w-14 md:h-14 object-contain"
+            />
           </motion.div>
 
           {/* Desktop Navigation */}
@@ -76,19 +85,27 @@ const Navbar = () => {
             <Button
               variant="outline"
               size="sm"
-              className="neon-border hover-glow"
-              onClick={() => window.open("https://github.com/jeferson-santos", "_blank")}
+              className="neon-border"
+              onClick={() => window.open("https://github.com/JexSparrow", "_blank")}
             >
               <Github className="w-4 h-4 mr-2" />
               Github
             </Button>
+
             <Button
+              asChild
+              variant="outline"
               size="sm"
-              className="bg-gradient-to-r from-primary to-secondary hover:opacity-90 transition-opacity animate-pulse-glow"
+              className="neon-border"
             >
-              <Download className="w-4 h-4 mr-2" />
-              Download CV
+              <a href="/src/assets/Jeferson-Santos.pdf" download="Jeferson-Santos.pdf">
+                <Download className="w-4 h-4 mr-2" />
+                Download CV
+              </a>
             </Button>
+
+
+
           </div>
 
           {/* Mobile Menu Button */}
@@ -145,7 +162,7 @@ const Navbar = () => {
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.nav>
+    </motion.nav >
   );
 };
 

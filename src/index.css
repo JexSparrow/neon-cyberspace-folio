@@ -31,10 +31,10 @@ All colors MUST be HSL.
     /* Magenta Accent */
     --accent: 320 100% 50%;
     --accent-foreground: 0 0% 100%;
-    
+
     /* Neon Green */
     --neon-green: 140 100% 50%;
-    
+
     --muted: 265 30% 15%;
     --muted-foreground: 180 20% 60%;
 
@@ -51,16 +51,16 @@ All colors MUST be HSL.
     --gradient-cosmic: linear-gradient(135deg, hsl(265 100% 4%) 0%, hsl(277 100% 12%) 50%, hsl(265 100% 6%) 100%);
     --gradient-neon: linear-gradient(135deg, hsl(277 100% 36%) 0%, hsl(180 100% 50%) 100%);
     --gradient-glow: radial-gradient(circle at center, hsl(277 100% 60% / 0.2) 0%, transparent 70%);
-    
+
     /* Glass Effect */
     --glass-bg: hsl(265 50% 8% / 0.3);
     --glass-border: hsl(277 100% 60% / 0.3);
-    
+
     /* Shadows & Glows */
     --shadow-neon-purple: 0 0 20px hsl(277 100% 60% / 0.5), 0 0 40px hsl(277 100% 60% / 0.3);
     --shadow-neon-cyan: 0 0 20px hsl(180 100% 50% / 0.5), 0 0 40px hsl(180 100% 50% / 0.3);
     --shadow-card: 0 8px 32px hsl(0 0% 0% / 0.5);
-    
+
     /* Animations */
     --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
@@ -78,7 +78,12 @@ All colors MUST be HSL.
     background-attachment: fixed;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: 'Orbitron', sans-serif;
     font-weight: 700;
   }
@@ -88,7 +93,7 @@ All colors MUST be HSL.
   .text-glow-purple {
     text-shadow: 0 0 10px hsl(277 100% 60% / 0.8), 0 0 20px hsl(277 100% 60% / 0.4);
   }
-  
+
   .text-glow-cyan {
     text-shadow: 0 0 10px hsl(180 100% 50% / 0.8), 0 0 20px hsl(180 100% 50% / 0.4);
   }
@@ -96,14 +101,15 @@ All colors MUST be HSL.
   .glass-card {
     background: var(--glass-bg);
     backdrop-filter: blur(20px);
-    border: 1px solid var(--glass-border);
+    border-top: 1px solid var(--glass-border);
+    border-bottom: 1px solid var(--glass-border);
     box-shadow: var(--shadow-card);
   }
 
   .neon-border {
     border: 2px solid transparent;
     background: linear-gradient(var(--gradient-cosmic), var(--gradient-cosmic)) padding-box,
-                var(--gradient-neon) border-box;
+      var(--gradient-neon) border-box;
   }
 
   .hover-glow {
@@ -124,18 +130,24 @@ All colors MUST be HSL.
   }
 
   @keyframes float {
-    0%, 100% {
+
+    0%,
+    100% {
       transform: translateY(0px);
     }
+
     50% {
       transform: translateY(-20px);
     }
   }
 
   @keyframes pulse-glow {
-    0%, 100% {
+
+    0%,
+    100% {
       box-shadow: 0 0 20px hsl(277 100% 60% / 0.3);
     }
+
     50% {
       box-shadow: 0 0 40px hsl(277 100% 60% / 0.8), 0 0 60px hsl(277 100% 60% / 0.4);
     }
@@ -169,20 +181,16 @@ All colors MUST be HSL.
 
   /* Gradient mask for infinite slides */
   .slide-mask {
-    -webkit-mask-image: linear-gradient(
-      to right,
-      transparent 0%,
-      black 10%,
-      black 90%,
-      transparent 100%
-    );
-    mask-image: linear-gradient(
-      to right,
-      transparent 0%,
-      black 10%,
-      black 90%,
-      transparent 100%
-    );
+    -webkit-mask-image: linear-gradient(to right,
+        transparent 0%,
+        black 10%,
+        black 90%,
+        transparent 100%);
+    mask-image: linear-gradient(to right,
+        transparent 0%,
+        black 10%,
+        black 90%,
+        transparent 100%);
   }
 
 }

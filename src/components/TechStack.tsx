@@ -23,6 +23,8 @@ import {
   PenTool,
   Monitor,
   type LucideIcon,
+  ChevronsLeftRightIcon,
+  Cpu,
 } from "lucide-react";
 
 interface Tech {
@@ -112,34 +114,31 @@ const TechStack = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-4"
         >
           <motion.div
             className="inline-flex items-center space-x-2 mb-4 glass-card px-4 py-2 rounded-full"
             whileHover={{ scale: 1.05 }}
           >
-            <span className="text-2xl">⚙️</span>
-            <span className="text-secondary text-sm font-medium tracking-wider uppercase">Stack Tecnológica</span>
+            <Cpu className="w-8 h-8 text-foreground"></Cpu>
+            <span className="text-secondary text-2xl font-bold tracking-wider uppercase">Stack Tecnológica</span>
           </motion.div>
-          <h2 className="text-4xl md:text-5xl font-orbitron font-bold text-glow-purple">
-            Tecnologias que <span className="text-secondary">Utilizo</span>
-          </h2>
         </motion.div>
 
         {/* Slide 1 - Right to Left */}
-      <div
-        className="relative py-4 overflow-hidden mb-4 slide-mask"
-        onMouseEnter={() => setHoveredSlide(1)}
-        onMouseLeave={() => setHoveredSlide(null)}
-      >
+        <div
+          className="relative py-4 overflow-hidden mb-4 slide-mask"
+          onMouseEnter={() => setHoveredSlide(1)}
+          onMouseLeave={() => setHoveredSlide(null)}
+        >
           <motion.div
             initial={{ opacity: 0 }}
             animate={
               isInView
                 ? {
-                    opacity: 1,
-                    x: [0, -1344],
-                  }
+                  opacity: 1,
+                  x: [0, -1344],
+                }
                 : { opacity: 0 }
             }
             transition={{
@@ -158,19 +157,19 @@ const TechStack = () => {
         </div>
 
         {/* Slide 2 - Left to Right */}
-      <div
-        className="relative py-4 overflow-hidden mb-4 slide-mask"
-        onMouseEnter={() => setHoveredSlide(2)}
-        onMouseLeave={() => setHoveredSlide(null)}
-      >
+        <div
+          className="relative py-4 overflow-hidden mb-4 slide-mask"
+          onMouseEnter={() => setHoveredSlide(2)}
+          onMouseLeave={() => setHoveredSlide(null)}
+        >
           <motion.div
             initial={{ opacity: 0 }}
             animate={
               isInView
                 ? {
-                    opacity: 1,
-                    x: [-1344, 0],
-                  }
+                  opacity: 1,
+                  x: [-1344, 0],
+                }
                 : { opacity: 0 }
             }
             transition={{
@@ -189,19 +188,19 @@ const TechStack = () => {
         </div>
 
         {/* Slide 3 - Right to Left */}
-      <div
-        className="relative py-4 overflow-hidden slide-mask"
-        onMouseEnter={() => setHoveredSlide(3)}
-        onMouseLeave={() => setHoveredSlide(null)}
-      >
+        <div
+          className="relative py-4 overflow-hidden slide-mask"
+          onMouseEnter={() => setHoveredSlide(3)}
+          onMouseLeave={() => setHoveredSlide(null)}
+        >
           <motion.div
             initial={{ opacity: 0 }}
             animate={
               isInView
                 ? {
-                    opacity: 1,
-                    x: [0, -2016],
-                  }
+                  opacity: 1,
+                  x: [0, -2016],
+                }
                 : { opacity: 0 }
             }
             transition={{

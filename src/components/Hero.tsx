@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { ChevronDown, Sparkles } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import jefersonPhoto from "@/assets/jeferson-photo.png";
+import me2 from "@/assets/me2.png";
 
 const Hero = () => {
   const scrollToProjects = () => {
@@ -44,7 +43,7 @@ const Hero = () => {
       </div>
 
       <div className="container mx-auto px-4 z-10">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="grid md:grid-cols-[55%_45%] gap-12 items-center">
           {/* Text Content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -67,12 +66,12 @@ const Hero = () => {
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
+              transition={{ delay: 0.4 }}
               className="text-5xl md:text-7xl font-orbitron font-bold leading-tight"
             >
-              <span className="text-foreground">Jeferson Santos</span>
+              <span className="text-foreground text-glow-cyan">Jeferson Santos</span>
               <br />
-              <span className="text-glow-purple bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent animate-neon-pulse">
+              <span className=" text-5xl text-accent bg-gradient-to-t from-primary to-accent bg-clip-text text-transparent">
                 {"< Front-End Developer />"}
               </span>
             </motion.h1>
@@ -80,7 +79,7 @@ const Hero = () => {
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
+              transition={{ delay: 0.5 }}
               className="text-xl text-muted-foreground max-w-xl"
             >
               Transformando ideias em{" "}
@@ -88,28 +87,6 @@ const Hero = () => {
               Criando interfaces interativas e responsivas com foco em UX/UI.
             </motion.p>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-              className="flex flex-wrap gap-4"
-            >
-              <Button
-                size="lg"
-                onClick={scrollToProjects}
-                className="bg-gradient-to-r from-primary to-secondary hover:opacity-90 transition-opacity text-lg px-8 animate-pulse-glow"
-              >
-                💻 Ver Projetos
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                onClick={scrollToContact}
-                className="neon-border hover-glow text-lg px-8"
-              >
-                ⚡ Baixar CV
-              </Button>
-            </motion.div>
           </motion.div>
 
           {/* Avatar */}
@@ -123,20 +100,32 @@ const Hero = () => {
               {/* Glow Effect */}
               <motion.div
                 animate={{
-                  scale: [1, 1.1, 1],
-                  rotate: [0, 180, 360],
+                  rotate: 360, // gira continuamente
+                  scale: [1, 1.15, 1], // pulsação suave
                 }}
                 transition={{
-                  duration: 20,
-                  repeat: Infinity,
-                  ease: "linear",
+                  rotate: {
+                    duration: 30, // tempo da rotação completa
+                    repeat: Infinity,
+                    ease: "linear", // rotação constante e contínua
+                  },
+                  scale: {
+                    duration: 6,
+                    repeat: Infinity,
+                    ease: "easeInOut", // suaviza o vai e vem da escala
+                  },
                 }}
                 className="absolute inset-0 rounded-full bg-gradient-to-r from-primary via-secondary to-accent opacity-50 blur-2xl"
               />
-              
+
+
               {/* Avatar Image */}
               <motion.div
-                animate={{ y: [0, -20, 0] }}
+                animate={{
+                  y: [0, -20, 0],
+                  x: [0, 20, 0],
+                  scale: [1, 1.05, 1], // zoom animado
+                }}
                 transition={{
                   duration: 6,
                   repeat: Infinity,
@@ -144,11 +133,11 @@ const Hero = () => {
                 }}
                 className="relative z-10"
               >
-                <div className="w-80 h-80 rounded-full overflow-hidden neon-border p-1">
+                <div className="w-auto h-96 overflow-hidden neon-border p-1">
                   <img
-                    src={jefersonPhoto}
+                    src={me2}
                     alt="Jeferson Santos"
-                    className="w-full h-full object-cover rounded-full"
+                    className="w-full h-full object-cover"
                   />
                 </div>
               </motion.div>
@@ -166,7 +155,7 @@ const Hero = () => {
                 }}
                 className="absolute top-10 -left-10 glass-card p-3 rounded-lg"
               >
-                <span className="text-2xl">⚡</span>
+                <span className="text-3xl">🚀</span>
               </motion.div>
 
               <motion.div
@@ -182,7 +171,7 @@ const Hero = () => {
                 }}
                 className="absolute bottom-10 -right-10 glass-card p-3 rounded-lg"
               >
-                <span className="text-2xl">💻</span>
+                <span className="text-3xl">💻</span>
               </motion.div>
             </div>
           </motion.div>

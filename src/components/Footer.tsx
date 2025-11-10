@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Heart } from "lucide-react";
-
+import logo from "@/assets/jslogo.png";
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
@@ -10,24 +10,15 @@ const Footer = () => {
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-secondary to-transparent" />
 
       <div className="container mx-auto px-4">
+
         <div className="flex flex-col items-center space-y-8">
           {/* Logo */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center"
-          >
-            <div className="relative inline-block">
-              <span className="font-orbitron text-4xl font-bold text-primary text-glow-purple">
-                JS
-              </span>
-              <div className="absolute -bottom-2 left-0 right-0 h-px bg-gradient-to-r from-primary to-secondary" />
-            </div>
-            <p className="text-muted-foreground mt-4">
-              {"< Front-End Developer />"}
-            </p>
-          </motion.div>
+
+          <img
+            src={logo}
+            alt="Logo Jeferson Santos"
+            className="w-12 h-12 md:w-14 md:h-14 object-contain"
+          />
 
           {/* Quick Links */}
           <motion.div
@@ -54,7 +45,7 @@ const Footer = () => {
           </motion.div>
 
           {/* Divider */}
-          <div className="w-full max-w-md h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+          <div className="w-full max-w-md h-px bg-gradient-to-r from-transparent via-primary/90 to-transparent" />
 
           {/* Copyright */}
           <motion.div
@@ -64,11 +55,9 @@ const Footer = () => {
             transition={{ delay: 0.4 }}
             className="text-center space-y-2"
           >
-            <p className="text-muted-foreground text-sm flex items-center justify-center gap-2">
-              Feito com <Heart className="w-4 h-4 text-accent fill-accent animate-pulse" /> por Jeferson Santos
-            </p>
+
             <p className="text-muted-foreground text-xs">
-              © {currentYear} Jeferson Santos — Front-End Developer
+              © {currentYear} Jeferson Santos — Front-End Developer. Todos Direitos Reservados.
             </p>
           </motion.div>
         </div>
