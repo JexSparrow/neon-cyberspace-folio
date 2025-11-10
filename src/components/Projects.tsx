@@ -1,17 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { 
-  ExternalLink, 
-  Github, 
-  ShoppingCart, 
-  BarChart3, 
-  Palette, 
-  UtensilsCrossed, 
-  FileText, 
-  Settings2,
-  LucideIcon 
-} from "lucide-react";
+import { ExternalLink, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -20,13 +10,25 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import burguer from "@/assets/Logo.svg";
+import apple from "@/assets/apple.png";
+import clima from "@/assets/clima.png";
+import dado from "@/assets/dado1.png";
+import instagram from "@/assets/instagram.png";
+import mario from "@/assets/mario.png";
+import pastel from "@/assets/pastel.png";
+import netflix from "@/assets/netflix.png";
+import starbucks from "@/assets/starbucks.png";
+import spock from "@/assets/tesla3.png";
+import pig from "@/assets/pig.gif";
+
+
 
 interface Project {
   id: number;
   title: string;
   description: string;
-  icon: LucideIcon;
-  iconColor: string;
+  icon: string;
   tags: string[];
   liveUrl?: string;
   githubUrl?: string;
@@ -43,75 +45,76 @@ const Projects = () => {
   const projects: Project[] = [
     {
       id: 1,
-      title: "E-Commerce Futurista",
-      description: "Plataforma de e-commerce com design moderno e animações interativas",
-      icon: ShoppingCart,
-      iconColor: "text-primary",
+      title: "Dev Burguer - Full Stack",
+      description: "Plataforma de e-commerce com design moderno e animações interativas. Totalmente funcional",
+      icon: burguer,
       tags: ["React", "TypeScript", "Tailwind", "Supabase"],
       liveUrl: "#",
       githubUrl: "#",
       videoUrl: "dQw4w9WgXcQ",
-      details: "Sistema completo de e-commerce com carrinho, checkout, autenticação de usuários e painel administrativo. Inclui integração com gateway de pagamento e sistema de notificações em tempo real.",
+      details:
+        "Sistema completo de e-commerce com carrinho, checkout, autenticação de usuários e painel administrativo. Inclui integração com gateway de pagamento e sistema de notificações em tempo real.",
     },
     {
       id: 2,
-      title: "Dashboard Analytics",
+      title: "Pastelaria Kulik",
       description: "Dashboard interativo com gráficos e métricas em tempo real",
-      icon: BarChart3,
-      iconColor: "text-secondary",
+      icon: pastel,
       tags: ["React", "Charts.js", "Node.js", "PostgreSQL"],
-      liveUrl: "#",
+      liveUrl: "https://pastelariakulik.com.br",
       githubUrl: "#",
-      videoUrl: "dQw4w9WgXcQ",
-      details: "Dashboard completo com visualização de dados em tempo real, gráficos interativos, filtros avançados e exportação de relatórios. Integrado com API REST para busca de dados.",
+      videoUrl: "DZAeVK-Xpt8",
+      details:
+        "Dashboard completo com visualização de dados em tempo real, gráficos interativos, filtros avançados e exportação de relatórios. Integrado com API REST para busca de dados.",
     },
+
     {
       id: 3,
       title: "Portfolio Criativo",
       description: "Site portfolio com animações 3D e efeitos de scroll",
-      icon: Palette,
-      iconColor: "text-accent",
+      icon: mario,
       tags: ["React", "Framer Motion", "Three.js", "Vite"],
       liveUrl: "#",
       githubUrl: "#",
       videoUrl: "dQw4w9WgXcQ",
-      details: "Portfolio interativo com animações 3D, efeitos parallax, scroll reveal e transições suaves. Design responsivo e otimizado para performance.",
+      details:
+        "Portfolio interativo com animações 3D, efeitos parallax, scroll reveal e transições suaves. Design responsivo e otimizado para performance.",
     },
     {
       id: 4,
       title: "App de Delivery",
       description: "Aplicativo para pedidos online com rastreamento em tempo real",
-      icon: UtensilsCrossed,
-      iconColor: "text-neon-green",
+      icon: clima,
       tags: ["React Native", "Firebase", "Maps API", "Redux"],
       liveUrl: "#",
       githubUrl: "#",
       videoUrl: "dQw4w9WgXcQ",
-      details: "Aplicativo mobile para delivery com rastreamento GPS, pagamentos integrados, notificações push e sistema de avaliações. Interface intuitiva e responsiva.",
+      details:
+        "Aplicativo mobile para delivery com rastreamento GPS, pagamentos integrados, notificações push e sistema de avaliações. Interface intuitiva e responsiva.",
     },
     {
       id: 5,
       title: "Sistema de Blog",
       description: "CMS completo para criação e gestão de conteúdo",
-      icon: FileText,
-      iconColor: "text-primary",
+      icon: pig,
       tags: ["Next.js", "MongoDB", "Markdown", "AWS"],
       liveUrl: "#",
       githubUrl: "#",
       videoUrl: "dQw4w9WgXcQ",
-      details: "Plataforma de blog com editor Markdown, SEO otimizado, sistema de comentários, categorias, tags e busca avançada. Painel admin completo para gestão de conteúdo.",
+      details:
+        "Plataforma de blog com editor Markdown, SEO otimizado, sistema de comentários, categorias, tags e busca avançada. Painel admin completo para gestão de conteúdo.",
     },
     {
       id: 6,
       title: "API RESTful",
       description: "Backend escalável com documentação completa",
-      icon: Settings2,
-      iconColor: "text-secondary",
+      icon: spock,
       tags: ["Node.js", "Express", "PostgreSQL", "Docker"],
       liveUrl: "#",
       githubUrl: "#",
       videoUrl: "dQw4w9WgXcQ",
-      details: "API REST completa com autenticação JWT, validação de dados, rate limiting, documentação Swagger e testes automatizados. Arquitetura limpa e escalável.",
+      details:
+        "API REST completa com autenticação JWT, validação de dados, rate limiting, documentação Swagger e testes automatizados. Arquitetura limpa e escalável.",
     },
   ];
 
@@ -159,17 +162,22 @@ const Projects = () => {
                 <motion.div
                   animate={{
                     y: [0, -10, 0],
-                    rotate: [0, 5, -5, 0],
+                    rotate: [0, 2, -2, 0],
                   }}
                   transition={{
                     duration: 4,
                     repeat: Infinity,
                     ease: "easeInOut",
                   }}
-                  className={`${project.iconColor} transition-all duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_20px_currentColor]`}
+                  className="transition-all duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_20px_rgba(120,0,255,0.5)]"
                 >
-                  <project.icon size={80} strokeWidth={1.5} />
+                  <img
+                    src={project.icon}
+                    alt={`${project.title} logo`}
+                    className="w-36 h-36 object-contain mx-auto"
+                  />
                 </motion.div>
+
                 <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                   <span className="text-foreground font-semibold">Ver Detalhes</span>
                 </div>
@@ -262,7 +270,7 @@ const Projects = () => {
               {selectedProject?.title}
             </DialogTitle>
           </DialogHeader>
-          
+
           <div className="grid lg:grid-cols-2 gap-6 pt-4">
             {/* Video Section */}
             <div className="space-y-4">

@@ -138,6 +138,9 @@ const Hero = () => {
                     src={me2}
                     alt="Jeferson Santos"
                     className="w-full h-full object-cover"
+                    style={{
+                      filter: "drop-shadow(0 0 5px rgba(0, 255, 255, 0.5))",
+                    }}
                   />
                 </div>
               </motion.div>

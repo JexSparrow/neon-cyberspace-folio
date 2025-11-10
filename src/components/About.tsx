@@ -56,17 +56,36 @@ const About = () => {
 
             {/* Avatar decorativo - canto direito inferior */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="absolute bottom-0 right-0 w-1/4 max-w-[200px] pointer-events-none z-0"
+              variants={{
+                hidden: { x: -100, opacity: 0, scale: 0.8 },
+                visible: {
+                  x: 0,
+                  opacity: 1,
+                  scale: 1,
+                  transition: {
+                    duration: 1,
+                    ease: "easeOut",
+                  },
+                },
+              }}
+              initial="hidden"
+              animate={isInView ? "visible" : "hidden"}
+              className="absolute bottom-0 -right-[198px] w-1/4 max-w-[240px] pointer-events-none z-0"
             >
-              <img
+              {/* Avatar com animação flutuante */}
+              <motion.img
                 src={meBgImage}
                 alt="Avatar Jeferson Santos"
                 className="w-full h-auto object-contain rounded-bl-2xl opacity-90"
                 style={{
-                  filter: 'drop-shadow(0 0 20px rgba(120, 0, 255, 0.3))',
+                  filter: "drop-shadow(0 0 20px rgba(120, 0, 255, 0.5))",
+                }}
+                animate={isInView ? { y: [0, -10, 0] } : { y: 0 }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  repeatType: "mirror",
+                  ease: "easeInOut",
                 }}
               />
             </motion.div>
