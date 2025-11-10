@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Bird, Book, BookOpen, BriefcaseBusiness, Code2, Compass, PackagePlus, Sparkles, SquareCheck, Target, User } from "lucide-react";
+import meBgImage from "@/assets/me-bg.png";
 
 const About = () => {
   const ref = useRef(null);
@@ -51,8 +52,24 @@ const About = () => {
           </motion.div>
 
           {/* Content */}
-          <motion.div variants={itemVariants} className="glass-card p-8 md:p-12 rounded-2xl space-y-6">
+          <motion.div variants={itemVariants} className="glass-card p-8 md:p-12 rounded-2xl space-y-6 relative">
 
+            {/* Avatar decorativo - canto direito inferior */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="absolute bottom-0 right-0 w-1/4 max-w-[200px] pointer-events-none z-0"
+            >
+              <img
+                src={meBgImage}
+                alt="Avatar Jeferson Santos"
+                className="w-full h-auto object-contain rounded-bl-2xl opacity-90"
+                style={{
+                  filter: 'drop-shadow(0 0 20px rgba(120, 0, 255, 0.3))',
+                }}
+              />
+            </motion.div>
 
             <div className="flex items-center justify-center space-x-3 py-4 border-b border-primary/20 ">
               <BookOpen className="w-8 h-8 text-secondary flex-shrink-0" />
