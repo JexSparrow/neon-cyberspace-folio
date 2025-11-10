@@ -179,38 +179,28 @@ All colors MUST be HSL.
     scrollbar-color: hsl(277 100% 60% / 0.5) hsl(265 50% 8% / 0.2);
   }
 
-  /* Gradient mask para slides infinitos */
+  /* Gradient mask for infinite slides */
   .slide-mask {
-    -webkit-mask-image: linear-gradient(
-      to right,
-      transparent 0%,
-      black 10%,
-      black 90%,
-      transparent 100%
-    );
-    mask-image: linear-gradient(
-      to right,
-      transparent 0%,
-      black 10%,
-      black 90%,
-      transparent 100%
-    );
+    -webkit-mask-image: linear-gradient(to right,
+        transparent 0%,
+        black 10%,
+        black 90%,
+        transparent 100%);
+    mask-image: linear-gradient(to right,
+        transparent 0%,
+        black 10%,
+        black 90%,
+        transparent 100%);
   }
 
-  /* About section image holder effect */
-  .about-image-holder {
-    position: relative;
-    filter: drop-shadow(20px 0 30px hsl(var(--primary) / 0.3));
+}
+
+@layer base {
+  * {
+    @apply border-border;
   }
 
-  .about-image-holder img {
-    border: 2px solid hsl(var(--primary) / 0.3);
-    box-shadow: 0 0 40px hsl(var(--primary) / 0.4);
-    transition: var(--transition-smooth);
-  }
-
-  .about-image-holder:hover img {
-    transform: scale(1.05);
-    box-shadow: 0 0 60px hsl(var(--primary) / 0.6);
+  body {
+    @apply bg-background text-foreground;
   }
 }

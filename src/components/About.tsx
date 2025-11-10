@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Bird, Book, BookOpen, BriefcaseBusiness, Code2, Compass, PackagePlus, Sparkles, SquareCheck, Target, User } from "lucide-react";
-import meBgImage from "@/assets/me-bg.png";
 
 const About = () => {
   const ref = useRef(null);
@@ -23,21 +22,7 @@ const About = () => {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, delay: 0.3 },
-    },
-  };
-
-  const imageVariants = {
-    hidden: { 
-      opacity: 0, 
-      x: -100
-    },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: { 
-        duration: 0.8
-      },
+      transition: { duration: 0.6 },
     },
   };
 
@@ -51,10 +36,10 @@ const About = () => {
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="max-w-7xl mx-auto"
+          className="max-w-5xl mx-auto"
         >
           {/* Header */}
-          <motion.div variants={itemVariants} className="text-center mb-12 col-span-1 lg:col-span-2">
+          <motion.div variants={itemVariants} className="text-center mb-8">
             <motion.div
               className="inline-flex items-center space-x-2 mb-4 glass-card px-4 py-2 rounded-full"
               whileHover={{ scale: 1.05 }}
@@ -62,26 +47,11 @@ const About = () => {
               <Code2 className="w-8 h-8 text-foreground" />
               <span className="text-secondary text-2xl font-bold tracking-wider uppercase">Sobre Mim</span>
             </motion.div>
+
           </motion.div>
 
-          {/* Grid Layout: Image + Card */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            {/* Left Column - Image */}
-            <motion.div 
-              variants={imageVariants}
-              className="relative max-w-sm mx-auto lg:max-w-none lg:translate-x-8"
-            >
-              <div className="about-image-holder">
-                <img 
-                  src={meBgImage} 
-                  alt="Jeferson Santos" 
-                  className="w-full h-auto object-contain rounded-2xl"
-                />
-              </div>
-            </motion.div>
-
-            {/* Right Column - Card */}
-            <motion.div variants={itemVariants} className="glass-card p-8 md:p-12 rounded-2xl space-y-6">
+          {/* Content */}
+          <motion.div variants={itemVariants} className="glass-card p-8 md:p-12 rounded-2xl space-y-6">
 
 
             <div className="flex items-center justify-center space-x-3 py-4 border-b border-primary/20 ">
@@ -158,7 +128,6 @@ const About = () => {
               </div>
             </motion.div>
           </motion.div>
-          </div>
         </motion.div>
       </div>
     </section >
