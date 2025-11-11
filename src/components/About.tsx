@@ -151,7 +151,7 @@ const About = () => {
               className="grid grid-cols-1 md:grid-cols-3 gap-2 pt-8 border-t border-primary/20"
             >
               <div className="text-center space-y-2">
-                <div className="text-4xl font-orbitron font-bold text-yellow-400">10+</div>
+                <div className="text-4xl font-orbitron font-bold text-yellow-500">10+</div>
                 <p className="text-sm text-muted-foreground">Projetos Realizados</p>
               </div>
               <div className="text-center space-y-2">

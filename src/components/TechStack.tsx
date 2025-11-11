@@ -4,6 +4,7 @@ import { useRef, useState } from "react";
 import {
   Code2,
   Palette,
+  Brush,
   Zap,
   Atom,
   Wind,
@@ -25,6 +26,7 @@ import {
   type LucideIcon,
   ChevronsLeftRightIcon,
   Cpu,
+  Blocks,
 } from "lucide-react";
 
 interface Tech {
@@ -42,10 +44,11 @@ const TechStack = () => {
   const slide1: Tech[] = [
     { name: "HTML5", icon: Code2, description: "Estrutura semântica e acessível", color: "text-orange-400" },
     { name: "CSS3", icon: Palette, description: "Estilização moderna e responsiva", color: "text-blue-400" },
+    { name: "Styled Components", icon: Brush, description: "Estilização Css-in-JS", color: "text-pink-400" },
     { name: "Tailwind", icon: Wind, description: "Framework CSS utilitário", color: "text-cyan-400" },
     { name: "JavaScript", icon: Zap, description: "Interatividade e lógica client-side", color: "text-yellow-400" },
     { name: "React", icon: Atom, description: "Biblioteca para interfaces dinâmicas", color: "text-cyan-400" },
-    { name: "Vite", icon: Wind, description: "Build tool rápido e moderno", color: "text-purple-400" },
+    { name: "Vite", icon: Blocks, description: "Build tool rápido e moderno", color: "text-purple-400" },
   ];
 
   const slide2: Tech[] = [

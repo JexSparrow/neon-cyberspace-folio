@@ -143,7 +143,7 @@ const ParticlesBackground = ({ count = 50, speed = "medium" }: ParticlesBackgrou
         {particles.map((particle) => (
           <div
             key={particle.id}
-            className="particle absolute rounded-full bg-white/40 shadow-[0_0_4px_rgba(255,255,255,0.8)]"
+            className="particle absolute rounded-full bg-yellow-500/90 shadow-[0_0_4px_rgba(255, 255, 255, 0.8)]"
             style={getAnimationStyle(particle)}
           />
         ))}

@@ -1,6 +1,13 @@
 import { motion } from "framer-motion";
-import { ChevronDown, Sparkles } from "lucide-react";
+import { ChevronDown, ChevronsDown, Joystick, LucideComputer, Sparkles } from "lucide-react";
 import me2 from "@/assets/me2.png";
+import js from "@/assets/js.png";
+import css from "@/assets/css.png";
+import html from "@/assets/html.png";
+import react from "@/assets/react.png";
+import node from "@/assets/node.png";
+import tailwind from "@/assets/tailwind.png";
+
 
 const Hero = () => {
   const scrollToProjects = () => {
@@ -54,7 +61,7 @@ const Hero = () => {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
+              transition={{ delay: 0.5 }}
               className="flex items-center space-x-2"
             >
               <Sparkles className="w-5 h-5 text-secondary" />
@@ -66,7 +73,7 @@ const Hero = () => {
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
+              transition={{ delay: 0.75 }}
               className="text-5xl md:text-7xl font-orbitron font-bold leading-tight"
             >
               <span className="text-foreground text-glow-cyan">Jeferson Santos</span>
@@ -79,7 +86,7 @@ const Hero = () => {
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
+              transition={{ delay: 1 }}
               className="text-xl text-muted-foreground max-w-xl"
             >
               Transformando ideias em{" "}
@@ -145,45 +152,135 @@ const Hero = () => {
                 </div>
               </motion.div>
 
-              {/* Floating Elements */}
+
+              {/* CSS */}
               <motion.div
+                initial={{ y: -200, x: -100, scale: 0, opacity: 0 }}
                 animate={{
-                  y: [0, -30, 0],
-                  x: [0, 20, 0],
+                  y: [0, -10, 0],
+                  x: [0, 10, 0],
+                  scale: 1,
+                  opacity: 1,
                 }}
                 transition={{
-                  duration: 5,
-                  repeat: Infinity,
-                  ease: "easeInOut",
+                  y: { duration: 4, repeat: Infinity, ease: "easeInOut" },
+                  x: { duration: 5, repeat: Infinity, ease: "easeInOut" },
+                  default: { duration: 1.8, ease: "easeOut" },
                 }}
                 className="absolute top-10 -left-10 glass-card p-3 rounded-lg"
               >
-                <span className="text-3xl">🚀</span>
+                <img src={css} className="w-12 h-12 rounded-[8px]" />
               </motion.div>
 
+              {/* JS */}
               <motion.div
+                initial={{ y: 200, x: 150, scale: 4, opacity: 0 }}
                 animate={{
-                  y: [0, 30, 0],
-                  x: [0, -20, 0],
+                  y: [0, 10, 0],
+                  x: [0, -15, 0],
+                  scale: 1,
+                  opacity: 1,
                 }}
                 transition={{
-                  duration: 6,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 1,
+                  y: { duration: 5, repeat: Infinity, ease: "easeInOut" },
+                  x: { duration: 6, repeat: Infinity, ease: "easeInOut" },
+                  default: { duration: 2, ease: "easeOut", delay: 0.5 },
                 }}
                 className="absolute bottom-10 -right-10 glass-card p-3 rounded-lg"
               >
-                <span className="text-3xl">💻</span>
+                <img src={js} className="w-10 h-10 rounded-[8px]" />
               </motion.div>
+
+              {/* HTML */}
+              <motion.div
+                initial={{ y: -250, x: 250, scale: 3.8, opacity: 0 }}
+                animate={{
+                  y: [0, -8, 0],
+                  x: [0, 12, 0],
+                  scale: 1,
+                  opacity: 1,
+                }}
+                transition={{
+                  y: { duration: 4.5, repeat: Infinity, ease: "easeInOut" },
+                  x: { duration: 5.5, repeat: Infinity, ease: "easeInOut" },
+                  default: { duration: 1.8, ease: "easeOut", delay: 0.3 },
+                }}
+                className="absolute bottom-24 -left-16 glass-card p-3 rounded-lg"
+              >
+                <img src={html} className="w-12 h-12 rounded-[8px]" />
+              </motion.div>
+
+              {/* React */}
+              <motion.div
+                initial={{ y: -300, x: 200, scale: 4.2, opacity: 0 }}
+                animate={{
+                  y: [0, -12, 0],
+                  x: [0, 15, 0],
+                  scale: 1,
+                  opacity: 1,
+                }}
+                transition={{
+                  y: { duration: 4.8, repeat: Infinity, ease: "easeInOut" },
+                  x: { duration: 6, repeat: Infinity, ease: "easeInOut" },
+                  default: { duration: 2, ease: "easeOut", delay: 0.5 },
+                }}
+                className="absolute top-14 right-0 glass-card p-3 rounded-lg"
+              >
+                <img src={react} className="w-14 h-14 rounded-[8px]" />
+              </motion.div>
+
+              {/* Node */}
+              <motion.div
+                initial={{ y: -200, x: 550, scale: 0, opacity: 0 }}
+                animate={{
+                  y: [0, 10, 0],
+                  x: [0, -15, 0],
+                  scale: 1,
+                  opacity: 1,
+                }}
+                transition={{
+                  y: { duration: 5, repeat: Infinity, ease: "easeInOut" },
+                  x: { duration: 6, repeat: Infinity, ease: "easeInOut" },
+                  default: { duration: 2.2, ease: "easeOut", delay: 0.1 },
+                }}
+                className="absolute -top-12 right-20 glass-card p-3 rounded-lg"
+              >
+                <img src={node} className="w-10 h-10 rounded-[8px]" />
+              </motion.div>
+
+              {/* Tailwind */}
+              <motion.div
+                initial={{ y: 200, x: -200, scale: 0, opacity: 0 }}
+                animate={{
+                  y: [0, 8, 0],
+                  x: [0, -10, 0],
+                  scale: 1,
+                  opacity: 1,
+                }}
+                transition={{
+                  y: { duration: 4.8, repeat: Infinity, ease: "easeInOut" },
+                  x: { duration: 6, repeat: Infinity, ease: "easeInOut" },
+                  default: { duration: 2.4, ease: "easeOut", delay: 0.1 },
+                }}
+                className="absolute -bottom-8 left-20 glass-card p-3 rounded-lg"
+              >
+                <img src={tailwind} className="w-10 h-10 rounded-[8px]" />
+              </motion.div>
+
+
+
+
+
             </div>
           </motion.div>
+
+
         </div>
-      </div>
+      </div >
 
       {/* Scroll Indicator */}
-      <motion.div
-        animate={{ y: [0, 10, 0] }}
+      < motion.div
+        animate={{ y: [0, 20, 0] }}
         transition={{
           duration: 2,
           repeat: Infinity,
@@ -192,9 +289,10 @@ const Hero = () => {
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer"
         onClick={() => document.getElementById("about")?.scrollIntoView({ behavior: "smooth" })}
       >
-        <ChevronDown className="w-8 h-8 text-secondary" />
-      </motion.div>
-    </section>
+        <ChevronDown className="w-10 h-10 text-secondary" />
+
+      </motion.div >
+    </section >
   );
 };
 
