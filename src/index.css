@@ -101,6 +101,10 @@ All colors MUST be HSL.
     text-shadow: 0 0 10px hsl(180 100% 50% / 0.8), 0 0 20px hsl(180 100% 50% / 0.4);
   }
 
+  .text-glow-yellow {
+    text-shadow: 0 0 10px hsla(58, 100%, 50%, 0.8), 0 0 20px hsla(58, 100%, 50%, 0.4);
+  }
+
   .glass-card {
     background: var(--glass-bg);
     backdrop-filter: blur(20px);
