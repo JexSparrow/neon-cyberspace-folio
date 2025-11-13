@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink, Github, Rocket } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -10,9 +10,10 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import burguer from "@/assets/burguer.gif";
+import burguer from "@/assets/burguer.png";
 import apple from "@/assets/apple.png";
-import clima from "@/assets/clima.gif";
+
+import clima from "@/assets/clima.png";
 import dado from "@/assets/dado1.png";
 import instagram from "@/assets/instagram.png";
 import mario from "@/assets/mario.png";
@@ -50,14 +51,13 @@ const Projects = () => {
     {
       id: 1,
       title: "Dev Burguer - Full Stack",
-      description: "Plataforma de e-commerce com design moderno e animações interativas. Totalmente funcional",
+      description: "Plataforma de e-commerce com design moderno e animações interativas. Totalmente funcional e escalável.",
       icon: burguer,
-      tags: ["React", "TypeScript", "Tailwind", "Supabase"],
-      liveUrl: "#",
-      githubUrl: "#",
-      videoUrl: "dQw4w9WgXcQ",
+      tags: ["React", "Javascript", "Styled-Components", "Figma", "Node.js", "MVC", "CRUD", "PostgreSQL", "MongoDB", "Docker", "API", "Hooks"],
+      githubUrl: "https://github.com/JexSparrow/devburguer-interface",
+      videoUrl: "L56P5vfA688",
       details:
-        "Sistema completo de e-commerce com carrinho, checkout, autenticação de usuários e painel administrativo. Inclui integração com gateway de pagamento e sistema de notificações em tempo real.",
+        "Sistema completo de e-commerce com autenticação de usuários, carrinho, ofertas, simulação de frete com entrega. Além de um painel administrativo completo, onde podemos editar os produtos.",
     },
     {
       id: 2,
@@ -66,7 +66,7 @@ const Projects = () => {
       icon: pastel,
       tags: ["React", "Charts.js", "Node.js", "PostgreSQL"],
       liveUrl: "https://pastelariakulik.com.br",
-      githubUrl: "#",
+      githubUrl: "https://github.com/JexSparrow/pastelaria",
       videoUrl: "DZAeVK-Xpt8",
       details:
         "Dashboard completo com visualização de dados em tempo real, gráficos interativos, filtros avançados e exportação de relatórios. Integrado com API REST para busca de dados.",
@@ -140,14 +140,12 @@ const Projects = () => {
             className="inline-flex items-center space-x-2 mb-4 glass-card px-4 py-2 rounded-full"
             whileHover={{ scale: 1.05 }}
           >
-            <span className="text-2xl">🚀</span>
-            <span className="text-secondary text-sm font-medium tracking-wider uppercase">
+            <Rocket className="w-8 h-8"></Rocket>
+            <span className="text-secondary text-2xl font-bold tracking-wider uppercase">
               Principais Projetos
             </span>
           </motion.div>
-          <h2 className="text-4xl md:text-5xl font-orbitron font-bold text-glow-cyan">
-            Projetos em <span className="text-primary">Destaque</span>
-          </h2>
+
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -178,11 +176,11 @@ const Projects = () => {
                   <img
                     src={project.icon}
                     alt={`${project.title} logo`}
-                    className="w-36 h-36 object-contain mx-auto"
+                    className="w-40 h-40 object-contain mx-auto"
                   />
                 </motion.div>
 
-                <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center">
                   <span className="text-foreground font-semibold">Ver Detalhes</span>
                 </div>
               </div>
@@ -210,31 +208,37 @@ const Projects = () => {
 
                 {/* Links */}
                 <div className="flex gap-3 pt-2">
-                  <Button
-                    size="sm"
-                    variant="outline"
-                    className="neon-border flex-1"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      window.open(project.liveUrl, "_blank");
-                    }}
-                  >
-                    <ExternalLink className="w-4 h-4 mr-2" />
-                    Demo
-                  </Button>
-                  <Button
-                    size="sm"
-                    variant="outline"
-                    className="neon-border flex-1"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      window.open(project.githubUrl, "_blank");
-                    }}
-                  >
-                    <Github className="w-4 h-4 mr-2" />
-                    Code
-                  </Button>
+                  {project.liveUrl && project.liveUrl !== "#" && (
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      className="neon-border flex-1"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        window.open(project.liveUrl, "_blank");
+                      }}
+                    >
+                      <ExternalLink className="w-4 h-4 mr-2" />
+                      Demo
+                    </Button>
+                  )}
+
+                  {project.githubUrl && project.githubUrl !== "#" && (
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      className="neon-border flex-1"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        window.open(project.githubUrl, "_blank");
+                      }}
+                    >
+                      <Github className="w-4 h-4 mr-2" />
+                      Code
+                    </Button>
+                  )}
                 </div>
+
               </div>
             </motion.div>
           ))}

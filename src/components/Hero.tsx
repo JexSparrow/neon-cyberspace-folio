@@ -78,7 +78,7 @@ const Hero = () => {
             >
               <span className="text-foreground text-glow-cyan">Jeferson Santos</span>
               <br />
-              <span className=" text-5xl text-accent bg-gradient-to-t from-primary to-accent bg-clip-text text-transparent">
+              <span className=" text-5xl bg-gradient-to-t from-primary to-accent bg-clip-text text-transparent">
                 {"< Front-End Developer />"}
               </span>
             </motion.h1>

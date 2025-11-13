@@ -41,6 +41,8 @@ All colors MUST be HSL.
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
+    --yellow: 50 100% 50%;
+
     --border: 277 100% 36%;
     --input: 265 40% 12%;
     --ring: 180 100% 50%;
@@ -103,6 +105,10 @@ All colors MUST be HSL.
 
   .text-glow-yellow {
     text-shadow: 0 0 10px hsla(58, 100%, 50%, 0.8), 0 0 20px hsla(58, 100%, 50%, 0.4);
+  }
+
+  .text-yellow {
+    color: hsl(var(--yellow));
   }
 
   .glass-card {

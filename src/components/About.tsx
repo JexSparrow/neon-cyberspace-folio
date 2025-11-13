@@ -1,4 +1,4 @@
-import { motion, useInView, useAnimation, useMotionValue, useTransform, animate } from "framer-motion";
+import { motion, useInView, useMotionValue, useTransform, animate } from "framer-motion";
 import { useRef, useEffect } from "react";
 import {
   Bird,
@@ -35,7 +35,7 @@ function AnimatedCounter({ value, duration = 2 }: { value: number; duration?: nu
 
   return (
     <motion.span ref={ref}>
-      {display}+
+      {display}
     </motion.span>
   );
 }
@@ -96,13 +96,13 @@ const About = () => {
             {/* Avatar decorativo */}
             <motion.div
               variants={{
-                hidden: { x: -100, opacity: 0, scale: 1.4 },
+                hidden: { x: -20, opacity: 0, scale: 1.4 },
                 visible: {
                   x: 0,
                   opacity: 1,
                   scale: 1,
                   transition: {
-                    duration: 1.2,
+                    duration: 1.5,
                     ease: "easeOut",
                   },
                 },
@@ -118,7 +118,7 @@ const About = () => {
                 style={{
                   filter: "drop-shadow(0 0 20px rgba(120, 0, 255, 0.5))",
                 }}
-                animate={isInView ? { y: [0, -10, 0] } : { y: 0 }}
+                animate={isInView ? { y: [0, -20, 0] } : { y: 0 }}
                 transition={{
                   duration: 4,
                   repeat: Infinity,
@@ -132,7 +132,7 @@ const About = () => {
             <div className="flex items-center justify-center space-x-3 py-4 border-b border-primary/20 ">
               <BookOpen className="w-8 h-8 text-secondary flex-shrink-0" />
               <p className="text-lg text-foreground leading-relaxed">
-                <span className="text-xl text-secondary font-semibold">
+                <span className="text-2xl text-secondary font-semibold">
                   Um pouquinho da minha história...
                 </span>
               </p>
@@ -142,7 +142,7 @@ const About = () => {
               <Compass className="w-8 h-8 text-accent flex-shrink-0 ml-4" />
               <p className="text-lg text-muted-foreground leading-relaxed">
                 Me chamo{" "}
-                <span className="text-foreground font-semibold">
+                <span className="text-yellow font-bold">
                   Jeferson Santos
                 </span>{" "}
                 e estou em{" "}
@@ -158,9 +158,9 @@ const About = () => {
               <BriefcaseBusiness className="w-8 h-8 text-accent flex-shrink-0 ml-8" />
               <p className="text-lg text-muted-foreground leading-relaxed">
                 Atualmente, atuo na{" "}
-                <span className="text-secondary font-semibold">@Flaterz</span>{" "}
+                <span className="text-yellow font-bold">@Flaterz</span>{" "}
                 desenvolvendo interfaces dinâmicas e responsivas para projetos{" "}
-                <span className="text-accent">internacionais</span>.
+                <span className="text-yellow font-bold">internacionais</span>.
               </p>
             </div>
 
@@ -168,21 +168,21 @@ const About = () => {
               <Bird className="w-8 h-8 text-accent flex-shrink-0 ml-12" />
               <p className="text-lg text-muted-foreground leading-relaxed">
                 Como{" "}
-                <span className="text-primary font-semibold">Freelancer</span> na
+                <span className="text-yellow font-bold">Freelancer</span> na
                 área de Front-End, desenvolvo{" "}
-                <span className="text-foreground font-semibold">
+                <span className="text-accent font-semibold">
                   interfaces modernas e responsivas
                 </span>
                 , sempre focado em{" "}
-                <span className="text-secondary">UX/UI</span>,{" "}
-                <span className="text-secondary">performance</span> e{" "}
-                <span className="text-secondary">boas práticas</span>.
+                <span className="text-secondary font-semibold">UX/UI</span>,{" "}
+                <span className="text-secondary font-semibold">performance</span> e{" "}
+                <span className="text-secondary font-semibold">boas práticas</span>.
               </p>
             </div>
 
             <p className="text-lg text-muted-foreground leading-relaxed pt-2">
               Meu objetivo é criar{" "}
-              <span className="text-primary font-semibold">
+              <span className="text-accent font-semibold">
                 soluções inovadoras e funcionais
               </span>
               , garantindo que cada projeto seja bem estruturado e com atenção
@@ -195,22 +195,22 @@ const About = () => {
               className="grid grid-cols-1 md:grid-cols-3 gap-2 pt-8 border-t border-primary/20"
             >
               <div className="text-center space-y-2">
-                <div className="text-4xl font-orbitron font-bold text-yellow-500 text-glow-yellow">
-                  <AnimatedCounter value={10} />
+                <div className="text-4xl font-orbitron font-bold text-yellow text-glow-yellow">
+                  <AnimatedCounter value={10} />+
                 </div>
                 <p className="text-sm text-muted-foreground">Projetos Realizados</p>
               </div>
 
               <div className="text-center space-y-2">
                 <div className="text-4xl font-orbitron font-bold text-secondary text-glow-cyan">
-                  <AnimatedCounter value={15} />
+                  <AnimatedCounter value={15} />+
                 </div>
                 <p className="text-sm text-muted-foreground">Tecnologias</p>
               </div>
 
               <div className="text-center space-y-2">
                 <div className="text-4xl font-orbitron font-bold text-accent text-glow-purple">
-                  <AnimatedCounter value={100} />
+                  <AnimatedCounter value={100} />%
                 </div>
                 <p className="text-sm text-muted-foreground">Dedicação</p>
               </div>
