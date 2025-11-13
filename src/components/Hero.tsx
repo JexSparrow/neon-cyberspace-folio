@@ -212,7 +212,7 @@ const Hero = () => {
 
               {/* React */}
               <motion.div
-                initial={{ y: -300, x: 200, scale: 4.2, opacity: 0 }}
+                initial={{ y: -300, x: 200, scale: 2, opacity: 0 }}
                 animate={{
                   y: [0, -12, 0],
                   x: [0, 15, 0],

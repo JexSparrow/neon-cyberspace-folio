@@ -10,9 +10,9 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import burguer from "@/assets/Logo.svg";
+import burguer from "@/assets/burguer.gif";
 import apple from "@/assets/apple.png";
-import clima from "@/assets/clima.png";
+import clima from "@/assets/clima.gif";
 import dado from "@/assets/dado1.png";
 import instagram from "@/assets/instagram.png";
 import mario from "@/assets/mario.png";
@@ -21,6 +21,10 @@ import netflix from "@/assets/netflix.png";
 import starbucks from "@/assets/starbucks.png";
 import spock from "@/assets/tesla3.png";
 import pig from "@/assets/pig.gif";
+import rex from "@/assets/rex.png";
+import gym from "@/assets/gym.gif";
+import crud from "@/assets/crud.gif";
+
 
 
 
@@ -70,9 +74,9 @@ const Projects = () => {
 
     {
       id: 3,
-      title: "Portfolio Criativo",
-      description: "Site portfolio com animações 3D e efeitos de scroll",
-      icon: mario,
+      title: "Rex Fit - Academia",
+      description: "Landing Page Completa para Academia",
+      icon: rex,
       tags: ["React", "Framer Motion", "Three.js", "Vite"],
       liveUrl: "#",
       githubUrl: "#",
@@ -96,7 +100,7 @@ const Projects = () => {
       id: 5,
       title: "Sistema de Blog",
       description: "CMS completo para criação e gestão de conteúdo",
-      icon: pig,
+      icon: gym,
       tags: ["Next.js", "MongoDB", "Markdown", "AWS"],
       liveUrl: "#",
       githubUrl: "#",
@@ -108,7 +112,7 @@ const Projects = () => {
       id: 6,
       title: "API RESTful",
       description: "Backend escalável com documentação completa",
-      icon: spock,
+      icon: crud,
       tags: ["Node.js", "Express", "PostgreSQL", "Docker"],
       liveUrl: "#",
       githubUrl: "#",

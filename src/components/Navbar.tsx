@@ -97,6 +97,7 @@ const Navbar = () => {
               variant="outline"
               size="sm"
               className="neon-border"
+
             >
               <a href="/src/assets/Jeferson-Santos.pdf" download="Jeferson-Santos.pdf">
                 <Download className="w-4 h-4 mr-2" />
