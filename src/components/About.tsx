@@ -109,7 +109,7 @@ const About = () => {
               }}
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
-              className="absolute bottom-0 -right-[198px] w-1/4 max-w-[240px] pointer-events-none z-0"
+              className="hidden md:block absolute bottom-0 -right-[198px] w-1/4 max-w-[240px] pointer-events-none z-0"
             >
               <motion.img
                 src={meBgImage}
@@ -129,18 +129,18 @@ const About = () => {
             </motion.div>
 
             {/* Textos */}
-            <div className="flex items-center justify-center space-x-3 py-4 border-b border-primary/20 ">
-              <BookOpen className="w-8 h-8 text-secondary flex-shrink-0" />
-              <p className="text-lg text-foreground leading-relaxed">
-                <span className="text-2xl text-secondary font-semibold">
+            <div className="flex flex-col md:flex-row items-center justify-center space-y-2 md:space-y-0 md:space-x-3 py-4 border-b border-primary/20">
+              <BookOpen className="w-7 h-7 md:w-8 md:h-8 text-secondary flex-shrink-0" />
+              <p className="text-base md:text-lg text-foreground leading-relaxed text-center md:text-left">
+                <span className="text-xl md:text-2xl text-secondary font-semibold">
                   Um pouquinho da minha história...
                 </span>
               </p>
             </div>
 
-            <div className="flex items-center space-x-4">
-              <Compass className="w-8 h-8 text-accent flex-shrink-0 ml-4" />
-              <p className="text-lg text-muted-foreground leading-relaxed">
+            <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-4">
+              <Compass className="w-7 h-7 md:w-8 md:h-8 text-accent flex-shrink-0 md:ml-4" />
+              <p className="text-sm md:text-lg text-muted-foreground leading-relaxed text-center md:text-left">
                 Me chamo{" "}
                 <span className="text-yellow font-bold">
                   Jeferson Santos
@@ -154,9 +154,9 @@ const About = () => {
               </p>
             </div>
 
-            <div className="flex items-center space-x-8">
-              <BriefcaseBusiness className="w-8 h-8 text-accent flex-shrink-0 ml-8" />
-              <p className="text-lg text-muted-foreground leading-relaxed">
+            <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-8">
+              <BriefcaseBusiness className="w-7 h-7 md:w-8 md:h-8 text-accent flex-shrink-0 md:ml-8" />
+              <p className="text-sm md:text-lg text-muted-foreground leading-relaxed text-center md:text-left">
                 Atualmente, atuo na{" "}
                 <span className="text-yellow font-bold">@Flaterz</span>{" "}
                 desenvolvendo interfaces dinâmicas e responsivas para projetos{" "}
@@ -164,9 +164,9 @@ const About = () => {
               </p>
             </div>
 
-            <div className="flex items-center space-x-12">
-              <Bird className="w-8 h-8 text-accent flex-shrink-0 ml-12" />
-              <p className="text-lg text-muted-foreground leading-relaxed">
+            <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-12">
+              <Bird className="w-7 h-7 md:w-8 md:h-8 text-accent flex-shrink-0 md:ml-12" />
+              <p className="text-sm md:text-lg text-muted-foreground leading-relaxed text-center md:text-left">
                 Como{" "}
                 <span className="text-yellow font-bold">Freelancer</span> na
                 área de Front-End, desenvolvo{" "}
@@ -180,7 +180,7 @@ const About = () => {
               </p>
             </div>
 
-            <p className="text-lg text-muted-foreground leading-relaxed pt-2">
+            <p className="text-sm md:text-lg text-muted-foreground leading-relaxed pt-2 text-center md:text-left">
               Meu objetivo é criar{" "}
               <span className="text-accent font-semibold">
                 soluções inovadoras e funcionais
