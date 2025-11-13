@@ -1,4 +1,4 @@
-import { motion, useInView, useAnimation, useMotionValue, useTransform } from "framer-motion";
+import { motion, useInView, useAnimation, useMotionValue, useTransform, animate } from "framer-motion";
 import { useRef, useEffect } from "react";
 import {
   Bird,
@@ -20,11 +20,11 @@ function AnimatedCounter({ value, duration = 2 }: { value: number; duration?: nu
 
   useEffect(() => {
     if (inView) {
-      count.set(0);
-      count.animate(value, {
+      const controls = animate(count, value, {
         duration,
         ease: "easeOut",
       });
+      return () => controls.stop();
     }
   }, [inView, count, value, duration]);
 
