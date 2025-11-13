@@ -76,14 +76,14 @@ const TechStack = () => {
     const IconComponent = tech.icon;
 
     return (
-      <div key={`${slideIndex}-${tech.name}-${techIndex}`} className="flex-shrink-0 w-[200px] mx-3">
-        <div className="glass-card p-6 rounded-2xl text-center cursor-pointer relative overflow-hidden h-full group transition-all duration-300 hover:shadow-[var(--shadow-neon-purple)]">
+      <div key={`${slideIndex}-${tech.name}-${techIndex}`} className="flex-shrink-0 w-[140px] md:w-[200px] mx-2 md:mx-3">
+        <div className="glass-card p-3 md:p-6 rounded-xl md:rounded-2xl text-center cursor-pointer relative overflow-hidden h-full group transition-all duration-300 hover:shadow-[var(--shadow-neon-purple)]">
           {/* Animated background glow */}
           <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
           {/* Neon border effect */}
           <div
-            className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+            className="absolute inset-0 rounded-xl md:rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
             style={{
               boxShadow: "0 0 20px hsl(var(--primary-glow) / 0.5), inset 0 0 20px hsl(var(--primary-glow) / 0.1)",
             }}
@@ -91,19 +91,19 @@ const TechStack = () => {
 
           <div className="relative z-10">
             {/* Icon */}
-            <div className="mb-4 flex justify-center">
+            <div className="mb-2 md:mb-4 flex justify-center">
               <div
                 className={`${tech.color} transition-all duration-300 group-hover:drop-shadow-[0_0_12px_currentColor]`}
               >
-                <IconComponent size={48} strokeWidth={1.5} />
+                <IconComponent className="w-8 h-8 md:w-12 md:h-12" strokeWidth={1.5} />
               </div>
             </div>
 
             {/* Tech Name */}
-            <h3 className="text-sm font-orbitron font-bold text-foreground mb-2">{tech.name}</h3>
+            <h3 className="text-xs md:text-sm font-orbitron font-bold text-foreground mb-1 md:mb-2">{tech.name}</h3>
 
             {/* Description */}
-            <p className="text-xs text-muted-foreground leading-relaxed">{tech.description}</p>
+            <p className="text-[10px] md:text-xs text-muted-foreground leading-relaxed hidden md:block">{tech.description}</p>
           </div>
         </div>
       </div>
@@ -130,7 +130,7 @@ const TechStack = () => {
 
         {/* Slide 1 - Right to Left */}
         <div
-          className="relative py-4 overflow-hidden mb-4 slide-mask"
+          className="relative py-2 md:py-4 overflow-hidden mb-2 md:mb-4 slide-mask"
           onMouseEnter={() => setHoveredSlide(1)}
           onMouseLeave={() => setHoveredSlide(null)}
         >
@@ -140,7 +140,7 @@ const TechStack = () => {
               isInView
                 ? {
                   opacity: 1,
-                  x: [0, -1344],
+                  x: [0, "-100%"],
                 }
                 : { opacity: 0 }
             }
@@ -161,7 +161,7 @@ const TechStack = () => {
 
         {/* Slide 2 - Left to Right */}
         <div
-          className="relative py-4 overflow-hidden mb-4 slide-mask"
+          className="relative py-2 md:py-4 overflow-hidden mb-2 md:mb-4 slide-mask"
           onMouseEnter={() => setHoveredSlide(2)}
           onMouseLeave={() => setHoveredSlide(null)}
         >
@@ -171,7 +171,7 @@ const TechStack = () => {
               isInView
                 ? {
                   opacity: 1,
-                  x: [-1344, 0],
+                  x: ["-100%", 0],
                 }
                 : { opacity: 0 }
             }
@@ -192,7 +192,7 @@ const TechStack = () => {
 
         {/* Slide 3 - Right to Left */}
         <div
-          className="relative py-4 overflow-hidden slide-mask"
+          className="relative py-2 md:py-4 overflow-hidden slide-mask"
           onMouseEnter={() => setHoveredSlide(3)}
           onMouseLeave={() => setHoveredSlide(null)}
         >
@@ -202,7 +202,7 @@ const TechStack = () => {
               isInView
                 ? {
                   opacity: 1,
-                  x: [0, -2016],
+                  x: [0, "-100%"],
                 }
                 : { opacity: 0 }
             }
