@@ -192,7 +192,7 @@ const About = () => {
             {/* Stats */}
             <motion.div
               variants={itemVariants}
-              className="grid grid-cols-1 md:grid-cols-3 gap-2 pt-8 border-t border-primary/20"
+              className="grid grid-cols-2 md:grid-cols-3 gap-4 pt-8 border-t border-primary/20"
             >
               <div className="text-center space-y-2">
                 <div className="text-4xl font-orbitron font-bold text-yellow text-glow-yellow">
@@ -208,7 +208,7 @@ const About = () => {
                 <p className="text-sm text-muted-foreground">Tecnologias</p>
               </div>
 
-              <div className="text-center space-y-2">
+              <div className="text-center space-y-2 col-span-2 md:col-span-1">
                 <div className="text-4xl font-orbitron font-bold text-accent text-glow-purple">
                   <AnimatedCounter value={100} />%
                 </div>
