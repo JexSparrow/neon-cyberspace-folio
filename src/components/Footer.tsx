@@ -26,19 +26,25 @@ const Footer = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
-            className="flex flex-wrap justify-center gap-6 text-sm"
+            className="flex flex-wrap justify-center gap-4 md:gap-6 text-sm"
           >
-            {["Home", "Sobre Mim", "Tecnologias", "Projetos", "Contato"].map((link) => (
+            {[
+              { label: "Home", id: "home" },
+              { label: "Sobre Mim", id: "about" },
+              { label: "Tecnologias", id: "tech" },
+              { label: "Projetos", id: "projects" },
+              { label: "Contato", id: "contact" },
+            ].map((link) => (
               <button
-                key={link}
+                key={link.id}
                 onClick={() =>
                   document
-                    .getElementById(link.toLowerCase().replace(" ", ""))
+                    .getElementById(link.id)
                     ?.scrollIntoView({ behavior: "smooth" })
                 }
-                className="text-muted-foreground hover:text-secondary transition-colors relative group"
+                className="text-muted-foreground hover:text-secondary transition-colors relative group touch-manipulation"
               >
-                {link}
+                {link.label}
                 <span className="absolute -bottom-1 left-0 w-0 h-px bg-secondary transition-all duration-300 group-hover:w-full" />
               </button>
             ))}
