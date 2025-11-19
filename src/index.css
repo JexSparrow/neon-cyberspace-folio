@@ -125,13 +125,27 @@ All colors MUST be HSL.
       var(--gradient-neon) border-box;
   }
 
-  .hover-glow {
+  .hover-glow,
+  .hover-glow-cyan {
     transition: var(--transition-smooth);
   }
 
   .hover-glow:hover {
     box-shadow: var(--shadow-neon-purple);
     transform: translateY(-4px);
+  }
+
+  .hover-glow-cyan:hover {
+    box-shadow: var(--shadow-neon-cyan);
+    transform: translateY(-4px);
+  }
+
+  .shadow-purple {
+    box-shadow: var(--shadow-neon-purple);
+  }
+
+  .shadow-cyan {
+    box-shadow: var(--shadow-neon-cyan);
   }
 
   .animate-float {

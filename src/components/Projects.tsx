@@ -53,7 +53,7 @@ const Projects = () => {
       title: "Dev Burguer - Full Stack",
       description: "Plataforma de e-commerce com design moderno e animações interativas. Totalmente funcional e escalável.",
       icon: burguer,
-      tags: ["React", "Javascript", "Styled-Components", "Figma", "Node.js", "MVC", "CRUD", "PostgreSQL", "MongoDB", "Docker", "API", "Hooks"],
+      tags: ["React", "Javascript", "Styled-Components", "Vite", "Figma", "Node.js", "MVC", "CRUD", "PostgreSQL", "MongoDB", "Docker", "API", "Hooks", "Toasts"],
       githubUrl: "https://github.com/JexSparrow/devburguer-interface",
       videoUrl: "L56P5vfA688",
       details:
@@ -62,14 +62,13 @@ const Projects = () => {
     {
       id: 2,
       title: "Pastelaria Kulik",
-      description: "Dashboard interativo com gráficos e métricas em tempo real",
+      description: "É com satisfação que apresento um projeto Freelancer desenvolvido para a Pastelaria Kulik, focado em criar uma experiência online moderna, engajadora e otimizada para o usuário.",
       icon: pastel,
-      tags: ["React", "Charts.js", "Node.js", "PostgreSQL"],
+      tags: ["React", "Styled-Components", "UX/UI", "Design Digital", "Framer-Motion", "Swiper.js", "Responsividade", "Atendimento ao Cliente"],
       liveUrl: "https://pastelariakulik.com.br",
       githubUrl: "https://github.com/JexSparrow/pastelaria",
       videoUrl: "DZAeVK-Xpt8",
-      details:
-        "Dashboard completo com visualização de dados em tempo real, gráficos interativos, filtros avançados e exportação de relatórios. Integrado com API REST para busca de dados.",
+      details: "Em resumo, o site da Pastelaria Kulik não é apenas uma vitrine online, mas uma ferramenta poderosa para engajar clientes, apresentar seus produtos de forma irresistível e fortalecer a presença digital da marca.",
     },
 
     {
@@ -77,7 +76,7 @@ const Projects = () => {
       title: "Rex Fit - Academia",
       description: "Landing Page Completa para Academia",
       icon: rex,
-      tags: ["React", "Framer Motion", "Three.js", "Vite"],
+      tags: ["React", "Typescript", "Tailwind", "Framer Motion", "Atendimento ao Cliente"],
       liveUrl: "#",
       githubUrl: "#",
       videoUrl: "dQw4w9WgXcQ",
@@ -156,7 +155,7 @@ const Projects = () => {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.2 }}
               whileHover={{ y: -10 }}
-              className="glass-card rounded-2xl overflow-hidden hover-glow cursor-pointer group"
+              className="glass-card rounded-2xl overflow-hidden hover-glow-cyan cursor-pointer group"
               onClick={() => setSelectedProject(project)}
             >
               {/* Project Icon */}
@@ -181,16 +180,16 @@ const Projects = () => {
                 </motion.div>
 
                 <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center">
-                  <span className="text-foreground font-semibold">Ver Detalhes</span>
+                  <span className="text-secondary text-glow-cyan font-semibold text-xl mb-2">Ver Detalhes</span>
                 </div>
               </div>
 
               {/* Project Info */}
               <div className="p-6 space-y-4">
-                <h3 className="text-xl font-orbitron font-bold text-foreground">
+                <h3 className="text-2xl font-orbitron font-extrabold text-yellow">
                   {project.title}
                 </h3>
-                <p className="text-muted-foreground text-sm">
+                <p className="text-muted-foreground text-md">
                   {project.description}
                 </p>
 
@@ -199,26 +198,31 @@ const Projects = () => {
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="text-xs px-3 py-1 rounded-full bg-primary/20 text-secondary border border-primary/30"
+                      className="text-sm px-3 py-1 rounded-full bg-primary/20 text-secondary border border-primary/30 hover:bg-primary/50 transition-colors"
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
 
-                {/* Links */}
-                <div className="flex gap-3 pt-2">
+                <div
+                  className={`pt-2 grid gap-3 justify-center ${(project.liveUrl && project.liveUrl !== "#") &&
+                    (project.githubUrl && project.githubUrl !== "#")
+                    ? "grid-cols-2"
+                    : "grid-cols-1"
+                    }`}
+                >
                   {project.liveUrl && project.liveUrl !== "#" && (
                     <Button
                       size="sm"
                       variant="outline"
-                      className="neon-border flex-1"
+                      className="neon-border"
                       onClick={(e) => {
                         e.stopPropagation();
                         window.open(project.liveUrl, "_blank");
                       }}
                     >
-                      <ExternalLink className="w-4 h-4 mr-2" />
+                      <ExternalLink className="w-8 h-8 mr-4" />
                       Demo
                     </Button>
                   )}
@@ -227,17 +231,18 @@ const Projects = () => {
                     <Button
                       size="sm"
                       variant="outline"
-                      className="neon-border flex-1"
+                      className="neon-border"
                       onClick={(e) => {
                         e.stopPropagation();
                         window.open(project.githubUrl, "_blank");
                       }}
                     >
-                      <Github className="w-4 h-4 mr-2" />
+                      <Github className="w-8 h-8 mr-4" />
                       Code
                     </Button>
                   )}
                 </div>
+
 
               </div>
             </motion.div>
@@ -272,14 +277,14 @@ const Projects = () => {
 
       {/* Project Detail Modal */}
       <Dialog open={!!selectedProject} onOpenChange={() => setSelectedProject(null)}>
-        <DialogContent className="glass-card border-primary/30 max-w-6xl max-h-[90vh] overflow-y-auto">
+        <DialogContent className="glass-card border-primary/30 max-w-6xl max-h-[90vh] overflow-y-auto shadow-cyan">
           <DialogHeader>
-            <DialogTitle className="text-3xl font-orbitron text-foreground">
+            <DialogTitle className="text-4xl font-orbitron font-extrabold uppercase text-yellow">
               {selectedProject?.title}
             </DialogTitle>
           </DialogHeader>
 
-          <div className="grid lg:grid-cols-2 gap-6 pt-4">
+          <div className="grid lg:grid-cols-2 gap-12 pt-4 items-center">
             {/* Video Section */}
             <div className="space-y-4">
               {selectedProject?.videoUrl && (
@@ -301,20 +306,20 @@ const Projects = () => {
 
             {/* Info Section */}
             <div className="space-y-6">
-              <DialogDescription className="text-muted-foreground text-base leading-relaxed">
+              <DialogDescription className="text-muted-foreground text-lg leading-relaxed">
                 {selectedProject?.details}
               </DialogDescription>
 
               {/* Tags */}
               <div>
-                <h4 className="text-sm font-orbitron font-semibold text-secondary mb-3">
+                <h4 className="text-lg font-orbitron font-semibold text-secondary uppercase tracking-wider mb-4">
                   Tecnologias Utilizadas
                 </h4>
                 <div className="flex flex-wrap gap-2">
                   {selectedProject?.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="text-sm px-4 py-2 rounded-full bg-primary/20 text-secondary border border-primary/30 hover:bg-primary/30 transition-colors"
+                      className="text-sm px-4 py-2 rounded-full bg-primary/20 text-secondary border border-primary/30 hover:bg-primary/50 transition-colors"
                     >
                       {tag}
                     </span>
@@ -325,7 +330,8 @@ const Projects = () => {
               {/* Action Buttons */}
               <div className="flex flex-col sm:flex-row gap-3 pt-2">
                 <Button
-                  className="bg-gradient-to-r from-primary to-secondary hover:shadow-neon-purple transition-shadow flex-1"
+                  variant="outline"
+                  className="neon-border flex-1 hover:bg-primary/10"
                   onClick={() => window.open(selectedProject?.liveUrl, "_blank")}
                 >
                   <ExternalLink className="w-4 h-4 mr-2" />
