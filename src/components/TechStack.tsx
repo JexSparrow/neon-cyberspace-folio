@@ -1,5 +1,4 @@
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import {
   Code2,
@@ -23,10 +22,12 @@ import {
   Figma,
   PenTool,
   Monitor,
-  type LucideIcon,
-  ChevronsLeftRightIcon,
+  FileType,
+  Gamepad,
+  ChevronsLeftRight,
   Cpu,
   Blocks,
+  LucideIcon,
 } from "lucide-react";
 
 interface Tech {
@@ -47,6 +48,7 @@ const TechStack = () => {
     { name: "Styled Components", icon: Brush, description: "Estilização Css-in-JS", color: "text-pink-400" },
     { name: "Tailwind", icon: Wind, description: "Framework CSS utilitário", color: "text-cyan-400" },
     { name: "JavaScript", icon: Zap, description: "Interatividade e lógica client-side", color: "text-yellow-400" },
+    { name: "TypeScript", icon: FileType, description: "Superset de JS com tipagem estática", color: "text-blue-500" },
     { name: "React", icon: Atom, description: "Biblioteca para interfaces dinâmicas", color: "text-cyan-400" },
     { name: "Vite", icon: Blocks, description: "Build tool rápido e moderno", color: "text-purple-400" },
   ];
@@ -57,7 +59,8 @@ const TechStack = () => {
     { name: "MongoDB", icon: Leaf, description: "Banco NoSQL flexível e escalável", color: "text-green-500" },
     { name: "Supabase", icon: Flame, description: "Backend as a Service completo", color: "text-emerald-400" },
     { name: "Docker", icon: Container, description: "Containerização de aplicações", color: "text-blue-600" },
-    { name: "REST API", icon: Plug, description: "Integração de sistemas via APIs", color: "text-secondary" },
+    { name: "Arquitetura MVC", icon: Gamepad, description: "Model, View e ControlLer", color: "text-secondary" },
+
   ];
 
   const slide3: Tech[] = [

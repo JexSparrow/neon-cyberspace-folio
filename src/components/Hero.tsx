@@ -87,10 +87,13 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1 }}
-              className="text-xl text-muted-foreground max-w-xl"
+              className="text-xl text-muted-foreground max-w-x2l"
             >
               Transformando ideias em{" "}
               <span className="text-secondary font-semibold">experiências digitais modernas</span>.
+
+              <br></br>
+
               Criando interfaces interativas e responsivas com foco em UX/UI.
             </motion.p>
 

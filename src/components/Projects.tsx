@@ -10,6 +10,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+// Importações de Assets (mantidas)
 import burguer from "@/assets/burguer.png";
 import apple from "@/assets/apple.png";
 
@@ -27,8 +28,6 @@ import gym from "@/assets/gym.gif";
 import crud from "@/assets/crud.gif";
 
 
-
-
 interface Project {
   id: number;
   title: string;
@@ -37,6 +36,7 @@ interface Project {
   tags: string[];
   liveUrl?: string;
   githubUrl?: string;
+  githubUrl2?: string; // NOVO: URL para o segundo repositório
   videoUrl?: string;
   details: string;
 }
@@ -53,8 +53,9 @@ const Projects = () => {
       title: "Dev Burguer - Full Stack",
       description: "Plataforma de e-commerce com design moderno e animações interativas. Totalmente funcional e escalável.",
       icon: burguer,
-      tags: ["React", "Javascript", "Styled-Components", "Vite", "Figma", "Node.js", "MVC", "CRUD", "PostgreSQL", "MongoDB", "Docker", "API", "Hooks", "Toasts"],
+      tags: ["React", "Javascript", "Styled-Components", "Vite", "Figma", "Node.js", "MVC", "CRUD", "PostgreSQL", "MongoDB", "Docker", "API", "Hooks", "Toasts", "Projeto Educacional"],
       githubUrl: "https://github.com/JexSparrow/devburguer-interface",
+      githubUrl2: "https://github.com/JexSparrow/devburguer-backend", // Exemplo real
       videoUrl: "L56P5vfA688",
       details:
         "Sistema completo de e-commerce com autenticação de usuários, carrinho, ofertas, simulação de frete com entrega. Além de um painel administrativo completo, onde podemos editar os produtos.",
@@ -67,6 +68,7 @@ const Projects = () => {
       tags: ["React", "Styled-Components", "UX/UI", "Design Digital", "Framer-Motion", "Swiper.js", "Responsividade", "Atendimento ao Cliente"],
       liveUrl: "https://pastelariakulik.com.br",
       githubUrl: "https://github.com/JexSparrow/pastelaria",
+      githubUrl2: "#",
       videoUrl: "DZAeVK-Xpt8",
       details: "Em resumo, o site da Pastelaria Kulik não é apenas uma vitrine online, mas uma ferramenta poderosa para engajar clientes, apresentar seus produtos de forma irresistível e fortalecer a presença digital da marca.",
     },
@@ -74,50 +76,69 @@ const Projects = () => {
     {
       id: 3,
       title: "Rex Fit - Academia",
-      description: "Landing Page Completa para Academia",
+      description: "Uma landing page moderna e de alto impacto criada para destacar a identidade da academia com clareza e dinamismo. Com design responsivo para transmitir energia, confiança e movimento.",
       icon: rex,
-      tags: ["React", "Typescript", "Tailwind", "Framer Motion", "Atendimento ao Cliente"],
-      liveUrl: "#",
+      tags: ["React", "Typescript", "Tailwind", "Framer Motion", "UX/UI", "Design Digital", "Freelancer", "Responsividade"],
+      liveUrl: "https://preview--rex-fit.lovable.app/",
       githubUrl: "#",
+      githubUrl2: "#",
       videoUrl: "dQw4w9WgXcQ",
-      details:
-        "Portfolio interativo com animações 3D, efeitos parallax, scroll reveal e transições suaves. Design responsivo e otimizado para performance.",
+      details: "Uma landing page moderna e completa, oferecendo uma experiência visual envolvente e responsiva. O projeto destaca os serviços da academia com animações suaves, seções dinâmicas e foco total na conversão do usuário. A página foi criada para transmitir energia, movimento e profissionalismo, fortalecendo a presença digital da marca.",
     },
     {
       id: 4,
-      title: "App de Delivery",
-      description: "Aplicativo para pedidos online com rastreamento em tempo real",
+      title: "Clima Dinâmico - API",
+      description: "Aplicativo de clima com dados em tempo real, animações dinâmicas. Desenvolvido para oferecer previsões precisas, visualização interativa e experiência fluida em qualquer dispositivo.",
       icon: clima,
-      tags: ["React Native", "Firebase", "Maps API", "Redux"],
-      liveUrl: "#",
-      githubUrl: "#",
-      videoUrl: "dQw4w9WgXcQ",
+      tags: ["JavaScript", "HTML", "CSS3", "API", "Responsividade", "UX/UI", "Projeto Educacional"],
+      liveUrl: "https://climate-preview.netlify.app/",
+      githubUrl: "https://github.com/JexSparrow/Previsao-Tempo",
+      githubUrl2: "#",
+      videoUrl: "EYDkKkEt1A",
       details:
-        "Aplicativo mobile para delivery com rastreamento GPS, pagamentos integrados, notificações push e sistema de avaliações. Interface intuitiva e responsiva.",
+        "Aplicativo completo que fornece informações meteorológicas em tempo real, utilizando dados precisos e atualizados conforme O usuário digita a localização. O sistema apresenta detalhes como temperatura, sensação térmica, velocidade do vento e umidade, acompanhados de animações visuais que refletem as condições climáticas atuais. ",
+
     },
+
     {
       id: 5,
-      title: "Sistema de Blog",
-      description: "CMS completo para criação e gestão de conteúdo",
-      icon: gym,
-      tags: ["Next.js", "MongoDB", "Markdown", "AWS"],
-      liveUrl: "#",
-      githubUrl: "#",
-      videoUrl: "dQw4w9WgXcQ",
-      details:
-        "Plataforma de blog com editor Markdown, SEO otimizado, sistema de comentários, categorias, tags e busca avançada. Painel admin completo para gestão de conteúdo.",
+      title: "Conversor de Moeda",
+      description:
+        "Conversor de moedas dinâmico desenvolvido com HTML, CSS e JavaScript, integrado a uma API de cotações em tempo real. Permite transformar valores entre diversas moedas globais de forma prática.",
+      icon: pig,
+      tags: ["HTML", "CSS", "JavaScript", "UX/UI", "API", "Responsividade", "Projeto Educacional"],
+      liveUrl: "https://money-jex.netlify.app/",
+      githubUrl: "https://github.com/JexSparrow/Conversor",
+      githubUrl2: "#",
+      videoUrl: "fn0b224EacQ",
+      details: `
+✅ Cotações em tempo real obtidas de uma API confiável.
+✅ Suporte a várias moedas, incluindo USD, EUR, GBP, BTC, CNY e BRL.
+✅ Seletores intuitivos para escolher moeda de origem e destino.
+✅ Conversão instantânea, atualizada conforme o usuário digita.
+✅ Informações dinâmicas, como nome, símbolo e cotação da moeda, que mudam automaticamente ao trocar as opções.
+`
     },
+
     {
       id: 6,
-      title: "API RESTful",
-      description: "Backend escalável com documentação completa",
+      title: "C.R.U.D - API & Front End",
+      description: "Este é um projeto Full-Stack desenvolvido como uma aplicação de cadastro e gerenciamento de usuários. O sistema implementa o padrão CRUD (Create, Read, Update, Delete) completo, utilizando uma arquitetura moderna e escalável baseada em JavaScript, com foco na estabilidade e comunicação eficiente entre o Front-end e o Back-end.",
       icon: crud,
-      tags: ["Node.js", "Express", "PostgreSQL", "Docker"],
+      tags: ["Node.js", "Express", "Axios", "Prisma", "NPM", "MongoDB", "API", "HTML", "CSS", "JavaScript", "UX/UI"],
       liveUrl: "#",
-      githubUrl: "#",
-      videoUrl: "dQw4w9WgXcQ",
-      details:
-        "API REST completa com autenticação JWT, validação de dados, rate limiting, documentação Swagger e testes automatizados. Arquitetura limpa e escalável.",
+      githubUrl: "https://github.com/JexSparrow/CRUD", // Back-end neste caso
+      githubUrl2: "https://github.com/JexSparrow/CRUD-FRONTEND", // Front-end neste caso
+      videoUrl: "U3yRwVCgu3Y",
+      details: `O projeto oferece as seguintes funcionalidades, acessíveis através da interface React:
+
+Cadastro (Create): Criação de novos usuários com campos de Nome, E-mail, Idade e Endereço.
+
+Listagem (Read): Exibição de todos os usuários cadastrados no MongoDB Atlas.
+
+Atualização (Update): Edição de dados de usuários existentes (requer implementação da rota PUT).
+
+Exclusão (Delete): Remoção permanente de um usuário do banco de dados.`
     },
   ];
 
@@ -159,7 +180,7 @@ const Projects = () => {
               onClick={() => setSelectedProject(project)}
             >
               {/* Project Icon */}
-              <div className="relative h-48 bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center overflow-hidden">
+              <div className="relative h-48 bg-gradient-to-br from-accent/30 to-secondary/20 flex items-center justify-center overflow-hidden">
                 <motion.div
                   animate={{
                     y: [0, -10, 0],
@@ -186,7 +207,7 @@ const Projects = () => {
 
               {/* Project Info */}
               <div className="p-6 space-y-4">
-                <h3 className="text-2xl font-orbitron font-extrabold text-yellow">
+                <h3 className="text-2xl font-orbitron font-extrabold tracking-wide text-yellow">
                   {project.title}
                 </h3>
                 <p className="text-muted-foreground text-md">
@@ -205,13 +226,14 @@ const Projects = () => {
                   ))}
                 </div>
 
-                <div
-                  className={`pt-2 grid gap-3 justify-center ${(project.liveUrl && project.liveUrl !== "#") &&
-                    (project.githubUrl && project.githubUrl !== "#")
-                    ? "grid-cols-2"
-                    : "grid-cols-1"
-                    }`}
-                >
+                const validUrls = [
+                project.liveUrl,
+                project.githubUrl,
+                project.githubUrl2,
+                  ].filter((url) => url && url !== "#").length;
+                  const gridCols = validUrls > 0 ? `grid-cols-${validUrls > 3 ? 3 : validUrls}` : "grid-cols-1";
+                return (
+                <div className={`pt-2 grid gap-3 justify-center ${gridCols}`}>
                   {project.liveUrl && project.liveUrl !== "#" && (
                     <Button
                       size="sm"
@@ -241,8 +263,23 @@ const Projects = () => {
                       Code
                     </Button>
                   )}
+                  {project.githubUrl2 && project.githubUrl2 !== "#" && (
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      className="neon-border"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        window.open(project.githubUrl2, "_blank");
+                      }}
+                    >
+                      <Github className="w-8 h-8 mr-4" />
+                      Code 2
+                    </Button>
+                  )}
                 </div>
-
+                );
+                }
 
               </div>
             </motion.div>
@@ -279,7 +316,7 @@ const Projects = () => {
       <Dialog open={!!selectedProject} onOpenChange={() => setSelectedProject(null)}>
         <DialogContent className="glass-card border-primary/30 max-w-6xl max-h-[90vh] overflow-y-auto shadow-cyan">
           <DialogHeader>
-            <DialogTitle className="text-4xl font-orbitron font-extrabold uppercase text-yellow">
+            <DialogTitle className="text-4xl font-orbitron font-extrabold uppercase tracking-wide bg-gradient-to-t from-accent to-secondary bg-clip-text text-transparent">
               {selectedProject?.title}
             </DialogTitle>
           </DialogHeader>
@@ -306,7 +343,7 @@ const Projects = () => {
 
             {/* Info Section */}
             <div className="space-y-6">
-              <DialogDescription className="text-muted-foreground text-lg leading-relaxed">
+              <DialogDescription className="text-muted-foreground text-lg leading-relaxed whitespace-pre-line">
                 {selectedProject?.details}
               </DialogDescription>
 
@@ -327,24 +364,40 @@ const Projects = () => {
                 </div>
               </div>
 
-              {/* Action Buttons */}
+              {/* NOVO: Action Buttons (Modal) */}
               <div className="flex flex-col sm:flex-row gap-3 pt-2">
-                <Button
-                  variant="outline"
-                  className="neon-border flex-1 hover:bg-primary/10"
-                  onClick={() => window.open(selectedProject?.liveUrl, "_blank")}
-                >
-                  <ExternalLink className="w-4 h-4 mr-2" />
-                  Ver Projeto ao Vivo
-                </Button>
-                <Button
-                  variant="outline"
-                  className="neon-border flex-1 hover:bg-primary/10"
-                  onClick={() => window.open(selectedProject?.githubUrl, "_blank")}
-                >
-                  <Github className="w-4 h-4 mr-2" />
-                  Ver Código
-                </Button>
+                {selectedProject?.liveUrl && selectedProject.liveUrl !== "#" && (
+                  <Button
+                    variant="outline"
+                    className="neon-border flex-1 hover:bg-primary/10"
+                    onClick={() => window.open(selectedProject.liveUrl, "_blank")}
+                  >
+                    <ExternalLink className="w-4 h-4 mr-2" />
+                    Ver Projeto ao Vivo
+                  </Button>
+                )}
+
+                {selectedProject?.githubUrl && selectedProject.githubUrl !== "#" && (
+                  <Button
+                    variant="outline"
+                    className="neon-border flex-1 hover:bg-primary/10"
+                    onClick={() => window.open(selectedProject.githubUrl, "_blank")}
+                  >
+                    <Github className="w-4 h-4 mr-2" />
+                    Ver Código {selectedProject.githubUrl2 && selectedProject.githubUrl2 !== "#" ? " (Front-end)" : ""}
+                  </Button>
+                )}
+
+                {selectedProject?.githubUrl2 && selectedProject.githubUrl2 !== "#" && (
+                  <Button
+                    variant="outline"
+                    className="neon-border flex-1 hover:bg-primary/10"
+                    onClick={() => window.open(selectedProject.githubUrl2, "_blank")}
+                  >
+                    <Github className="w-4 h-4 mr-2" />
+                    Ver Código (Back-end)
+                  </Button>
+                )}
               </div>
             </div>
           </div>
