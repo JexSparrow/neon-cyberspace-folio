@@ -226,14 +226,8 @@ Exclusão (Delete): Remoção permanente de um usuário do banco de dados.`
                   ))}
                 </div>
 
-                const validUrls = [
-                project.liveUrl,
-                project.githubUrl,
-                project.githubUrl2,
-                  ].filter((url) => url && url !== "#").length;
-                  const gridCols = validUrls > 0 ? `grid-cols-${validUrls > 3 ? 3 : validUrls}` : "grid-cols-1";
-                return (
-                <div className={`pt-2 grid gap-3 justify-center ${gridCols}`}>
+                {/* Action Buttons */}
+                <div className="pt-2 flex flex-wrap gap-3 justify-center">
                   {project.liveUrl && project.liveUrl !== "#" && (
                     <Button
                       size="sm"
@@ -244,7 +238,7 @@ Exclusão (Delete): Remoção permanente de um usuário do banco de dados.`
                         window.open(project.liveUrl, "_blank");
                       }}
                     >
-                      <ExternalLink className="w-8 h-8 mr-4" />
+                      <ExternalLink className="w-4 h-4 mr-2" />
                       Demo
                     </Button>
                   )}
@@ -259,10 +253,11 @@ Exclusão (Delete): Remoção permanente de um usuário do banco de dados.`
                         window.open(project.githubUrl, "_blank");
                       }}
                     >
-                      <Github className="w-8 h-8 mr-4" />
+                      <Github className="w-4 h-4 mr-2" />
                       Code
                     </Button>
                   )}
+                  
                   {project.githubUrl2 && project.githubUrl2 !== "#" && (
                     <Button
                       size="sm"
@@ -273,13 +268,11 @@ Exclusão (Delete): Remoção permanente de um usuário do banco de dados.`
                         window.open(project.githubUrl2, "_blank");
                       }}
                     >
-                      <Github className="w-8 h-8 mr-4" />
+                      <Github className="w-4 h-4 mr-2" />
                       Code 2
                     </Button>
                   )}
                 </div>
-                );
-                }
 
               </div>
             </motion.div>
