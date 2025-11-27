@@ -1,5 +1,4 @@
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { ExternalLink, Github, Rocket } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -26,6 +25,7 @@ import pig from "@/assets/pig.gif";
 import rex from "@/assets/rex.png";
 import gym from "@/assets/gym.gif";
 import crud from "@/assets/crud.gif";
+import crud2 from "@/assets/crud.png";
 
 
 interface Project {
@@ -42,10 +42,12 @@ interface Project {
 }
 
 const Projects = () => {
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement>(null); // Tipagem para o ref
   const isInView = useInView(ref, { once: true });
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  const [showAll, setShowAll] = useState(false);
+
+  const PROJECTS_PER_LOAD = 3;
+  const [projectsToShow, setProjectsToShow] = useState(PROJECTS_PER_LOAD);
 
   const projects: Project[] = [
     {
@@ -55,10 +57,14 @@ const Projects = () => {
       icon: burguer,
       tags: ["React", "Javascript", "Styled-Components", "Vite", "Figma", "Node.js", "MVC", "CRUD", "PostgreSQL", "MongoDB", "Docker", "API", "Hooks", "Toasts", "Projeto Educacional"],
       githubUrl: "https://github.com/JexSparrow/devburguer-interface",
-      githubUrl2: "https://github.com/JexSparrow/devburguer-backend", // Exemplo real
+      githubUrl2: "https://github.com/JexSparrow/devburger-api",
       videoUrl: "L56P5vfA688",
-      details:
-        "Sistema completo de e-commerce com autenticação de usuários, carrinho, ofertas, simulação de frete com entrega. Além de um painel administrativo completo, onde podemos editar os produtos.",
+      details: `
+♻️ Componentes reutilizáveis para construir a interface de forma modular. Hooks e Context API para gerenciar o estado e compartilhar dados.
+🌐 Roteamento para permitir a navegação entre diferentes seções.
+🎨 Styled-Components para definir os estilos da aplicação.
+⚙️ Vite foi utilizado como ferramenta de desenvolvimento e build.
+      `
     },
     {
       id: 2,
@@ -87,6 +93,22 @@ const Projects = () => {
     },
     {
       id: 4,
+      title: "C.R.U.D - API & Front End",
+      description: "Este é um projeto Full-Stack desenvolvido como uma aplicação de cadastro e gerenciamento de usuários. O sistema implementa o padrão CRUD (Create, Read, Update, Delete) completo, utilizando uma arquitetura moderna e escalável baseada em JavaScript, com foco na estabilidade e comunicação eficiente entre o Front-end e o Back-end.",
+      icon: crud2,
+      tags: ["Node.js", "Express", "Axios", "Prisma", "NPM", "MongoDB", "API", "HTML", "CSS", "JavaScript", "UX/UI"],
+      liveUrl: "#",
+      githubUrl: "https://github.com/JexSparrow/CRUD-FRONTEND",
+      githubUrl2: "https://github.com/JexSparrow/CRUD",
+      videoUrl: "U3yRwVCgu3Y",
+      details: `
+➕ Cadastro (Create): Criação de novos usuários com campos de Nome, E-mail, Idade e Endereço.
+🔍 Listagem (Read): Exibição de todos os usuários cadastrados no MongoDB Atlas.
+✏️ Atualização (Update): Edição de dados de usuários existentes (requer implementação da rota PUT).
+❌ Exclusão (Delete): Remoção permanente de um usuário do banco de dados.`
+    },
+    {
+      id: 5,
       title: "Clima Dinâmico - API",
       description: "Aplicativo de clima com dados em tempo real, animações dinâmicas. Desenvolvido para oferecer previsões precisas, visualização interativa e experiência fluida em qualquer dispositivo.",
       icon: clima,
@@ -94,14 +116,14 @@ const Projects = () => {
       liveUrl: "https://climate-preview.netlify.app/",
       githubUrl: "https://github.com/JexSparrow/Previsao-Tempo",
       githubUrl2: "#",
-      videoUrl: "EYDkKkEt1A",
+      videoUrl: "-EYDkKkEt1A",
       details:
         "Aplicativo completo que fornece informações meteorológicas em tempo real, utilizando dados precisos e atualizados conforme O usuário digita a localização. O sistema apresenta detalhes como temperatura, sensação térmica, velocidade do vento e umidade, acompanhados de animações visuais que refletem as condições climáticas atuais. ",
 
     },
 
     {
-      id: 5,
+      id: 6,
       title: "Conversor de Moeda",
       description:
         "Conversor de moedas dinâmico desenvolvido com HTML, CSS e JavaScript, integrado a uma API de cotações em tempo real. Permite transformar valores entre diversas moedas globais de forma prática.",
@@ -112,37 +134,97 @@ const Projects = () => {
       githubUrl2: "#",
       videoUrl: "fn0b224EacQ",
       details: `
-✅ Cotações em tempo real obtidas de uma API confiável.
-✅ Suporte a várias moedas, incluindo USD, EUR, GBP, BTC, CNY e BRL.
-✅ Seletores intuitivos para escolher moeda de origem e destino.
-✅ Conversão instantânea, atualizada conforme o usuário digita.
-✅ Informações dinâmicas, como nome, símbolo e cotação da moeda, que mudam automaticamente ao trocar as opções.
+⚡ Cotações em tempo real obtidas de uma API confiável.
+💱 Suporte a várias moedas, incluindo USD, EUR, GBP, BTC, CNY e BRL.
+✨ Seletores intuitivos para escolher moeda de origem e destino.
+🚀 Conversão instantânea, atualizada conforme o usuário digita.
+📊 Informações dinâmicas, como nome, símbolo e cotação da moeda, que mudam automaticamente ao trocar as opções.
 `
+    },
+    {
+      id: 7,
+      title: "Dev Burguer - Full Stack",
+      description: "Plataforma de e-commerce com design moderno e animações interativas. Totalmente funcional e escalável.",
+      icon: burguer,
+      tags: ["React", "Javascript", "Styled-Components", "Vite", "Figma", "Node.js", "MVC", "CRUD", "PostgreSQL", "MongoDB", "Docker", "API", "Hooks", "Toasts", "Projeto Educacional"],
+      githubUrl: "https://github.com/JexSparrow/devburguer-interface",
+      githubUrl2: "https://github.com/JexSparrow/devburger-api",
+      videoUrl: "L56P5vfA688",
+      details: `
+♻️ Componentes reutilizáveis para construir a interface de forma modular. Hooks e Context API para gerenciar o estado e compartilhar dados.
+🌐 Roteamento para permitir a navegação entre diferentes seções.
+🎨 Styled-Components para definir os estilos da aplicação.
+⚙️ Vite foi utilizado como ferramenta de desenvolvimento e build.
+      `
+    },
+    {
+      id: 8,
+      title: "Pastelaria Kulik",
+      description: "É com satisfação que apresento um projeto Freelancer desenvolvido para a Pastelaria Kulik, focado em criar uma experiência online moderna, engajadora e otimizada para o usuário.",
+      icon: pastel,
+      tags: ["React", "Styled-Components", "UX/UI", "Design Digital", "Framer-Motion", "Swiper.js", "Responsividade", "Atendimento ao Cliente"],
+      liveUrl: "https://pastelariakulik.com.br",
+      githubUrl: "https://github.com/JexSparrow/pastelaria",
+      githubUrl2: "#",
+      videoUrl: "DZAeVK-Xpt8",
+      details: "Em resumo, o site da Pastelaria Kulik não é apenas uma vitrine online, mas uma ferramenta poderosa para engajar clientes, apresentar seus produtos de forma irresistível e fortalecer a presença digital da marca.",
     },
 
     {
-      id: 6,
-      title: "C.R.U.D - API & Front End",
-      description: "Este é um projeto Full-Stack desenvolvido como uma aplicação de cadastro e gerenciamento de usuários. O sistema implementa o padrão CRUD (Create, Read, Update, Delete) completo, utilizando uma arquitetura moderna e escalável baseada em JavaScript, com foco na estabilidade e comunicação eficiente entre o Front-end e o Back-end.",
-      icon: crud,
-      tags: ["Node.js", "Express", "Axios", "Prisma", "NPM", "MongoDB", "API", "HTML", "CSS", "JavaScript", "UX/UI"],
-      liveUrl: "#",
-      githubUrl: "https://github.com/JexSparrow/CRUD", // Back-end neste caso
-      githubUrl2: "https://github.com/JexSparrow/CRUD-FRONTEND", // Front-end neste caso
-      videoUrl: "U3yRwVCgu3Y",
-      details: `O projeto oferece as seguintes funcionalidades, acessíveis através da interface React:
-
-Cadastro (Create): Criação de novos usuários com campos de Nome, E-mail, Idade e Endereço.
-
-Listagem (Read): Exibição de todos os usuários cadastrados no MongoDB Atlas.
-
-Atualização (Update): Edição de dados de usuários existentes (requer implementação da rota PUT).
-
-Exclusão (Delete): Remoção permanente de um usuário do banco de dados.`
+      id: 9,
+      title: "Rex Fit - Academia",
+      description: "Uma landing page moderna e de alto impacto criada para destacar a identidade da academia com clareza e dinamismo. Com design responsivo para transmitir energia, confiança e movimento.",
+      icon: rex,
+      tags: ["React", "Typescript", "Tailwind", "Framer Motion", "UX/UI", "Design Digital", "Freelancer", "Responsividade"],
+      liveUrl: "https://preview--rex-fit.lovable.app/",
+      githubUrl: "#",
+      githubUrl2: "#",
+      videoUrl: "dQw4w9WgXcQ",
+      details: "Uma landing page moderna e completa, oferecendo uma experiência visual envolvente e responsiva. O projeto destaca os serviços da academia com animações suaves, seções dinâmicas e foco total na conversão do usuário. A página foi criada para transmitir energia, movimento e profissionalismo, fortalecendo a presença digital da marca.",
     },
+    {
+      id: 10,
+      title: "Rex Fit - Academia",
+      description: "Uma landing page moderna e de alto impacto criada para destacar a identidade da academia com clareza e dinamismo. Com design responsivo para transmitir energia, confiança e movimento.",
+      icon: rex,
+      tags: ["React", "Typescript", "Tailwind", "Framer Motion", "UX/UI", "Design Digital", "Freelancer", "Responsividade"],
+      liveUrl: "https://preview--rex-fit.lovable.app/",
+      githubUrl: "#",
+      githubUrl2: "#",
+      videoUrl: "dQw4w9WgXcQ",
+      details: "Uma landing page moderna e completa, oferecendo uma experiência visual envolvente e responsiva. O projeto destaca os serviços da academia com animações suaves, seções dinâmicas e foco total na conversão do usuário. A página foi criada para transmitir energia, movimento e profissionalismo, fortalecendo a presença digital da marca.",
+    },
+
+
   ];
 
-  const displayedProjects = showAll ? projects : projects.slice(0, 3);
+  const displayedProjects = projects.slice(0, projectsToShow);
+  const totalProjects = projects.length;
+  const hasMore = displayedProjects.length < totalProjects;
+
+  // NOVO: Função para rolar até o topo da seção de projetos
+  const scrollToProjects = () => {
+    if (ref.current) {
+      ref.current.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    }
+  };
+
+  const handleLoadMore = () => {
+    if (hasMore) {
+      // Lógica de "Mostrar Mais" (Carrega o próximo lote)
+      setProjectsToShow((prev) => Math.min(prev + PROJECTS_PER_LOAD, totalProjects));
+    } else {
+      // Lógica de "Mostrar Menos" (Volta para 3 projetos)
+      setProjectsToShow(PROJECTS_PER_LOAD);
+
+      // CHAMADA DA FUNÇÃO DE ROLAGEM
+      scrollToProjects();
+    }
+  };
+
 
   return (
     <section id="projects" ref={ref} className="py-20 relative overflow-hidden">
@@ -176,7 +258,7 @@ Exclusão (Delete): Remoção permanente de um usuário do banco de dados.`
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.2 }}
               whileHover={{ y: -10 }}
-              className="glass-card rounded-2xl overflow-hidden hover-glow-cyan cursor-pointer group"
+              className="glass-card rounded-2xl overflow-hidden hover-glow-cyan cursor-pointer group hover:border-b-4 hover:border-cyan-400/90 transition-all/500"
               onClick={() => setSelectedProject(project)}
             >
               {/* Project Icon */}
@@ -257,7 +339,7 @@ Exclusão (Delete): Remoção permanente de um usuário do banco de dados.`
                       Code
                     </Button>
                   )}
-                  
+
                   {project.githubUrl2 && project.githubUrl2 !== "#" && (
                     <Button
                       size="sm"
@@ -269,7 +351,7 @@ Exclusão (Delete): Remoção permanente de um usuário do banco de dados.`
                       }}
                     >
                       <Github className="w-4 h-4 mr-2" />
-                      Code 2
+                      Code ( Back-end )
                     </Button>
                   )}
                 </div>
@@ -280,7 +362,8 @@ Exclusão (Delete): Remoção permanente de um usuário do banco de dados.`
         </div>
 
         {/* Show More Button */}
-        {projects.length > 3 && (
+        {/* Exibe o botão se houver mais projetos para carregar ou se estiver mostrando mais que o inicial */}
+        {totalProjects > PROJECTS_PER_LOAD && (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -289,16 +372,19 @@ Exclusão (Delete): Remoção permanente de um usuário do banco de dados.`
           >
             <Button
               size="lg"
-              onClick={() => setShowAll(!showAll)}
-              className="glass-card neon-border hover-glow px-8 py-6 text-lg font-orbitron"
+              variant="outline"
+              onClick={handleLoadMore}
+              className="glass-card neon-border hover-glow px-8 py-6 text-lg font-orbitron tracking-wider"
             >
-              {showAll ? "Mostrar Menos" : "Mostrar Mais Projetos"}
+              {hasMore
+                ? `Mostrar +${Math.min(PROJECTS_PER_LOAD, totalProjects - displayedProjects.length)}`
+                : "Mostrar Menos"}
               <motion.span
-                animate={{ y: showAll ? [0, -3, 0] : [0, 3, 0] }}
+                animate={{ y: hasMore ? [0, 3, 0] : [0, -3, 0] }}
                 transition={{ duration: 1, repeat: Infinity }}
-                className="ml-2"
+                className="text-2xl"
               >
-                {showAll ? "↑" : "↓"}
+                {hasMore ? "🔻" : "🔺"}
               </motion.span>
             </Button>
           </motion.div>
@@ -314,7 +400,7 @@ Exclusão (Delete): Remoção permanente de um usuário do banco de dados.`
             </DialogTitle>
           </DialogHeader>
 
-          <div className="grid lg:grid-cols-2 gap-12 pt-4 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 items-center">
             {/* Video Section */}
             <div className="space-y-4">
               {selectedProject?.videoUrl && (
@@ -336,7 +422,7 @@ Exclusão (Delete): Remoção permanente de um usuário do banco de dados.`
 
             {/* Info Section */}
             <div className="space-y-6">
-              <DialogDescription className="text-muted-foreground text-lg leading-relaxed whitespace-pre-line">
+              <DialogDescription className="text-muted-foreground text-md leading-relaxed whitespace-pre-line">
                 {selectedProject?.details}
               </DialogDescription>
 
@@ -357,7 +443,7 @@ Exclusão (Delete): Remoção permanente de um usuário do banco de dados.`
                 </div>
               </div>
 
-              {/* NOVO: Action Buttons (Modal) */}
+              {/* Action Buttons (Modal) */}
               <div className="flex flex-col sm:flex-row gap-3 pt-2">
                 {selectedProject?.liveUrl && selectedProject.liveUrl !== "#" && (
                   <Button
