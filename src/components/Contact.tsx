@@ -119,16 +119,17 @@ const Contact = () => {
                 <p className="text-sm text-muted-foreground mb-4 text-center">Me siga nas redes:</p>
                 <div className="flex gap-3 justify-center">
                   {[
-                    { icon: Github, label: "GitHub", url: "https://github.com/jeferson-santos" },
-                    { icon: Linkedin, label: "LinkedIn", url: "#" },
-                    { icon: Instagram, label: "Instagram", url: "#" },
-                    { icon: Mail, label: "E-mail", url: "mailto:jeferson@exemplo.com" },
+                    { icon: Github, label: "GitHub", url: "https://github.com/JexSparrow  " },
+                    { icon: Linkedin, label: "LinkedIn", url: "https://www.linkedin.com/in/jexsantos/" },
+                    { icon: Instagram, label: "Instagram", url: "https://www.instagram.com/jexsantos_" },
+                    { icon: Mail, label: "E-mail", url: "mailto:jexxsantos@hotmail.com" },
                   ].map((social) => (
                     <motion.a
                       key={social.label}
                       href={social.url}
                       target="_blank"
                       rel="noopener noreferrer"
+
                       whileHover={{ scale: 1.2, y: -5 }}
                       className="glass-card p-3 rounded-lg hover-glow group"
                       aria-label={social.label}
