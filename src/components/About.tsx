@@ -133,7 +133,7 @@ const About = () => {
               <BookOpen className="w-7 h-7 md:w-8 md:h-8 text-secondary flex-shrink-0" />
               <p className="text-base md:text-lg text-foreground leading-relaxed text-center md:text-left">
                 <span className="text-xl md:text-2xl text-secondary font-semibold">
-                  Um pouquinho da minha história...
+                  Um pouquinho da minha história ...
                 </span>
               </p>
             </div>

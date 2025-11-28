@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { Mail, MessageSquare, Send, Copy, CheckCircle, Github, Linkedin, Instagram } from "lucide-react";
+import { Mail, MessageSquare, Send, Copy, CheckCircle, Github, Linkedin, Instagram, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -19,7 +19,7 @@ const Contact = () => {
   });
 
   const handleCopyEmail = () => {
-    navigator.clipboard.writeText("jeferson@exemplo.com");
+    navigator.clipboard.writeText("jexxsantos@hotmail.com");
     setCopied(true);
     toast({
       title: "E-mail copiado!",
@@ -30,9 +30,9 @@ const Contact = () => {
 
   const handleWhatsApp = () => {
     const message = encodeURIComponent(
-      `Olá Jeferson! Me chamo ${formData.name}.\n\n${formData.message}`
+      `Olá Jeferson! Me chamo ${formData.name}\n\n${formData.message}`
     );
-    window.open(`https://wa.me/5511999999999?text=${message}`, "_blank");
+    window.open(`https://wa.me/5541999233349?text=${message}`, "_blank");
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -45,7 +45,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" ref={ref} className="py-20 relative overflow-hidden">
+    <section id="contact" ref={ref} className="pt-10 pb-20 relative overflow-hidden">
       {/* Background Effects */}
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
 
@@ -56,15 +56,7 @@ const Contact = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <motion.div
-            className="inline-flex items-center space-x-2 mb-4 glass-card px-4 py-2 rounded-full"
-            whileHover={{ scale: 1.05 }}
-          >
-            <MessageSquare className="w-5 h-5 text-secondary" />
-            <span className="text-secondary text-sm font-medium tracking-wider uppercase">
-              Entre em Contato
-            </span>
-          </motion.div>
+
           <h2 className="text-4xl md:text-5xl font-orbitron font-bold text-glow-purple">
             Vamos Conversar<span className="text-secondary">?</span>
           </h2>
@@ -82,7 +74,7 @@ const Contact = () => {
             className="space-y-6"
           >
             <div className="glass-card p-8 rounded-2xl space-y-6">
-              <h3 className="text-2xl font-orbitron font-bold text-foreground mb-6">
+              <h3 className="text-2xl font-orbitron text-center font-bold text-foreground mb-6">
                 Informações de Contato
               </h3>
 
@@ -96,7 +88,7 @@ const Contact = () => {
                   <Mail className="w-5 h-5 text-secondary" />
                   <div>
                     <p className="text-sm text-muted-foreground">E-mail</p>
-                    <p className="text-foreground font-medium">jeferson@exemplo.com</p>
+                    <p className="text-foreground font-medium">jexxsantos@hotmail.com</p>
                   </div>
                 </div>
                 {copied ? (
@@ -113,7 +105,7 @@ const Contact = () => {
                 onClick={handleWhatsApp}
               >
                 <div className="flex items-center space-x-3">
-                  <MessageSquare className="w-5 h-5 text-secondary" />
+                  <Phone className="w-5 h-5 text-secondary" />
                   <div>
                     <p className="text-sm text-muted-foreground">WhatsApp</p>
                     <p className="text-foreground font-medium">Chamar no WhatsApp</p>
@@ -156,7 +148,7 @@ const Contact = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
           >
             <form onSubmit={handleSubmit} className="glass-card p-8 rounded-2xl space-y-6">
-              <h3 className="text-2xl font-orbitron font-bold text-foreground mb-6">
+              <h3 className="text-2xl font-orbitron font-bold text-center text-foreground mb-6">
                 Envie uma Mensagem
               </h3>
 

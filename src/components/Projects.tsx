@@ -26,6 +26,11 @@ import rex from "@/assets/rex.png";
 import gym from "@/assets/gym.gif";
 import crud from "@/assets/crud.gif";
 import crud2 from "@/assets/crud.png";
+import amazon from "@/assets/amazon.png";
+import netflix2 from "@/assets/netflix2.png";
+import netflix3 from "@/assets/netflix3.png";
+import netflix4 from "@/assets/netflix4.png";
+import starbucks2 from "@/assets/starbucks2.png";
 
 
 interface Project {
@@ -84,12 +89,20 @@ const Projects = () => {
       title: "Rex Fit - Academia",
       description: "Uma landing page moderna e de alto impacto criada para destacar a identidade da academia com clareza e dinamismo. Com design responsivo para transmitir energia, confiança e movimento.",
       icon: rex,
-      tags: ["React", "Typescript", "Tailwind", "Framer Motion", "UX/UI", "Design Digital", "Freelancer", "Responsividade"],
-      liveUrl: "https://preview--rex-fit.lovable.app/",
+      tags: ["React", "Typescript", "Tailwind CSS", "Framer Motion", "UX/UI", "Design Digital", "Freelancer", "Responsividade"],
+      liveUrl: "https://rexfit.netlify.app",
       githubUrl: "#",
       githubUrl2: "#",
-      videoUrl: "dQw4w9WgXcQ",
-      details: "Uma landing page moderna e completa, oferecendo uma experiência visual envolvente e responsiva. O projeto destaca os serviços da academia com animações suaves, seções dinâmicas e foco total na conversão do usuário. A página foi criada para transmitir energia, movimento e profissionalismo, fortalecendo a presença digital da marca.",
+      videoUrl: "UiVjCaem9Ag",
+      details: `
+        O site foi desenvolvido como uma Single Page Application (SPA) com design moderno, agressivo e esportivo, utilizando uma identidade visual marcante.
+      
+        🏆 Apresentar a marca e seus valores
+        🛠️ Mostrar os serviços oferecidos
+        🏠 Exibir as instalações e ambiente
+        📍 Facilitar o contato com múltiplas unidades
+        💰 Converter visitantes em clientes através de CTAs estratégicos
+      `,
     },
     {
       id: 4,
@@ -143,57 +156,72 @@ const Projects = () => {
     },
     {
       id: 7,
-      title: "Dev Burguer - Full Stack",
-      description: "Plataforma de e-commerce com design moderno e animações interativas. Totalmente funcional e escalável.",
-      icon: burguer,
-      tags: ["React", "Javascript", "Styled-Components", "Vite", "Figma", "Node.js", "MVC", "CRUD", "PostgreSQL", "MongoDB", "Docker", "API", "Hooks", "Toasts", "Projeto Educacional"],
-      githubUrl: "https://github.com/JexSparrow/devburguer-interface",
-      githubUrl2: "https://github.com/JexSparrow/devburger-api",
-      videoUrl: "L56P5vfA688",
+      title: "Amazon Scraper - API & Front End",
+      description: " O projeto é uma aplicação Full-Stack desenvolvida para extrair dados de produtos da Amazon com base em uma palavra-chave fornecida pelo usuário.",
+      icon: amazon,
+      tags: ["Full Stack", "TypeScript", "HTML", "CSS", "JavaScript", "API", "Desafio Técnico"],
+      githubUrl: "https://github.com/JexSparrow/AMAZON-SCRAPER",
+      githubUrl2: "#",
+      videoUrl: "MMVZ0qwG8Xc",
       details: `
-♻️ Componentes reutilizáveis para construir a interface de forma modular. Hooks e Context API para gerenciar o estado e compartilhar dados.
-🌐 Roteamento para permitir a navegação entre diferentes seções.
-🎨 Styled-Components para definir os estilos da aplicação.
-⚙️ Vite foi utilizado como ferramenta de desenvolvimento e build.
+      🎯 Desenvolvimento de uma solução Full-Stack para extrair dados em tempo real da Amazon, buscando produtos com base em palavras-chave.
+      ⚡️ Construído com Express.js e TypeScript, executado no runtime de alta performance Bun, para processar requisições.
+      ✨ Interface de usuário (HTML/CSS/JS) para input de busca e visualização dinâmica dos resultados da API.
+      🚀 Projeto Educacional feito para um Desafio Técnico.
       `
     },
     {
       id: 8,
-      title: "Pastelaria Kulik",
-      description: "É com satisfação que apresento um projeto Freelancer desenvolvido para a Pastelaria Kulik, focado em criar uma experiência online moderna, engajadora e otimizada para o usuário.",
-      icon: pastel,
-      tags: ["React", "Styled-Components", "UX/UI", "Design Digital", "Framer-Motion", "Swiper.js", "Responsividade", "Atendimento ao Cliente"],
-      liveUrl: "https://pastelariakulik.com.br",
-      githubUrl: "https://github.com/JexSparrow/pastelaria",
+      title: "Netflix - Landing Page",
+      description: "Prepare-se para ser fisgado desde o primeiro instante! Esta landing page te convida a explorar o universo Netflix de uma maneira totalmente nova.",
+      icon: netflix4,
+      tags: ["JavaScript", "HTML", "CSS", "Animações", "Responsividade", "Projeto Educacional", "Tudum"],
+      liveUrl: "https://flixnet-landing-page.netlify.app/",
+      githubUrl: "https://github.com/JexSparrow/Netflix",
       githubUrl2: "#",
-      videoUrl: "DZAeVK-Xpt8",
-      details: "Em resumo, o site da Pastelaria Kulik não é apenas uma vitrine online, mas uma ferramenta poderosa para engajar clientes, apresentar seus produtos de forma irresistível e fortalecer a presença digital da marca.",
+      videoUrl: "G9AlWxAKwC0",
+      details: `
+      🎬 Um vídeo de fundo de "Stranger Things" te transporta para a ação.
+      📚 Um botão "Mais Informações" abre uma janela modal sofisticada, revelando sinopses detalhadas.
+      🆕 Um carrossel dinâmico apresenta os principais lançamentos, despertando sua curiosidade para a próxima sessão.
+      📱 Adaptável a Tudo: A experiência se adapta perfeitamente a qualquer tela, do computador à palma da sua mão.
+      `
+
     },
 
     {
       id: 9,
-      title: "Rex Fit - Academia",
-      description: "Uma landing page moderna e de alto impacto criada para destacar a identidade da academia com clareza e dinamismo. Com design responsivo para transmitir energia, confiança e movimento.",
-      icon: rex,
-      tags: ["React", "Typescript", "Tailwind", "Framer Motion", "UX/UI", "Design Digital", "Freelancer", "Responsividade"],
-      liveUrl: "https://preview--rex-fit.lovable.app/",
-      githubUrl: "#",
+      title: "Starbucks - Landing Page",
+      description: "Este projeto consiste na criação de uma landing page temática da Starbucks, desenvolvida para fins de portfólio no Dev Club. O objetivo principal é ilustrar o poder da interatividade no Front-end usando JavaScript, HTML e CSS.",
+      icon: starbucks2,
+      tags: ["JavaScript", "HTML", "CSS", "Responsividade", "Projeto Educacional"],
+      liveUrl: "https://buckstar-landing-page.netlify.app/",
+      githubUrl: "#https://github.com/JexSparrow/Starbucks",
       githubUrl2: "#",
-      videoUrl: "dQw4w9WgXcQ",
-      details: "Uma landing page moderna e completa, oferecendo uma experiência visual envolvente e responsiva. O projeto destaca os serviços da academia com animações suaves, seções dinâmicas e foco total na conversão do usuário. A página foi criada para transmitir energia, movimento e profissionalismo, fortalecendo a presença digital da marca.",
+      videoUrl: "L37G1UPGVag",
+      details: `
+      🎯 Uma landing page interativa inspirada na Starbucks!
+      🎨 Personalização Dinâmica: Usuários podem personalizar visualmente sua bebida, alterando cores da interface e a imagem do copo em tempo real.
+      💡 Foco: Destacar a interatividade do JavaScript, enriquecendo a experiência do usuário e a identidade visual da marca.
+      🎓 Realização: Projeto desenvolvido no Dev Club.  
+      `
     },
     {
       id: 10,
-      title: "Rex Fit - Academia",
-      description: "Uma landing page moderna e de alto impacto criada para destacar a identidade da academia com clareza e dinamismo. Com design responsivo para transmitir energia, confiança e movimento.",
-      icon: rex,
-      tags: ["React", "Typescript", "Tailwind", "Framer Motion", "UX/UI", "Design Digital", "Freelancer", "Responsividade"],
-      liveUrl: "https://preview--rex-fit.lovable.app/",
-      githubUrl: "#",
+      title: "Super Mario Bros",
+      description: "Prepare-se para uma viagem no tempo inesquecível! Esta landing page te transporta diretamente para o universo vibrante e divertido de Mario e Luigi, com uma dose extra de profissionalismo encanador!",
+      icon: mario,
+      tags: ["JavaScript", "CSS", "HTML", "CTA", "Responsividade", "Projeto Educacional",],
+      liveUrl: "https://mario-landing-page-jex.netlify.app/",
+      githubUrl: "https://github.com/JexSparrow/Mario",
       githubUrl2: "#",
-      videoUrl: "dQw4w9WgXcQ",
-      details: "Uma landing page moderna e completa, oferecendo uma experiência visual envolvente e responsiva. O projeto destaca os serviços da academia com animações suaves, seções dinâmicas e foco total na conversão do usuário. A página foi criada para transmitir energia, movimento e profissionalismo, fortalecendo a presença digital da marca.",
-    },
+      videoUrl: "deo4fPfZ_cw",
+      details: `
+        🎬  Um vídeo de fundo nostálgico para transportar o usuário diretamente para o universo de Mario e Luigi.
+        ✍️ Formulário Deslizante: Um botão de contato aciona um formulário amigável que se apresenta na tela com uma animação, facilitando a solicitação de serviço.
+        ⚡️ Acesso Rápido: Inclui um atalho direto para o WhatsApp para garantir um contato imediato e eficiente.
+        📱 Responsividade: Design totalmente adaptável a dispositivos móveis, assegurando uma experiência perfeita em qualquer tela.
+      `},
 
 
   ];
@@ -244,7 +272,7 @@ const Projects = () => {
           >
             <Rocket className="w-8 h-8"></Rocket>
             <span className="text-secondary text-2xl font-bold tracking-wider uppercase">
-              Principais Projetos
+              Projetos Principais
             </span>
           </motion.div>
 
