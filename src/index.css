@@ -254,7 +254,7 @@ All colors MUST be HSL.
   .animate-scroll-left:hover,
   .animate-scroll-right:hover,
   .animate-scroll-left-slow:hover {
-    animation-duration: 60s;
+    animation-play-state: paused;
   }
 
 }
