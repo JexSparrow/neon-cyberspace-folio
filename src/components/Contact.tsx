@@ -35,12 +35,17 @@ const Contact = () => {
     setTimeout(() => setCopied(false), 2000);
   };
 
+
   const handleWhatsApp = () => {
     const message = encodeURIComponent(
       `Olá Jeferson! Me chamo ${formData.name}\n\n${formData.message}`
     );
+
     window.open(`https://wa.me/5541999233349?text=${message}`, "_blank");
   };
+
+
+
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -70,7 +75,7 @@ const Contact = () => {
       );
 
       toast({
-        title: "Mensagem enviada! ✨",
+        title: "Mensagem enviada! 📧 ",
         description: "Obrigado pelo contato. Responderei em breve!",
       });
       setFormData({ name: "", email: "", message: "" });
@@ -176,7 +181,7 @@ const Contact = () => {
                       className="glass-card p-3 rounded-lg hover-glow group"
                       aria-label={social.label}
                     >
-                      <social.icon className="w-5 h-5 text-secondary group-hover:text-primary transition-colors" />
+                      <social.icon className="w-5 h-5 text-secondary group-hover:text-accent transition-colors" />
                     </motion.a>
                   ))}
                 </div>

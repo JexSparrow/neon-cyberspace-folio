@@ -1,15 +1,15 @@
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { useRef, useState } from "react";
-import { 
-  ChevronDown, 
-  Code2, 
-  Clock, 
-  Headphones, 
-  Workflow, 
-  Briefcase, 
-  User, 
+import {
+  ChevronDown,
+  Code2,
+  Clock,
+  Headphones,
+  Workflow,
+  Briefcase,
+  User,
   Rocket,
-  LucideIcon 
+  LucideIcon
 } from "lucide-react";
 
 interface FAQItem {
@@ -113,7 +113,7 @@ const FAQ = () => {
                         }`}
                     >
                       <faq.icon
-                        className={`w-5 h-5 transition-colors duration-300 ${openIndex === index ? "text-secondary" : "text-primary"
+                        className={`w-5 h-5 transition-colors duration-300 ${openIndex === index ? "text-secondary" : "text-accent"
                           }`}
                       />
                     </motion.div>
@@ -128,7 +128,7 @@ const FAQ = () => {
                       }`}
                   >
                     <ChevronDown
-                      className={`w-5 h-5 transition-colors duration-300 ${openIndex === index ? "text-secondary" : "text-muted-foreground"
+                      className={`w-5 h-5 transition-colors duration-300 ${openIndex === index ? "text-secondary" : "text-yellow"
                         }`}
                     />
                   </motion.div>
@@ -144,7 +144,7 @@ const FAQ = () => {
                       className="overflow-hidden"
                     >
                       <div className="px-5 md:px-6 pb-5 md:pb-6 pt-0">
-                        <div className="pl-14 border-l-2 border-secondary/30 ml-2">
+                        <div className="px-10 border-l-2 border-secondary/30 ml-4">
                           <p className="text-muted-foreground text-sm md:text-base leading-relaxed pl-4">
                             {faq.answer}
                           </p>
@@ -168,8 +168,10 @@ const FAQ = () => {
           <p className="text-muted-foreground text-sm">
             Não encontrou sua dúvida?{" "}
             <a
-              href="#contact"
-              className="text-secondary hover:text-secondary/80 transition-colors underline underline-offset-4"
+              className="text-secondary hover:text-accent transition-all underline underline-offset-4"
+              href="https://wa.me/5541999233349"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               Entre em contato
             </a>
