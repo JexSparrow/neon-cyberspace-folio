@@ -10,7 +10,7 @@ import emailjs from "@emailjs/browser";
 
 // EmailJS credentials (public keys - safe for frontend)
 const EMAILJS_SERVICE_ID = "service_jodzki1";
-const EMAILJS_TEMPLATE_ID = "oxr72OUhbHbnJzivn";
+const EMAILJS_TEMPLATE_ID = "template_26n1x3e";
 const EMAILJS_PUBLIC_KEY = "oxr72OUhbHbnJzivn";
 
 const Contact = () => {
@@ -26,7 +26,7 @@ const Contact = () => {
   });
 
   const handleCopyEmail = () => {
-    navigator.clipboard.writeText("jexxsantos@hotmail.com");
+    navigator.clipboard.writeText("contato@jefersondev.com");
     setCopied(true);
     toast({
       title: "E-mail copiado!",
@@ -130,7 +130,7 @@ const Contact = () => {
                   <Mail className="w-5 h-5 text-secondary" />
                   <div>
                     <p className="text-sm text-muted-foreground">E-mail</p>
-                    <p className="text-foreground font-medium">jexxsantos@hotmail.com</p>
+                    <p className="text-foreground font-medium">contato@jefersondev.com</p>
                   </div>
                 </div>
                 {copied ? (
@@ -164,7 +164,7 @@ const Contact = () => {
                     { icon: Github, label: "GitHub", url: "https://github.com/JexSparrow  " },
                     { icon: Linkedin, label: "LinkedIn", url: "https://www.linkedin.com/in/jexsantos/" },
                     { icon: Instagram, label: "Instagram", url: "https://www.instagram.com/jexsantos_" },
-                    { icon: Mail, label: "E-mail", url: "mailto:jexxsantos@hotmail.com" },
+                    { icon: Mail, label: "E-mail", url: "mailto:contato@jefersondev.com" },
                   ].map((social) => (
                     <motion.a
                       key={social.label}
@@ -183,6 +183,8 @@ const Contact = () => {
               </div>
             </div>
           </motion.div>
+
+
 
           {/* Contact Form */}
           <motion.div
