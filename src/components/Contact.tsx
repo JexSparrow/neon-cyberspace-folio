@@ -58,7 +58,7 @@ const Contact = () => {
         >
 
           <h2 className="text-4xl md:text-5xl font-orbitron font-bold text-glow-purple">
-            Vamos Conversar<span className="text-secondary">?</span>
+            Vamos Conversar <span className="text-secondary">?</span>
           </h2>
           <p className="text-muted-foreground mt-4 text-lg max-w-2xl mx-auto">
             Estou sempre aberto a novos projetos e oportunidades. Entre em contato!

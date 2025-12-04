@@ -15,7 +15,7 @@ const FAQ = () => {
   const faqs: FAQItem[] = [
     {
       question: "Quais tecnologias você utiliza nos projetos?",
-      answer: "Trabalho principalmente com React, TypeScript, Tailwind CSS e Node.js. Também tenho experiência com bancos de dados como PostgreSQL e MongoDB, além de ferramentas como Docker e Git para versionamento e deploy.",
+      answer: "Trabalho principalmente com React, JavaScript, TypeScript, HTML, CSS, Styled-Components, Tailwind CSS e Node.js. Também tenho experiência com bancos de dados como PostgreSQL e MongoDB, além de ferramentas como Docker e Git/Github para versionamento e deploy.",
     },
     {
       question: "Quanto tempo leva para desenvolver um projeto?",
@@ -33,6 +33,18 @@ const FAQ = () => {
       question: "Você trabalha com projetos de qualquer tamanho?",
       answer: "Sim! Atendo desde pequenos projetos pessoais até aplicações empresariais maiores. Cada projeto é único e recebe a mesma dedicação e atenção aos detalhes, independentemente do tamanho.",
     },
+    {
+      question: "Me conte um pouco sobre você",
+      answer: "Tenho 32 anos e sou apaixonado por tecnologia e Desenvolvimento Web. Moro em Curitiba-PR e atuo como Desenvolvedor Front-End, realizando projetos freelance e contribuindo na @Flaterz (Inglaterra), onde colaboro com o time no desenvolvimento de aplicações para clientes internacionais.",
+    },
+    {
+      question: "Como entrou no Mundo da Programação?",
+      answer: "Sempre fui apaixonado por criar, especialmente desenhar, minha forma favorita de expressar idéias e dar vida à imaginação. Na programação, descobri uma maneira de unir essa criatividade com lógica, transformando conceitos em experiências digitais. Iniciei a faculdade de Design Digital na PUC-PR em 2013, mas não concluí. Já em 2023, decidi mergulhar de vez na tecnologia ao começar o curso de Programação Full Stack - Dev Club, onde aprendi HTML, CSS, JavaScript e React. Desde então, sigo me aprofundando cada vez mais nesse universo fascinante.",
+    },
+
+
+
+
   ];
 
   const toggleFAQ = (index: number) => {
@@ -52,16 +64,9 @@ const FAQ = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <motion.div
-            className="inline-flex items-center space-x-2 mb-4 glass-card px-4 py-2 rounded-full"
-            whileHover={{ scale: 1.05 }}
-          >
-            <HelpCircle className="w-6 h-6 text-secondary" />
-            <span className="text-secondary text-lg font-semibold tracking-wider uppercase">FAQ</span>
-          </motion.div>
 
           <h2 className="text-4xl md:text-5xl font-orbitron font-bold text-glow-purple">
-            Dúvidas Frequentes<span className="text-secondary">?</span>
+            Ficou Alguma Dúvida <span className="text-secondary">?</span>
           </h2>
           <p className="text-muted-foreground mt-4 text-lg max-w-2xl mx-auto">
             Confira as perguntas mais comuns sobre meus serviços e processo de trabalho.
@@ -77,11 +82,10 @@ const FAQ = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
               <div
-                className={`glass-card rounded-xl overflow-hidden transition-all duration-300 ${
-                  openIndex === index
-                    ? "border border-secondary/50 shadow-[0_0_20px_rgba(0,240,255,0.2)]"
-                    : "border border-transparent hover:border-primary/30"
-                }`}
+                className={`glass-card rounded-xl overflow-hidden transition-all duration-300 ${openIndex === index
+                  ? "border border-secondary/50 shadow-[0_0_20px_rgba(0,240,255,0.2)]"
+                  : "border border-transparent hover:border-primary/30"
+                  }`}
               >
                 <button
                   onClick={() => toggleFAQ(index)}
@@ -91,14 +95,12 @@ const FAQ = () => {
                     <motion.div
                       animate={{ rotate: openIndex === index ? 360 : 0 }}
                       transition={{ duration: 0.3 }}
-                      className={`p-2 rounded-lg transition-colors duration-300 ${
-                        openIndex === index ? "bg-secondary/20" : "bg-primary/20"
-                      }`}
+                      className={`p-2 rounded-lg transition-colors duration-300 ${openIndex === index ? "bg-secondary/20" : "bg-primary/20"
+                        }`}
                     >
                       <Sparkles
-                        className={`w-5 h-5 transition-colors duration-300 ${
-                          openIndex === index ? "text-secondary" : "text-primary"
-                        }`}
+                        className={`w-5 h-5 transition-colors duration-300 ${openIndex === index ? "text-secondary" : "text-primary"
+                          }`}
                       />
                     </motion.div>
                     <span className="text-foreground font-medium text-sm md:text-base pr-4">
@@ -108,14 +110,12 @@ const FAQ = () => {
                   <motion.div
                     animate={{ rotate: openIndex === index ? 180 : 0 }}
                     transition={{ duration: 0.3 }}
-                    className={`flex-shrink-0 p-1 rounded-full transition-colors duration-300 ${
-                      openIndex === index ? "bg-secondary/20" : "bg-muted/50"
-                    }`}
+                    className={`flex-shrink-0 p-1 rounded-full transition-colors duration-300 ${openIndex === index ? "bg-secondary/20" : "bg-muted/50"
+                      }`}
                   >
                     <ChevronDown
-                      className={`w-5 h-5 transition-colors duration-300 ${
-                        openIndex === index ? "text-secondary" : "text-muted-foreground"
-                      }`}
+                      className={`w-5 h-5 transition-colors duration-300 ${openIndex === index ? "text-secondary" : "text-muted-foreground"
+                        }`}
                     />
                   </motion.div>
                 </button>
