@@ -139,11 +139,11 @@ const TechStack = () => {
         >
           <motion.div
             initial={{ opacity: 0 }}
-            animate={
+          animate={
               isInView
                 ? {
                   opacity: 1,
-                  x: [0, "-100%"],
+                  x: ["0%", "-50%"],
                 }
                 : { opacity: 0 }
             }
@@ -170,11 +170,11 @@ const TechStack = () => {
         >
           <motion.div
             initial={{ opacity: 0 }}
-            animate={
+          animate={
               isInView
                 ? {
                   opacity: 1,
-                  x: ["-100%", 0],
+                  x: ["-50%", "0%"],
                 }
                 : { opacity: 0 }
             }
@@ -201,11 +201,11 @@ const TechStack = () => {
         >
           <motion.div
             initial={{ opacity: 0 }}
-            animate={
+          animate={
               isInView
                 ? {
                   opacity: 1,
-                  x: [0, "-100%"],
+                  x: ["0%", "-50%"],
                 }
                 : { opacity: 0 }
             }
