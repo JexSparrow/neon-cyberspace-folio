@@ -33,6 +33,7 @@ const Footer = () => {
               { label: "Sobre Mim", id: "about" },
               { label: "Tecnologias", id: "tech" },
               { label: "Projetos", id: "projects" },
+              { label: "FAQ", id: "faq" },
               { label: "Contato", id: "contact" },
             ].map((link) => (
               <button

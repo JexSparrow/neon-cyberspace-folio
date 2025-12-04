@@ -27,6 +27,7 @@ const Navbar: React.FC = () => {
     { label: "Sobre Mim", id: "about" },
     { label: "Tecnologias", id: "tech" },
     { label: "Projetos", id: "projects" },
+    { label: "FAQ", id: "faq" },
     { label: "Contato", id: "contact" },
   ];
 
@@ -85,18 +86,18 @@ const Navbar: React.FC = () => {
           <div className="hidden md:flex items-center space-x-4">
             <Button
               variant="outline"
-              size="icon-lg"
+
               className="neon-border"
               onClick={() => window.open("https://github.com/JexSparrow", "_blank")}>
-              <Github className="!w-8 !h-8" />
+              <Github className="!w-6 !h-6" />
             </Button>
 
             <Button
               variant="outline"
-              size="icon-lg"
+
               className="neon-border"
               onClick={() => window.open("https://linkedin.com/in/jexsantos/", "_blank")}>
-              <Linkedin className="!w-8 !h-8" />
+              <Linkedin className="!w-5 !h-5" />
             </Button>
 
             <Button asChild variant="outline" size="sm" className="neon-border">

@@ -241,7 +241,7 @@ const Contact = () => {
                 <Textarea
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  placeholder="Conte-me sobre seu projeto..."
+                  placeholder="Conte-me sobre sua idéia..."
                   required
                   disabled={isLoading}
                   rows={5}
@@ -254,6 +254,7 @@ const Contact = () => {
                 disabled={isLoading}
                 className="w-full bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-lg py-6 disabled:opacity-50"
                 size="lg"
+
               >
                 {isLoading ? (
                   <>
