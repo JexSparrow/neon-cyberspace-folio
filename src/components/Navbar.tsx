@@ -85,18 +85,18 @@ const Navbar: React.FC = () => {
           <div className="hidden md:flex items-center space-x-4">
             <Button
               variant="outline"
-              size="sm"
+              size="icon-lg"
               className="neon-border"
               onClick={() => window.open("https://github.com/JexSparrow", "_blank")}>
-              <Github className="w-5 h-5" />
+              <Github className="!w-8 !h-8" />
             </Button>
 
             <Button
               variant="outline"
-              size="sm"
-              className="neon-border w-full"
+              size="icon-lg"
+              className="neon-border"
               onClick={() => window.open("https://linkedin.com/in/jexsantos/", "_blank")}>
-              <Linkedin className="w-5 h-5" />
+              <Linkedin className="!w-8 !h-8" />
             </Button>
 
             <Button asChild variant="outline" size="sm" className="neon-border">
