@@ -1,17 +1,24 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { Mail, MessageSquare, Send, Copy, CheckCircle, Github, Linkedin, Instagram, Phone } from "lucide-react";
+import { Mail, MessageSquare, Send, Copy, CheckCircle, Github, Linkedin, Instagram, Phone, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import emailjs from "@emailjs/browser";
+
+// EmailJS credentials (public keys - safe for frontend)
+const EMAILJS_SERVICE_ID = "service_jodzki1";
+const EMAILJS_TEMPLATE_ID = "oxr72OUhbHbnJzivn";
+const EMAILJS_PUBLIC_KEY = "oxr72OUhbHbnJzivn";
 
 const Contact = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
   const { toast } = useToast();
   const [copied, setCopied] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -35,13 +42,48 @@ const Contact = () => {
     window.open(`https://wa.me/5541999233349?text=${message}`, "_blank");
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Mensagem enviada!",
-      description: "Obrigado pelo contato. Responderei em breve!",
-    });
-    setFormData({ name: "", email: "", message: "" });
+
+    // Basic validation
+    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+      toast({
+        title: "Campos obrigatórios",
+        description: "Por favor, preencha todos os campos.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsLoading(true);
+
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          name: formData.name,
+          email: formData.email,
+          title: formData.message,
+        },
+        EMAILJS_PUBLIC_KEY
+      );
+
+      toast({
+        title: "Mensagem enviada! ✨",
+        description: "Obrigado pelo contato. Responderei em breve!",
+      });
+      setFormData({ name: "", email: "", message: "" });
+    } catch (error) {
+      console.error("EmailJS Error:", error);
+      toast({
+        title: "Erro ao enviar",
+        description: "Tente novamente ou entre em contato pelo WhatsApp.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -160,7 +202,8 @@ const Contact = () => {
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   placeholder="Seu nome"
                   required
-                  className="bg-background/50 border border-[#00f0ff]/50 shadow-[0_0_10px_rgba(0,240,255,0.3)] focus:border-[#00f0ff] focus:shadow-[0_0_20px_rgba(0,240,255,0.5)] transition-all duration-300"
+                  disabled={isLoading}
+                  className="bg-background/50 border border-[#00f0ff]/50 shadow-[0_0_10px_rgba(0,240,255,0.3)] focus:border-[#00f0ff] focus:shadow-[0_0_20px_rgba(0,240,255,0.5)] transition-all duration-300 disabled:opacity-50"
                 />
               </div>
 
@@ -172,7 +215,8 @@ const Contact = () => {
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   placeholder="seu@email.com"
                   required
-                  className="bg-background/50 border border-[#00f0ff]/50 shadow-[0_0_10px_rgba(0,240,255,0.3)] focus:border-[#00f0ff] focus:shadow-[0_0_20px_rgba(0,240,255,0.5)] transition-all duration-300"
+                  disabled={isLoading}
+                  className="bg-background/50 border border-[#00f0ff]/50 shadow-[0_0_10px_rgba(0,240,255,0.3)] focus:border-[#00f0ff] focus:shadow-[0_0_20px_rgba(0,240,255,0.5)] transition-all duration-300 disabled:opacity-50"
                 />
               </div>
 
@@ -183,18 +227,29 @@ const Contact = () => {
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   placeholder="Conte-me sobre seu projeto..."
                   required
+                  disabled={isLoading}
                   rows={5}
-                  className="custom-scrollbar bg-background/50 border border-[#00f0ff]/50 shadow-[0_0_10px_rgba(0,240,255,0.3)] focus:border-[#00f0ff] focus:shadow-[0_0_20px_rgba(0,240,255,0.5)] transition-all duration-300 resize-none"
+                  className="custom-scrollbar bg-background/50 border border-[#00f0ff]/50 shadow-[0_0_10px_rgba(0,240,255,0.3)] focus:border-[#00f0ff] focus:shadow-[0_0_20px_rgba(0,240,255,0.5)] transition-all duration-300 resize-none disabled:opacity-50"
                 />
               </div>
 
               <Button
                 type="submit"
-                className="w-full bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-lg py-6"
+                disabled={isLoading}
+                className="w-full bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-lg py-6 disabled:opacity-50"
                 size="lg"
               >
-                <Send className="w-5 h-5 mr-2" />
-                Enviar Mensagem
+                {isLoading ? (
+                  <>
+                    <Loader2 className="w-5 h-5 mr-2 animate-spin" />
+                    Enviando...
+                  </>
+                ) : (
+                  <>
+                    <Send className="w-5 h-5 mr-2" />
+                    Enviar Mensagem
+                  </>
+                )}
               </Button>
             </form>
           </motion.div>
