@@ -1,5 +1,5 @@
 import { motion, useInView } from "framer-motion";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import {
   Code2,
   Palette,
@@ -40,7 +40,6 @@ interface Tech {
 const TechStack = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
-  const [hoveredSlide, setHoveredSlide] = useState<number | null>(null);
 
   const slide1: Tech[] = [
     { name: "HTML5", icon: Code2, description: "Estrutura semântica e acessível", color: "text-orange-400" },
@@ -132,93 +131,39 @@ const TechStack = () => {
         </motion.div>
 
         {/* Slide 1 - Right to Left */}
-        <div
-          className="relative py-2 md:py-4 overflow-hidden mb-2 md:mb-4 slide-mask"
-          onMouseEnter={() => setHoveredSlide(1)}
-          onMouseLeave={() => setHoveredSlide(null)}
-        >
+        <div className="relative py-2 md:py-4 overflow-hidden mb-2 md:mb-4 slide-mask">
           <motion.div
             initial={{ opacity: 0 }}
-          animate={
-              isInView
-                ? {
-                  opacity: 1,
-                  x: ["0%", "-50%"],
-                }
-                : { opacity: 0 }
-            }
-            transition={{
-              opacity: { duration: 0.6 },
-              x: {
-                duration: hoveredSlide === 1 ? 60 : 30,
-                repeat: Infinity,
-                ease: "linear",
-                repeatType: "loop",
-              },
-            }}
-            className="flex"
+            animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+            transition={{ duration: 0.6 }}
+            className="flex animate-scroll-left"
+            style={{ width: 'fit-content' }}
           >
             {[...slide1, ...slide1].map((tech, index) => renderTechCard(tech, 1, index))}
           </motion.div>
         </div>
 
         {/* Slide 2 - Left to Right */}
-        <div
-          className="relative py-2 md:py-4 overflow-hidden mb-2 md:mb-4 slide-mask"
-          onMouseEnter={() => setHoveredSlide(2)}
-          onMouseLeave={() => setHoveredSlide(null)}
-        >
+        <div className="relative py-2 md:py-4 overflow-hidden mb-2 md:mb-4 slide-mask">
           <motion.div
             initial={{ opacity: 0 }}
-          animate={
-              isInView
-                ? {
-                  opacity: 1,
-                  x: ["-50%", "0%"],
-                }
-                : { opacity: 0 }
-            }
-            transition={{
-              opacity: { duration: 0.6, delay: 0.2 },
-              x: {
-                duration: hoveredSlide === 2 ? 60 : 30,
-                repeat: Infinity,
-                ease: "linear",
-                repeatType: "loop",
-              },
-            }}
-            className="flex"
+            animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="flex animate-scroll-right"
+            style={{ width: 'fit-content' }}
           >
             {[...slide2, ...slide2].map((tech, index) => renderTechCard(tech, 2, index))}
           </motion.div>
         </div>
 
         {/* Slide 3 - Right to Left */}
-        <div
-          className="relative py-2 md:py-4 overflow-hidden slide-mask"
-          onMouseEnter={() => setHoveredSlide(3)}
-          onMouseLeave={() => setHoveredSlide(null)}
-        >
+        <div className="relative py-2 md:py-4 overflow-hidden slide-mask">
           <motion.div
             initial={{ opacity: 0 }}
-          animate={
-              isInView
-                ? {
-                  opacity: 1,
-                  x: ["0%", "-50%"],
-                }
-                : { opacity: 0 }
-            }
-            transition={{
-              opacity: { duration: 0.6, delay: 0.4 },
-              x: {
-                duration: hoveredSlide === 3 ? 70 : 35,
-                repeat: Infinity,
-                ease: "linear",
-                repeatType: "loop",
-              },
-            }}
-            className="flex"
+            animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="flex animate-scroll-left-slow"
+            style={{ width: 'fit-content' }}
           >
             {[...slide3, ...slide3].map((tech, index) => renderTechCard(tech, 3, index))}
           </motion.div>
