@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { Mail, MessageSquare, Send, Copy, CheckCircle, Github, Linkedin, Instagram, Phone, Loader2 } from "lucide-react";
+import { Mail, MessageSquare, Send, Copy, CheckCircle, Github, Linkedin, Instagram, Phone, Loader2, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -180,6 +180,15 @@ const Contact = () => {
                     </motion.a>
                   ))}
                 </div>
+              </div>
+
+              <div className="pt-6 border-t border-primary/20">
+                <div className="flex gap-4 justify-center">
+                  <Clock className="w-6 h-6 text-secondary" />
+                  <p className="text-md font-semibold text-foreground mb-4 text-center">Sua mensagem será respondida em até 24h</p>
+
+                </div>
+
               </div>
             </div>
           </motion.div>
