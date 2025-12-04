@@ -88,7 +88,7 @@ const Navbar: React.FC = () => {
               size="sm"
               className="neon-border"
               onClick={() => window.open("https://github.com/JexSparrow", "_blank")}>
-              <Github />
+              <Github className="w-5 h-5" />
             </Button>
 
             <Button
@@ -96,13 +96,12 @@ const Navbar: React.FC = () => {
               size="sm"
               className="neon-border w-full"
               onClick={() => window.open("https://linkedin.com/in/jexsantos/", "_blank")}>
-              <Linkedin />
+              <Linkedin className="w-5 h-5" />
             </Button>
 
             <Button asChild variant="outline" size="sm" className="neon-border">
               <a href="/Jeferson-Santos.pdf" download="Jeferson-Santos.pdf">
-                <Download className="mr-2" />
-
+                <Download className="w-5 h-5 mr-2" />
                 Download CV
               </a>
             </Button>
