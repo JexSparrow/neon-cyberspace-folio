@@ -441,13 +441,15 @@ const Projects = () => {
         )}
       </div>
 
-      {/* Project Detail Modal */}
-      {/* Project Detail Modal (RESPONSIVO) */}
+      {/* Project Detail Modal (com close visível no canto superior direito e bordas mobile) */}
       <Dialog open={!!selectedProject} onOpenChange={() => setSelectedProject(null)}>
         <DialogContent
-          className="
+          className={`
+      relative
       glass-card
       border-primary/30
+      border-2            /* borda visível por padrão (mobile) */
+      rounded-lg
       max-w-full
       sm:max-w-2xl
       md:max-w-4xl
@@ -455,13 +457,40 @@ const Projects = () => {
 
       w-[95%] sm:w-[90%] md:w-[85%]
 
-      max-h-[80vh]   /* limita a altura na tela pequena */
+      max-h-[80vh]
       overflow-y-auto
       shadow-cyan
 
       p-4 sm:p-6 lg:p-8
-    "
+    `}
         >
+          {/* Close button (visível e destacado no canto superior direito) */}
+          <button
+            type="button"
+            onClick={() => setSelectedProject(null)}
+            aria-label="Fechar modal"
+            className="
+        absolute top-3 right-3 z-50
+
+        /* estilos maiores e mais visíveis no mobile */
+        bg-primary/95 text-background
+        p-2 rounded-full shadow-lg
+        flex items-center justify-center
+
+        sm:top-4 sm:right-4 sm:p-2
+
+        hover:scale-105 active:scale-95
+        transition-transform duration-150
+      "
+          >
+            {/* Ícone simples 'X' - legível em qualquer contexto */}
+            <span className="sr-only">Fechar</span>
+            <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          </button>
+
           <DialogHeader className="mb-2 sm:mb-4">
             <DialogTitle
               className="
@@ -492,7 +521,6 @@ const Projects = () => {
                   </div>
                 </div>
               ) : (
-                // fallback: imagem ou espaço vazio
                 <div className="w-full h-48 sm:h-56 md:h-64 bg-background/30 rounded-lg flex items-center justify-center">
                   <span className="text-sm sm:text-base text-muted-foreground">Mídia não disponível</span>
                 </div>
@@ -561,6 +589,7 @@ const Projects = () => {
           </div>
         </DialogContent>
       </Dialog>
+
 
     </section>
   );
