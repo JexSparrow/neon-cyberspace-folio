@@ -68,7 +68,7 @@ const Navbar: React.FC = () => {
           </motion.div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden lg:flex items-center space-x-8">
             {navLinks.map((link) => (
               <button
                 key={link.id}
@@ -83,7 +83,7 @@ const Navbar: React.FC = () => {
           </div>
 
           {/* Action Buttons */}
-          <div className="hidden md:flex items-center space-x-4">
+          <div className="hidden lg:flex items-center space-x-4">
             <Button
               variant="outline"
 
@@ -108,9 +108,9 @@ const Navbar: React.FC = () => {
             </Button>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile/Tablet Menu Button */}
           <button
-            className="md:hidden p-2 hover:bg-primary/20 rounded-lg transition-colors"
+            className="lg:hidden p-2 hover:bg-primary/20 rounded-lg transition-colors"
             onClick={() => setIsMobileMenuOpen((s) => !s)}
             aria-label={isMobileMenuOpen ? "Fechar menu" : "Abrir menu"}
           >
@@ -126,7 +126,7 @@ const Navbar: React.FC = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden glass-card border-t border-primary/20"
+            className="lg:hidden glass-card border-t border-primary/20"
           >
             <div className="container mx-auto px-4 py-6 space-y-4">
               {navLinks.map((link, index) => (

@@ -50,7 +50,7 @@ const Hero = () => {
       </div>
 
       <div className="container mx-auto px-4 z-10">
-        <div className="grid md:grid-cols-[55%_45%] gap-12 items-center">
+        <div className="grid lg:grid-cols-[55%_45%] gap-12 items-center">
           {/* Text Content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
