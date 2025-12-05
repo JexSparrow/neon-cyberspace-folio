@@ -1,5 +1,5 @@
 import { motion, useInView } from "framer-motion";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { ExternalLink, Github, Rocket } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -47,12 +47,34 @@ interface Project {
 }
 
 const Projects = () => {
-  const ref = useRef<HTMLDivElement>(null); // Tipagem para o ref
+  const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true });
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
-  const PROJECTS_PER_LOAD = 4;
-  const [projectsToShow, setProjectsToShow] = useState(PROJECTS_PER_LOAD);
+  const PROJECTS_PER_LOAD = 3;
+
+  // Desktop: 3 projetos, Tablet (768px-1024px): 4 projetos
+  const getInitialProjects = () => {
+    if (typeof window === 'undefined') return 3;
+    const width = window.innerWidth;
+    if (width >= 768 && width < 1024) return 4; // Tablet
+    return 3; // Desktop e Mobile
+  };
+
+  const [projectsToShow, setProjectsToShow] = useState(getInitialProjects);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth;
+      if (width >= 768 && width < 1024) {
+        setProjectsToShow(prev => prev < 4 ? 4 : prev);
+      }
+    };
+    
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const projects: Project[] = [
     {
@@ -245,8 +267,8 @@ const Projects = () => {
       // Lógica de "Mostrar Mais" (Carrega o próximo lote)
       setProjectsToShow((prev) => Math.min(prev + PROJECTS_PER_LOAD, totalProjects));
     } else {
-      // Lógica de "Mostrar Menos" (Volta para 3 projetos)
-      setProjectsToShow(PROJECTS_PER_LOAD);
+      // Lógica de "Mostrar Menos" (Volta para valor inicial baseado na tela)
+      setProjectsToShow(getInitialProjects());
 
       // CHAMADA DA FUNÇÃO DE ROLAGEM
       scrollToProjects();
