@@ -442,50 +442,79 @@ const Projects = () => {
       </div>
 
       {/* Project Detail Modal */}
+      {/* Project Detail Modal (RESPONSIVO) */}
       <Dialog open={!!selectedProject} onOpenChange={() => setSelectedProject(null)}>
-        <DialogContent className="glass-card border-primary/30 max-w-6xl max-h-[90vh] overflow-y-auto shadow-cyan">
-          <DialogHeader>
-            <DialogTitle className="text-4xl font-orbitron font-extrabold uppercase tracking-wide bg-gradient-to-t from-accent to-secondary bg-clip-text text-transparent">
+        <DialogContent
+          className="
+      glass-card
+      border-primary/30
+      max-w-full
+      sm:max-w-2xl
+      md:max-w-4xl
+      lg:max-w-6xl
+
+      w-[95%] sm:w-[90%] md:w-[85%]
+
+      max-h-[80vh]   /* limita a altura na tela pequena */
+      overflow-y-auto
+      shadow-cyan
+
+      p-4 sm:p-6 lg:p-8
+    "
+        >
+          <DialogHeader className="mb-2 sm:mb-4">
+            <DialogTitle
+              className="
+          text-lg sm:text-2xl md:text-3xl lg:text-4xl
+          font-orbitron font-extrabold uppercase tracking-wide
+          bg-gradient-to-t from-accent to-secondary bg-clip-text text-transparent
+        "
+            >
               {selectedProject?.title}
             </DialogTitle>
           </DialogHeader>
 
-          <div className="grid lg:grid-cols-2 gap-8 items-center">
-            {/* Video Section */}
-            <div className="space-y-4">
-              {selectedProject?.videoUrl && (
-                <div className="relative w-full rounded-xl overflow-hidden glass-card border border-primary/30">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 items-start">
+            {/* Video / Media Section */}
+            <div className="w-full">
+              {selectedProject?.videoUrl ? (
+                <div className="relative w-full rounded-lg overflow-hidden glass-card border border-primary/20">
                   <div className="aspect-video">
                     <iframe
                       width="100%"
                       height="100%"
                       src={`https://www.youtube.com/embed/${selectedProject.videoUrl}`}
-                      title={selectedProject.title}
+                      title={selectedProject?.title ?? "Vídeo do projeto"}
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                       allowFullScreen
                       className="w-full h-full"
                     />
                   </div>
                 </div>
+              ) : (
+                // fallback: imagem ou espaço vazio
+                <div className="w-full h-48 sm:h-56 md:h-64 bg-background/30 rounded-lg flex items-center justify-center">
+                  <span className="text-sm sm:text-base text-muted-foreground">Mídia não disponível</span>
+                </div>
               )}
             </div>
 
             {/* Info Section */}
-            <div className="space-y-6">
-              <DialogDescription className="text-muted-foreground text-md leading-relaxed whitespace-pre-line">
+            <div className="w-full space-y-4">
+              <DialogDescription className="text-sm sm:text-base text-muted-foreground leading-relaxed whitespace-pre-line">
                 {selectedProject?.details}
               </DialogDescription>
 
               {/* Tags */}
               <div>
-                <h4 className="text-lg font-orbitron font-semibold text-secondary uppercase tracking-wider mb-4">
+                <h4 className="text-sm sm:text-base font-orbitron font-semibold text-secondary uppercase tracking-wider mb-2">
                   Tecnologias Utilizadas
                 </h4>
                 <div className="flex flex-wrap gap-2">
                   {selectedProject?.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="text-sm px-4 py-2 rounded-full bg-primary/20 text-secondary border border-primary/30 hover:bg-primary/50 transition-colors"
+                      className="text-xs sm:text-sm px-2 sm:px-3 py-1 rounded-full bg-primary/20 text-secondary border border-primary/30 hover:bg-primary/50 transition-colors"
                     >
                       {tag}
                     </span>
@@ -493,12 +522,12 @@ const Projects = () => {
                 </div>
               </div>
 
-              {/* Action Buttons (Modal) */}
+              {/* Action Buttons (stack on mobile, row on sm+) */}
               <div className="flex flex-col sm:flex-row gap-3 pt-2">
                 {selectedProject?.liveUrl && selectedProject.liveUrl !== "#" && (
                   <Button
                     variant="outline"
-                    className="neon-border flex-1 hover:bg-primary/10"
+                    className="neon-border w-full sm:flex-1 hover:bg-primary/10"
                     onClick={() => window.open(selectedProject.liveUrl, "_blank")}
                   >
                     <ExternalLink className="w-4 h-4 mr-2" />
@@ -509,7 +538,7 @@ const Projects = () => {
                 {selectedProject?.githubUrl && selectedProject.githubUrl !== "#" && (
                   <Button
                     variant="outline"
-                    className="neon-border flex-1 hover:bg-primary/10"
+                    className="neon-border w-full sm:flex-1 hover:bg-primary/10"
                     onClick={() => window.open(selectedProject.githubUrl, "_blank")}
                   >
                     <Github className="w-4 h-4 mr-2" />
@@ -520,7 +549,7 @@ const Projects = () => {
                 {selectedProject?.githubUrl2 && selectedProject.githubUrl2 !== "#" && (
                   <Button
                     variant="outline"
-                    className="neon-border flex-1 hover:bg-primary/10"
+                    className="neon-border w-full sm:flex-1 hover:bg-primary/10"
                     onClick={() => window.open(selectedProject.githubUrl2, "_blank")}
                   >
                     <Github className="w-4 h-4 mr-2" />
@@ -532,6 +561,7 @@ const Projects = () => {
           </div>
         </DialogContent>
       </Dialog>
+
     </section>
   );
 };

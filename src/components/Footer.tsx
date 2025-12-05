@@ -87,14 +87,14 @@ const Footer = () => {
           >
 
             <p className="text-muted-foreground text-xs">
-              © {currentYear} Jeferson Santos — Front-End Developer. Todos Direitos Reservados.
+              © {currentYear} <span className="text-foreground font-semibold">Jeferson Santos</span> — <span className="text-foreground font-semibold">Front-End Developer</span>. Todos Direitos Reservados.
             </p>
           </motion.div>
         </div>
       </div>
 
       {/* Bottom Gradient */}
-      <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-96 h-32 bg-gradient-to-t from-primary/10 to-transparent blur-2xl" />
+      <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-96 h-32 bg-gradient-to-t from-secondary/30 to-transparent blur-2xl" />
     </footer>
   );
 };
