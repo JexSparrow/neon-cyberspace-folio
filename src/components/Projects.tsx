@@ -438,14 +438,14 @@ const Projects = () => {
       <AnimatePresence mode="wait">
         {selectedProject && (
           <motion.div 
-            className="fixed inset-0 z-[99999] flex items-center justify-center p-2 sm:p-4"
+            className="fixed inset-0 z-[99999] flex items-center justify-center p-3 sm:p-4 md:p-6"
             onClick={() => setSelectedProject(null)}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
           >
-            {/* Overlay com efeito de scan */}
+            {/* Overlay */}
             <motion.div 
               className="absolute inset-0 bg-background/85 backdrop-blur-lg"
               initial={{ opacity: 0 }}
@@ -454,57 +454,33 @@ const Projects = () => {
               transition={{ duration: 0.4 }}
             />
             
-            {/* Linhas de scan futuristas */}
-            <motion.div
-              className="absolute inset-0 pointer-events-none overflow-hidden"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-            >
-              <motion.div
-                className="absolute left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-secondary/50 to-transparent"
-                initial={{ top: "-10%" }}
-                animate={{ top: "110%" }}
-                transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-              />
-            </motion.div>
-            
             {/* Modal Content */}
             <motion.div
               className="
-                relative w-full max-w-[98%] sm:max-w-2xl md:max-w-4xl lg:max-w-6xl
-                max-h-[90vh] overflow-y-auto
+                relative w-full max-w-[94%] sm:max-w-xl md:max-w-3xl lg:max-w-5xl
+                max-h-[85vh] overflow-y-auto overflow-x-hidden
                 bg-card/95 backdrop-blur-xl border-2 border-primary/40 rounded-xl
-                shadow-[0_0_40px_hsl(var(--primary)/0.4),0_0_80px_hsl(var(--accent)/0.2),inset_0_1px_0_hsl(var(--primary)/0.4)]
-                p-3 sm:p-5 lg:p-8
+                shadow-[0_0_40px_hsl(var(--primary)/0.4),0_0_80px_hsl(var(--accent)/0.2)]
+                p-4 sm:p-5 md:p-6 lg:p-8
               "
               onClick={(e) => e.stopPropagation()}
-              initial={{ opacity: 0, scale: 0.8, y: 60, rotateX: 15 }}
-              animate={{ opacity: 1, scale: 1, y: 0, rotateX: 0 }}
-              exit={{ opacity: 0, scale: 0.85, y: 40, rotateX: -10 }}
+              initial={{ opacity: 0, scale: 0.9, y: 40 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 30 }}
               transition={{ 
                 type: "spring", 
                 stiffness: 350, 
                 damping: 30,
                 mass: 0.8
               }}
-              style={{ perspective: "1000px" }}
             >
-              {/* Glow effect animado */}
-              <motion.div
-                className="absolute -inset-[1px] rounded-xl bg-gradient-to-r from-primary/50 via-secondary/50 to-accent/50 -z-10 blur-sm"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: [0.3, 0.6, 0.3] }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-              />
-
               {/* Close Button - Tecnológico com animação */}
               <motion.button
                 type="button"
                 onClick={() => setSelectedProject(null)}
                 aria-label="Fechar modal"
                 className="
-                  absolute top-2 right-2 sm:top-3 sm:right-3 z-50
+                  absolute top-3 right-3 sm:top-4 sm:right-4 z-50
                   w-8 h-8 sm:w-10 sm:h-10
                   flex items-center justify-center
                   rounded-lg
@@ -523,58 +499,40 @@ const Projects = () => {
                 initial={{ opacity: 0, rotate: -180, scale: 0 }}
                 animate={{ opacity: 1, rotate: 0, scale: 1 }}
                 exit={{ opacity: 0, rotate: 180, scale: 0 }}
-                transition={{ type: "spring", stiffness: 400, damping: 20, delay: 0.2 }}
+                transition={{ type: "spring", stiffness: 400, damping: 20, delay: 0.1 }}
               >
                 <X className="w-4 h-4 sm:w-5 sm:h-5 text-background group-hover:text-secondary transition-colors duration-200" />
-                <motion.span 
-                  className="absolute inset-0 rounded-lg bg-gradient-to-tr from-transparent via-secondary/30 to-transparent"
-                  initial={{ opacity: 0 }}
-                  whileHover={{ opacity: 1 }}
-                  transition={{ duration: 0.3 }}
-                />
               </motion.button>
 
-              {/* Header com animação de typing */}
+              {/* Header */}
               <motion.div 
-                className="mb-2 sm:mb-4 pr-10 sm:pr-12"
-                initial={{ opacity: 0, x: -30 }}
+                className="mb-3 sm:mb-4 pr-12"
+                initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: 0.15 }}
+                transition={{ duration: 0.4, delay: 0.1 }}
               >
-                <motion.h2 
-                  className="text-sm sm:text-xl md:text-2xl lg:text-3xl font-orbitron font-extrabold uppercase tracking-wide bg-gradient-to-r from-accent via-secondary to-primary bg-clip-text text-transparent"
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
-                >
+                <h2 className="text-base sm:text-xl md:text-2xl lg:text-3xl font-orbitron font-extrabold uppercase tracking-wide bg-gradient-to-r from-accent via-secondary to-primary bg-clip-text text-transparent">
                   {selectedProject.title}
-                </motion.h2>
+                </h2>
                 {/* Linha decorativa animada */}
                 <motion.div
                   className="h-[2px] bg-gradient-to-r from-primary via-secondary to-transparent mt-2"
                   initial={{ width: 0 }}
                   animate={{ width: "60%" }}
-                  transition={{ duration: 0.8, delay: 0.4 }}
+                  transition={{ duration: 0.6, delay: 0.3 }}
                 />
               </motion.div>
 
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-5 items-start">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-5 lg:gap-6 items-start">
                 {/* Video / Media Section */}
                 <motion.div 
                   className="w-full"
-                  initial={{ opacity: 0, scale: 0.9, x: -40 }}
-                  animate={{ opacity: 1, scale: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: 0.25 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.15 }}
                 >
                   {selectedProject.videoUrl ? (
-                    <motion.div 
-                      className="relative w-full rounded-lg overflow-hidden border border-primary/30 shadow-[0_0_25px_hsl(var(--primary)/0.3)]"
-                      whileHover={{ 
-                        boxShadow: "0 0 40px hsl(var(--primary)/0.5)",
-                        scale: 1.01
-                      }}
-                      transition={{ duration: 0.3 }}
-                    >
+                    <div className="relative w-full rounded-lg overflow-hidden border border-primary/30 shadow-[0_0_20px_hsl(var(--primary)/0.2)]">
                       <div className="aspect-video">
                         <iframe
                           width="100%"
@@ -586,16 +544,9 @@ const Projects = () => {
                           className="w-full h-full"
                         />
                       </div>
-                      {/* Border glow effect */}
-                      <motion.div
-                        className="absolute inset-0 rounded-lg border-2 border-secondary/30 pointer-events-none"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: [0.3, 0.7, 0.3] }}
-                        transition={{ duration: 2, repeat: Infinity }}
-                      />
-                    </motion.div>
+                    </div>
                   ) : (
-                    <div className="w-full h-36 sm:h-48 md:h-56 bg-background/30 rounded-lg flex items-center justify-center border border-primary/20">
+                    <div className="w-full h-40 sm:h-48 md:h-56 bg-background/30 rounded-lg flex items-center justify-center border border-primary/20">
                       <span className="text-xs sm:text-sm text-muted-foreground">Mídia não disponível</span>
                     </div>
                   )}
@@ -604,113 +555,69 @@ const Projects = () => {
                 {/* Info Section */}
                 <motion.div 
                   className="w-full space-y-3 sm:space-y-4"
-                  initial={{ opacity: 0, x: 40 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: 0.3 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
                 >
-                  <motion.p 
-                    className="text-xs sm:text-sm md:text-base text-muted-foreground leading-relaxed whitespace-pre-line"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.35 }}
-                  >
+                  <p className="text-xs sm:text-sm md:text-base text-muted-foreground leading-relaxed whitespace-pre-line">
                     {selectedProject.details}
-                  </motion.p>
+                  </p>
 
                   {/* Tags */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.4 }}
-                  >
-                    <h4 className="text-xs sm:text-sm font-orbitron font-semibold text-secondary uppercase tracking-wider mb-1.5 sm:mb-2">
+                  <div>
+                    <h4 className="text-xs sm:text-sm font-orbitron font-semibold text-secondary uppercase tracking-wider mb-2">
                       Tecnologias Utilizadas
                     </h4>
                     <div className="flex flex-wrap gap-1.5 sm:gap-2">
-                      {selectedProject.tags.map((tag, index) => (
-                        <motion.span
+                      {selectedProject.tags.map((tag) => (
+                        <span
                           key={tag}
-                          className="text-[10px] sm:text-xs px-1.5 sm:px-2.5 py-0.5 sm:py-1 rounded-full bg-primary/20 text-secondary border border-primary/30 hover:bg-primary/40 hover:shadow-[0_0_15px_hsl(var(--primary)/0.5)] transition-all duration-200 cursor-default"
-                          initial={{ opacity: 0, scale: 0, y: 10 }}
-                          animate={{ opacity: 1, scale: 1, y: 0 }}
-                          transition={{ 
-                            duration: 0.3, 
-                            delay: 0.45 + index * 0.03,
-                            type: "spring",
-                            stiffness: 500
-                          }}
-                          whileHover={{ 
-                            scale: 1.1,
-                            boxShadow: "0 0 15px hsl(var(--secondary)/0.5)"
-                          }}
+                          className="text-[10px] sm:text-xs px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full bg-primary/20 text-secondary border border-primary/30 transition-colors duration-200"
                         >
                           {tag}
-                        </motion.span>
+                        </span>
                       ))}
                     </div>
-                  </motion.div>
+                  </div>
 
                   {/* Action Buttons */}
-                  <motion.div 
-                    className="flex flex-col sm:flex-row gap-2 sm:gap-3 pt-1 sm:pt-2"
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.55 }}
-                  >
+                  <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 pt-2">
                     {selectedProject.liveUrl && selectedProject.liveUrl !== "#" && (
-                      <motion.div
-                        className="w-full sm:flex-1"
-                        whileHover={{ scale: 1.03 }}
-                        whileTap={{ scale: 0.97 }}
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="neon-border w-full sm:flex-1 hover:bg-primary/10 text-xs sm:text-sm h-9"
+                        onClick={() => window.open(selectedProject.liveUrl, "_blank")}
                       >
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          className="neon-border w-full hover:bg-primary/10 text-xs sm:text-sm h-8 sm:h-9 hover:shadow-[0_0_20px_hsl(var(--primary)/0.4)] transition-all duration-300"
-                          onClick={() => window.open(selectedProject.liveUrl, "_blank")}
-                        >
-                          <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4 mr-1.5 sm:mr-2" />
-                          Ver Projeto
-                        </Button>
-                      </motion.div>
+                        <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4 mr-1.5 sm:mr-2" />
+                        Ver Projeto
+                      </Button>
                     )}
 
                     {selectedProject.githubUrl && selectedProject.githubUrl !== "#" && (
-                      <motion.div
-                        className="w-full sm:flex-1"
-                        whileHover={{ scale: 1.03 }}
-                        whileTap={{ scale: 0.97 }}
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="neon-border w-full sm:flex-1 hover:bg-primary/10 text-xs sm:text-sm h-9"
+                        onClick={() => window.open(selectedProject.githubUrl, "_blank")}
                       >
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          className="neon-border w-full hover:bg-primary/10 text-xs sm:text-sm h-8 sm:h-9 hover:shadow-[0_0_20px_hsl(var(--primary)/0.4)] transition-all duration-300"
-                          onClick={() => window.open(selectedProject.githubUrl, "_blank")}
-                        >
-                          <Github className="w-3 h-3 sm:w-4 sm:h-4 mr-1.5 sm:mr-2" />
-                          {selectedProject.githubUrl2 && selectedProject.githubUrl2 !== "#" ? "Front-end" : "Código"}
-                        </Button>
-                      </motion.div>
+                        <Github className="w-3 h-3 sm:w-4 sm:h-4 mr-1.5 sm:mr-2" />
+                        {selectedProject.githubUrl2 && selectedProject.githubUrl2 !== "#" ? "Front-end" : "Código"}
+                      </Button>
                     )}
 
                     {selectedProject.githubUrl2 && selectedProject.githubUrl2 !== "#" && (
-                      <motion.div
-                        className="w-full sm:flex-1"
-                        whileHover={{ scale: 1.03 }}
-                        whileTap={{ scale: 0.97 }}
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="neon-border w-full sm:flex-1 hover:bg-primary/10 text-xs sm:text-sm h-9"
+                        onClick={() => window.open(selectedProject.githubUrl2, "_blank")}
                       >
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          className="neon-border w-full hover:bg-primary/10 text-xs sm:text-sm h-8 sm:h-9 hover:shadow-[0_0_20px_hsl(var(--primary)/0.4)] transition-all duration-300"
-                          onClick={() => window.open(selectedProject.githubUrl2, "_blank")}
-                        >
-                          <Github className="w-3 h-3 sm:w-4 sm:h-4 mr-1.5 sm:mr-2" />
-                          Back-end
-                        </Button>
-                      </motion.div>
+                        <Github className="w-3 h-3 sm:w-4 sm:h-4 mr-1.5 sm:mr-2" />
+                        Back-end
+                      </Button>
                     )}
-                  </motion.div>
+                  </div>
                 </motion.div>
               </div>
             </motion.div>
