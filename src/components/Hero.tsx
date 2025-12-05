@@ -19,7 +19,7 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-10 lg:pt-20">
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-8 lg:pt-20">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
