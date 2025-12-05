@@ -309,7 +309,10 @@ const Projects = () => {
               transition={{ duration: 0.6, delay: index * 0.2 }}
               whileHover={{ y: -10 }}
               className="glass-card rounded-2xl overflow-hidden hover-glow-cyan cursor-pointer group hover:border-b-4 hover:border-cyan-400/90 transition-all/500"
-              onClick={() => setSelectedProject(project)}
+              onClick={() => {
+                console.log("Card clicked:", project.title);
+                setSelectedProject(project);
+              }}
             >
               {/* Project Icon */}
               <div className="relative h-32 lg:h-48 bg-gradient-to-br from-accent/30 to-secondary/20 flex items-center justify-center overflow-hidden">
