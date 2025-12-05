@@ -141,12 +141,12 @@ const Navbar: React.FC = () => {
               {navLinks.map((link, index) => (
                 <motion.button
                   key={link.id}
-                  type="button"                                  // importante
-                  initial={{ opacity: 0, x: -200 }}
+                  type="button"
+                  initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.06 }}
+                  transition={{ delay: index * 0.05 }}
                   onClick={() => scrollToSection(link.id)}
-                  className="block w-full text-center py-2 px-4 hover:bg-primary/25 rounded-lg transition-all duration-300 text-foreground font-semibold active:font-bold active:bg-primary/50"
+                  className="block w-full text-center py-3 px-4 hover:bg-primary/25 rounded-lg transition-all duration-300 text-foreground font-semibold active:bg-primary/50 pointer-events-auto"
                   aria-label={`Ir para ${link.label}`}
                 >
                   {link.label}
