@@ -15,14 +15,14 @@ const Navbar: React.FC = () => {
   }, []);
 
   const scrollToSection = (id: string) => {
-    // DEBUG: mostra se a função foi chamada e qual id
-    console.log("scrollToSection ->", id);
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      // Fecha o menu primeiro, depois faz o scroll
       setIsMobileMenuOpen(false);
-    } else {
-      console.warn("Seção não encontrada:", id);
+      // Pequeno delay para o menu fechar antes do scroll
+      setTimeout(() => {
+        element.scrollIntoView({ behavior: "smooth" });
+      }, 100);
     }
   };
 
