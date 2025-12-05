@@ -2,13 +2,6 @@ import { motion, useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import { ExternalLink, Github, Rocket, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
 // Importações de Assets (mantidas)
 import burguer from "@/assets/burguer.png";
 import apple from "@/assets/apple.png";
@@ -309,10 +302,7 @@ const Projects = () => {
               transition={{ duration: 0.6, delay: index * 0.2 }}
               whileHover={{ y: -10 }}
               className="glass-card rounded-2xl overflow-hidden hover-glow-cyan cursor-pointer group hover:border-b-4 hover:border-cyan-400/90 transition-all/500"
-              onClick={() => {
-                console.log("Card clicked:", project.title);
-                setSelectedProject(project);
-              }}
+              onClick={() => setSelectedProject(project)}
             >
               {/* Project Icon */}
               <div className="relative h-32 lg:h-48 bg-gradient-to-br from-accent/30 to-secondary/20 flex items-center justify-center overflow-hidden">
@@ -444,150 +434,162 @@ const Projects = () => {
         )}
       </div>
 
-      {/* Debug Test */}
+      {/* Project Detail Modal - Custom Responsivo e Tecnológico */}
       {selectedProject && (
-        <div className="fixed inset-0 z-[99999] bg-black/90 flex items-center justify-center">
-          <div className="bg-card p-8 rounded-lg border-2 border-primary">
-            <h2 className="text-xl text-white mb-4">Modal Test: {selectedProject.title}</h2>
-            <button 
-              onClick={() => setSelectedProject(null)}
-              className="bg-primary text-white px-4 py-2 rounded"
-            >
-              Fechar
-            </button>
-          </div>
-        </div>
-      )}
-
-      {/* Project Detail Modal - Responsivo e Tecnológico */}
-      <Dialog open={!!selectedProject} onOpenChange={() => setSelectedProject(null)}>
-        <DialogContent className="bg-card border-2 border-primary p-6">
-          {/* Close Button - Tecnológico com animação */}
-          <motion.button
-            type="button"
-            onClick={() => setSelectedProject(null)}
-            aria-label="Fechar modal"
+        <div 
+          className="fixed inset-0 z-[99999] flex items-center justify-center p-2 sm:p-4"
+          onClick={() => setSelectedProject(null)}
+        >
+          {/* Overlay */}
+          <motion.div 
+            className="absolute inset-0 bg-background/80 backdrop-blur-md"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          />
+          
+          {/* Modal Content */}
+          <motion.div
             className="
-              absolute top-2 right-2 sm:top-3 sm:right-3 z-50
-              w-8 h-8 sm:w-10 sm:h-10
-              flex items-center justify-center
-              rounded-lg
-              bg-gradient-to-br from-primary/90 to-accent/70
-              border border-secondary/50
-              shadow-[0_0_15px_hsl(var(--primary)/0.5)]
-              backdrop-blur-sm
-              group
+              relative w-full max-w-[98%] sm:max-w-2xl md:max-w-4xl lg:max-w-6xl
+              max-h-[90vh] overflow-y-auto
+              bg-card/95 backdrop-blur-xl border-2 border-primary/40 rounded-xl
+              shadow-[0_0_30px_hsl(var(--primary)/0.5),0_0_60px_hsl(var(--accent)/0.3),inset_0_1px_0_hsl(var(--primary)/0.3)]
+              p-3 sm:p-5 lg:p-8
             "
-            whileHover={{ 
-              scale: 1.1,
-              boxShadow: "0 0 25px hsl(var(--secondary)/0.8)",
-              rotate: 90
-            }}
-            whileTap={{ scale: 0.9 }}
-            initial={{ opacity: 0, rotate: -90 }}
-            animate={{ opacity: 1, rotate: 0 }}
-            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            onClick={(e) => e.stopPropagation()}
+            initial={{ opacity: 0, scale: 0.95, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.95, y: 20 }}
+            transition={{ type: "spring", stiffness: 300, damping: 25 }}
           >
-            <X className="w-4 h-4 sm:w-5 sm:h-5 text-background group-hover:text-secondary transition-colors duration-200" />
-            {/* Efeito de brilho */}
-            <span className="absolute inset-0 rounded-lg bg-gradient-to-tr from-transparent via-secondary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-          </motion.button>
+            {/* Close Button - Tecnológico com animação */}
+            <motion.button
+              type="button"
+              onClick={() => setSelectedProject(null)}
+              aria-label="Fechar modal"
+              className="
+                absolute top-2 right-2 sm:top-3 sm:right-3 z-50
+                w-8 h-8 sm:w-10 sm:h-10
+                flex items-center justify-center
+                rounded-lg
+                bg-gradient-to-br from-primary/90 to-accent/70
+                border border-secondary/50
+                shadow-[0_0_15px_hsl(var(--primary)/0.5)]
+                backdrop-blur-sm
+                group
+              "
+              whileHover={{ 
+                scale: 1.1,
+                boxShadow: "0 0 25px hsl(var(--secondary)/0.8)",
+                rotate: 90
+              }}
+              whileTap={{ scale: 0.9 }}
+              initial={{ opacity: 0, rotate: -90 }}
+              animate={{ opacity: 1, rotate: 0 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            >
+              <X className="w-4 h-4 sm:w-5 sm:h-5 text-background group-hover:text-secondary transition-colors duration-200" />
+              <span className="absolute inset-0 rounded-lg bg-gradient-to-tr from-transparent via-secondary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            </motion.button>
 
-          <DialogHeader className="mb-2 sm:mb-4 pr-10 sm:pr-12">
-            <DialogTitle className="text-sm sm:text-xl md:text-2xl lg:text-3xl font-orbitron font-extrabold uppercase tracking-wide bg-gradient-to-r from-accent via-secondary to-primary bg-clip-text text-transparent">
-              {selectedProject?.title}
-            </DialogTitle>
-          </DialogHeader>
+            {/* Header */}
+            <div className="mb-2 sm:mb-4 pr-10 sm:pr-12">
+              <h2 className="text-sm sm:text-xl md:text-2xl lg:text-3xl font-orbitron font-extrabold uppercase tracking-wide bg-gradient-to-r from-accent via-secondary to-primary bg-clip-text text-transparent">
+                {selectedProject.title}
+              </h2>
+            </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-5 items-start">
-            {/* Video / Media Section */}
-            <div className="w-full">
-              {selectedProject?.videoUrl ? (
-                <div className="relative w-full rounded-lg overflow-hidden glass-card border border-primary/30 shadow-[0_0_20px_hsl(var(--primary)/0.2)]">
-                  <div className="aspect-video">
-                    <iframe
-                      width="100%"
-                      height="100%"
-                      src={`https://www.youtube.com/embed/${selectedProject.videoUrl}`}
-                      title={selectedProject?.title ?? "Vídeo do projeto"}
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                      className="w-full h-full"
-                    />
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-5 items-start">
+              {/* Video / Media Section */}
+              <div className="w-full">
+                {selectedProject.videoUrl ? (
+                  <div className="relative w-full rounded-lg overflow-hidden border border-primary/30 shadow-[0_0_20px_hsl(var(--primary)/0.2)]">
+                    <div className="aspect-video">
+                      <iframe
+                        width="100%"
+                        height="100%"
+                        src={`https://www.youtube.com/embed/${selectedProject.videoUrl}`}
+                        title={selectedProject.title}
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                        className="w-full h-full"
+                      />
+                    </div>
+                  </div>
+                ) : (
+                  <div className="w-full h-36 sm:h-48 md:h-56 bg-background/30 rounded-lg flex items-center justify-center border border-primary/20">
+                    <span className="text-xs sm:text-sm text-muted-foreground">Mídia não disponível</span>
+                  </div>
+                )}
+              </div>
+
+              {/* Info Section */}
+              <div className="w-full space-y-3 sm:space-y-4">
+                <p className="text-xs sm:text-sm md:text-base text-muted-foreground leading-relaxed whitespace-pre-line">
+                  {selectedProject.details}
+                </p>
+
+                {/* Tags */}
+                <div>
+                  <h4 className="text-xs sm:text-sm font-orbitron font-semibold text-secondary uppercase tracking-wider mb-1.5 sm:mb-2">
+                    Tecnologias Utilizadas
+                  </h4>
+                  <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                    {selectedProject.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="text-[10px] sm:text-xs px-1.5 sm:px-2.5 py-0.5 sm:py-1 rounded-full bg-primary/20 text-secondary border border-primary/30 hover:bg-primary/40 hover:shadow-[0_0_10px_hsl(var(--primary)/0.4)] transition-all duration-200"
+                      >
+                        {tag}
+                      </span>
+                    ))}
                   </div>
                 </div>
-              ) : (
-                <div className="w-full h-36 sm:h-48 md:h-56 bg-background/30 rounded-lg flex items-center justify-center border border-primary/20">
-                  <span className="text-xs sm:text-sm text-muted-foreground">Mídia não disponível</span>
-                </div>
-              )}
-            </div>
 
-            {/* Info Section */}
-            <div className="w-full space-y-3 sm:space-y-4">
-              <DialogDescription className="text-xs sm:text-sm md:text-base text-muted-foreground leading-relaxed whitespace-pre-line">
-                {selectedProject?.details}
-              </DialogDescription>
-
-              {/* Tags */}
-              <div>
-                <h4 className="text-xs sm:text-sm font-orbitron font-semibold text-secondary uppercase tracking-wider mb-1.5 sm:mb-2">
-                  Tecnologias Utilizadas
-                </h4>
-                <div className="flex flex-wrap gap-1.5 sm:gap-2">
-                  {selectedProject?.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="text-[10px] sm:text-xs px-1.5 sm:px-2.5 py-0.5 sm:py-1 rounded-full bg-primary/20 text-secondary border border-primary/30 hover:bg-primary/40 hover:shadow-[0_0_10px_hsl(var(--primary)/0.4)] transition-all duration-200"
+                {/* Action Buttons */}
+                <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 pt-1 sm:pt-2">
+                  {selectedProject.liveUrl && selectedProject.liveUrl !== "#" && (
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="neon-border w-full sm:flex-1 hover:bg-primary/10 text-xs sm:text-sm h-8 sm:h-9"
+                      onClick={() => window.open(selectedProject.liveUrl, "_blank")}
                     >
-                      {tag}
-                    </span>
-                  ))}
+                      <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4 mr-1.5 sm:mr-2" />
+                      Ver Projeto
+                    </Button>
+                  )}
+
+                  {selectedProject.githubUrl && selectedProject.githubUrl !== "#" && (
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="neon-border w-full sm:flex-1 hover:bg-primary/10 text-xs sm:text-sm h-8 sm:h-9"
+                      onClick={() => window.open(selectedProject.githubUrl, "_blank")}
+                    >
+                      <Github className="w-3 h-3 sm:w-4 sm:h-4 mr-1.5 sm:mr-2" />
+                      {selectedProject.githubUrl2 && selectedProject.githubUrl2 !== "#" ? "Front-end" : "Código"}
+                    </Button>
+                  )}
+
+                  {selectedProject.githubUrl2 && selectedProject.githubUrl2 !== "#" && (
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="neon-border w-full sm:flex-1 hover:bg-primary/10 text-xs sm:text-sm h-8 sm:h-9"
+                      onClick={() => window.open(selectedProject.githubUrl2, "_blank")}
+                    >
+                      <Github className="w-3 h-3 sm:w-4 sm:h-4 mr-1.5 sm:mr-2" />
+                      Back-end
+                    </Button>
+                  )}
                 </div>
               </div>
-
-              {/* Action Buttons */}
-              <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 pt-1 sm:pt-2">
-                {selectedProject?.liveUrl && selectedProject.liveUrl !== "#" && (
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    className="neon-border w-full sm:flex-1 hover:bg-primary/10 text-xs sm:text-sm h-8 sm:h-9"
-                    onClick={() => window.open(selectedProject.liveUrl, "_blank")}
-                  >
-                    <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4 mr-1.5 sm:mr-2" />
-                    Ver Projeto
-                  </Button>
-                )}
-
-                {selectedProject?.githubUrl && selectedProject.githubUrl !== "#" && (
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    className="neon-border w-full sm:flex-1 hover:bg-primary/10 text-xs sm:text-sm h-8 sm:h-9"
-                    onClick={() => window.open(selectedProject.githubUrl, "_blank")}
-                  >
-                    <Github className="w-3 h-3 sm:w-4 sm:h-4 mr-1.5 sm:mr-2" />
-                    {selectedProject.githubUrl2 && selectedProject.githubUrl2 !== "#" ? "Front-end" : "Código"}
-                  </Button>
-                )}
-
-                {selectedProject?.githubUrl2 && selectedProject.githubUrl2 !== "#" && (
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    className="neon-border w-full sm:flex-1 hover:bg-primary/10 text-xs sm:text-sm h-8 sm:h-9"
-                    onClick={() => window.open(selectedProject.githubUrl2, "_blank")}
-                  >
-                    <Github className="w-3 h-3 sm:w-4 sm:h-4 mr-1.5 sm:mr-2" />
-                    Back-end
-                  </Button>
-                )}
-              </div>
             </div>
-          </div>
-        </DialogContent>
-      </Dialog>
+          </motion.div>
+        </div>
+      )}
 
 
     </section>
