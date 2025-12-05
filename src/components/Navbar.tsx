@@ -15,10 +15,14 @@ const Navbar: React.FC = () => {
   }, []);
 
   const scrollToSection = (id: string) => {
+    // DEBUG: mostra se a função foi chamada e qual id
+    console.log("scrollToSection ->", id);
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
       setIsMobileMenuOpen(false);
+    } else {
+      console.warn("Seção não encontrada:", id);
     }
   };
 
@@ -43,8 +47,6 @@ const Navbar: React.FC = () => {
           <motion.div
             animate={{
               scale: [1, 1.1, 1],
-              // Framer Motion aceita strings para filter, porém alguns setups podem warn.
-              // Se houver problema, remova ou substitua por shadow animado por CSS/Tailwind.
               filter: [
                 "drop-shadow(0 0 12px rgba(174, 0, 255, 0.6))",
                 "drop-shadow(0 0 20px rgba(0, 255, 255, 0.9))",
@@ -75,6 +77,7 @@ const Navbar: React.FC = () => {
                 onClick={() => scrollToSection(link.id)}
                 className="text-foreground hover:text-secondary transition-colors duration-300 relative group font-medium"
                 aria-label={`Ir para ${link.label}`}
+                type="button"
               >
                 {link.label}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-secondary transition-all duration-300 group-hover:w-full" />
@@ -86,21 +89,23 @@ const Navbar: React.FC = () => {
           <div className="hidden lg:flex items-center space-x-4">
             <Button
               variant="outline"
-
               className="neon-border"
-              onClick={() => window.open("https://github.com/JexSparrow", "_blank")}>
+              onClick={() => window.open("https://github.com/JexSparrow", "_blank")}
+              aria-label="Abrir GitHub"
+            >
               <Github className="!w-6 !h-6" />
             </Button>
 
             <Button
               variant="outline"
-
               className="neon-border"
-              onClick={() => window.open("https://linkedin.com/in/jexsantos/", "_blank")}>
+              onClick={() => window.open("https://linkedin.com/in/jexsantos/", "_blank")}
+              aria-label="Abrir LinkedIn"
+            >
               <Linkedin className="!w-5 !h-5" />
             </Button>
 
-            <Button asChild variant="outline" size="sm" className="neon-border">
+            <Button asChild variant="outline" size="sm" className="neon-border" aria-label="Download do currículo">
               <a href="/Jeferson-Santos.pdf" download="Jeferson-Santos.pdf">
                 <Download className="w-5 h-5 mr-2" />
                 Download CV
@@ -113,6 +118,7 @@ const Navbar: React.FC = () => {
             className="lg:hidden p-2 hover:bg-primary/20 rounded-lg transition-colors"
             onClick={() => setIsMobileMenuOpen((s) => !s)}
             aria-label={isMobileMenuOpen ? "Fechar menu" : "Abrir menu"}
+            type="button"
           >
             {isMobileMenuOpen ? <X className="w-6 h-6 text-secondary" /> : <Menu className="w-6 h-6 text-secondary" />}
           </button>
@@ -127,16 +133,20 @@ const Navbar: React.FC = () => {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             className="lg:hidden glass-card border-t border-primary/20"
+            style={{ zIndex: 60, pointerEvents: "auto" }} // garante que esteja acima e receba cliques
+            role="menu"
+            aria-label="Menu mobile"
           >
             <div className="container mx-auto px-4 py-6 space-y-4">
               {navLinks.map((link, index) => (
                 <motion.button
                   key={link.id}
-                  initial={{ opacity: 0, x: -20 }}
+                  type="button"                                  // importante
+                  initial={{ opacity: 0, x: -200 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.06 }}
                   onClick={() => scrollToSection(link.id)}
-                  className="block w-full text-left py-2 px-4 hover:bg-primary/20 rounded-lg transition-colors text-foreground"
+                  className="block w-full text-center py-2 px-4 hover:bg-primary/25 rounded-lg transition-all duration-300 text-foreground font-semibold active:font-bold active:bg-primary/50"
                   aria-label={`Ir para ${link.label}`}
                 >
                   {link.label}
@@ -154,7 +164,9 @@ const Navbar: React.FC = () => {
                   Github
                 </Button>
 
-                <Button asChild className="w-full bg-gradient-to-r from-primary to-secondary" aria-label="Download do currículo">
+                <Button asChild className="w-full neon-border"
+                  variant="outline"
+                  aria-label="Download do currículo">
                   <a href="/Jeferson-Santos.pdf" download="Jeferson-Santos.pdf">
                     <Download className="w-4 h-4 mr-2" />
                     Download CV
