@@ -74,11 +74,11 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.75 }}
-              className="text-5xl md:text-7xl font-orbitron font-bold leading-tight"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-orbitron font-bold leading-tight"
             >
               <span className="text-foreground text-glow-cyan">Jeferson Santos</span>
               <br />
-              <span className=" text-5xl bg-gradient-to-t from-primary to-accent bg-clip-text text-transparent">
+              <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl bg-gradient-to-t from-primary to-accent bg-clip-text text-transparent">
                 {"< Front-End Developer />"}
               </span>
             </motion.h1>
@@ -143,7 +143,7 @@ const Hero = () => {
                 }}
                 className="relative z-10"
               >
-                <div className="w-auto h-96 overflow-hidden neon-border p-1">
+                <div className="w-auto h-64 sm:h-80 md:h-96 overflow-hidden neon-border p-1">
                   <img
                     src={me2}
                     alt="Jeferson Santos"
@@ -156,7 +156,7 @@ const Hero = () => {
               </motion.div>
 
 
-              {/* CSS */}
+              {/* CSS - Hidden on mobile */}
               <motion.div
                 initial={{ y: -200, x: -100, scale: 0, opacity: 0 }}
                 animate={{
@@ -170,12 +170,12 @@ const Hero = () => {
                   x: { duration: 5, repeat: Infinity, ease: "easeInOut" },
                   default: { duration: 1.8, ease: "easeOut" },
                 }}
-                className="absolute top-10 -left-10 glass-card p-3 rounded-lg"
+                className="hidden sm:block absolute top-10 -left-10 glass-card p-2 sm:p-3 rounded-lg"
               >
-                <img src={css} className="w-12 h-12 rounded-[8px]" />
+                <img src={css} className="w-8 h-8 sm:w-12 sm:h-12 rounded-[8px]" />
               </motion.div>
 
-              {/* JS */}
+              {/* JS - Hidden on mobile */}
               <motion.div
                 initial={{ y: 200, x: 150, scale: 4, opacity: 0 }}
                 animate={{
@@ -189,12 +189,12 @@ const Hero = () => {
                   x: { duration: 6, repeat: Infinity, ease: "easeInOut" },
                   default: { duration: 2, ease: "easeOut", delay: 0.5 },
                 }}
-                className="absolute bottom-10 -right-10 glass-card p-3 rounded-lg"
+                className="hidden sm:block absolute bottom-10 -right-10 glass-card p-2 sm:p-3 rounded-lg"
               >
-                <img src={js} className="w-10 h-10 rounded-[8px]" />
+                <img src={js} className="w-8 h-8 sm:w-10 sm:h-10 rounded-[8px]" />
               </motion.div>
 
-              {/* HTML */}
+              {/* HTML - Hidden on mobile */}
               <motion.div
                 initial={{ y: -250, x: 250, scale: 3.8, opacity: 0 }}
                 animate={{
@@ -208,12 +208,12 @@ const Hero = () => {
                   x: { duration: 5.5, repeat: Infinity, ease: "easeInOut" },
                   default: { duration: 1.8, ease: "easeOut", delay: 0.3 },
                 }}
-                className="absolute bottom-24 -left-16 glass-card p-3 rounded-lg"
+                className="hidden sm:block absolute bottom-24 -left-16 glass-card p-2 sm:p-3 rounded-lg"
               >
-                <img src={html} className="w-12 h-12 rounded-[8px]" />
+                <img src={html} className="w-8 h-8 sm:w-12 sm:h-12 rounded-[8px]" />
               </motion.div>
 
-              {/* React */}
+              {/* React - Hidden on mobile */}
               <motion.div
                 initial={{ y: -300, x: 200, scale: 2, opacity: 0 }}
                 animate={{
@@ -227,12 +227,12 @@ const Hero = () => {
                   x: { duration: 6, repeat: Infinity, ease: "easeInOut" },
                   default: { duration: 2, ease: "easeOut", delay: 0.5 },
                 }}
-                className="absolute top-14 right-0 glass-card p-3 rounded-lg"
+                className="hidden sm:block absolute top-14 right-0 glass-card p-2 sm:p-3 rounded-lg"
               >
-                <img src={react} className="w-14 h-14 rounded-[8px]" />
+                <img src={react} className="w-10 h-10 sm:w-14 sm:h-14 rounded-[8px]" />
               </motion.div>
 
-              {/* Node */}
+              {/* Node - Hidden on mobile */}
               <motion.div
                 initial={{ y: -200, x: 550, scale: 0, opacity: 0 }}
                 animate={{
@@ -246,12 +246,12 @@ const Hero = () => {
                   x: { duration: 6, repeat: Infinity, ease: "easeInOut" },
                   default: { duration: 2.2, ease: "easeOut", delay: 0.1 },
                 }}
-                className="absolute -top-12 right-20 glass-card p-3 rounded-lg"
+                className="hidden sm:block absolute -top-12 right-20 glass-card p-2 sm:p-3 rounded-lg"
               >
-                <img src={node} className="w-10 h-10 rounded-[8px]" />
+                <img src={node} className="w-8 h-8 sm:w-10 sm:h-10 rounded-[8px]" />
               </motion.div>
 
-              {/* Tailwind */}
+              {/* Tailwind - Hidden on mobile */}
               <motion.div
                 initial={{ y: 200, x: -200, scale: 0, opacity: 0 }}
                 animate={{
@@ -265,9 +265,9 @@ const Hero = () => {
                   x: { duration: 6, repeat: Infinity, ease: "easeInOut" },
                   default: { duration: 2.4, ease: "easeOut", delay: 0.1 },
                 }}
-                className="absolute -bottom-8 left-20 glass-card p-3 rounded-lg"
+                className="hidden sm:block absolute -bottom-8 left-20 glass-card p-2 sm:p-3 rounded-lg"
               >
-                <img src={tailwind} className="w-10 h-10 rounded-[8px]" />
+                <img src={tailwind} className="w-8 h-8 sm:w-10 sm:h-10 rounded-[8px]" />
               </motion.div>
 
 

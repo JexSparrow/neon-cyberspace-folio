@@ -104,7 +104,7 @@ const Contact = () => {
           className="text-center mb-16"
         >
 
-          <h2 className="text-4xl md:text-5xl font-orbitron font-bold text-glow-purple">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-orbitron font-bold text-glow-purple">
             Vamos Conversar <span className="text-secondary">?</span>
           </h2>
           <p className="text-muted-foreground mt-4 text-lg max-w-2xl mx-auto">
@@ -112,7 +112,7 @@ const Contact = () => {
           </p>
         </motion.div>
 
-        <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
+        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           {/* Contact Info */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
