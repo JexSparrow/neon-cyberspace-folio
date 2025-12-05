@@ -444,19 +444,24 @@ const Projects = () => {
         )}
       </div>
 
+      {/* Debug Test */}
+      {selectedProject && (
+        <div className="fixed inset-0 z-[99999] bg-black/90 flex items-center justify-center">
+          <div className="bg-card p-8 rounded-lg border-2 border-primary">
+            <h2 className="text-xl text-white mb-4">Modal Test: {selectedProject.title}</h2>
+            <button 
+              onClick={() => setSelectedProject(null)}
+              className="bg-primary text-white px-4 py-2 rounded"
+            >
+              Fechar
+            </button>
+          </div>
+        </div>
+      )}
+
       {/* Project Detail Modal - Responsivo e Tecnológico */}
       <Dialog open={!!selectedProject} onOpenChange={() => setSelectedProject(null)}>
-        <DialogContent
-          hideCloseButton
-          className="
-            relative bg-card/95 backdrop-blur-xl border-2 border-primary/40 rounded-xl
-            max-w-full sm:max-w-2xl md:max-w-4xl lg:max-w-6xl
-            w-[96%] sm:w-[92%] md:w-[88%]
-            max-h-[85vh] overflow-y-auto
-            shadow-[0_0_30px_hsl(var(--primary)/0.5),0_0_60px_hsl(var(--accent)/0.3),inset_0_1px_0_hsl(var(--primary)/0.3)]
-            p-3 sm:p-5 lg:p-8
-          "
-        >
+        <DialogContent className="bg-card border-2 border-primary p-6">
           {/* Close Button - Tecnológico com animação */}
           <motion.button
             type="button"
