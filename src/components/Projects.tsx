@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
-import { ExternalLink, Github, Rocket } from "lucide-react";
+import { ExternalLink, Github, Rocket, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -441,73 +441,61 @@ const Projects = () => {
         )}
       </div>
 
-      {/* Project Detail Modal (com close visível no canto superior direito e bordas mobile) */}
+      {/* Project Detail Modal - Responsivo e Tecnológico */}
       <Dialog open={!!selectedProject} onOpenChange={() => setSelectedProject(null)}>
         <DialogContent
-          className={`
-      relative
-      glass-card
-      border-primary/30
-      border-2            /* borda visível por padrão (mobile) */
-      rounded-lg
-      max-w-full
-      sm:max-w-2xl
-      md:max-w-4xl
-      lg:max-w-6xl
-
-      w-[95%] sm:w-[90%] md:w-[85%]
-
-      max-h-[80vh]
-      overflow-y-auto
-      shadow-cyan
-
-      p-4 sm:p-6 lg:p-8
-    `}
+          className="
+            relative glass-card border-2 border-primary/40 rounded-xl
+            max-w-full sm:max-w-2xl md:max-w-4xl lg:max-w-6xl
+            w-[96%] sm:w-[92%] md:w-[88%]
+            max-h-[85vh] overflow-y-auto
+            shadow-[0_0_30px_hsl(var(--primary)/0.3),0_0_60px_hsl(var(--accent)/0.15)]
+            p-3 sm:p-5 lg:p-8
+            [&>button]:hidden
+          "
         >
-          {/* Close button (visível e destacado no canto superior direito) */}
-          <button
+          {/* Close Button - Tecnológico com animação */}
+          <motion.button
             type="button"
             onClick={() => setSelectedProject(null)}
             aria-label="Fechar modal"
             className="
-        absolute top-3 right-3 z-50
-
-        /* estilos maiores e mais visíveis no mobile */
-        bg-primary/95 text-background
-        p-2 rounded-full shadow-lg
-        flex items-center justify-center
-
-        sm:top-4 sm:right-4 sm:p-2
-
-        hover:scale-105 active:scale-95
-        transition-transform duration-150
-      "
+              absolute top-2 right-2 sm:top-3 sm:right-3 z-50
+              w-8 h-8 sm:w-10 sm:h-10
+              flex items-center justify-center
+              rounded-lg
+              bg-gradient-to-br from-primary/90 to-accent/70
+              border border-secondary/50
+              shadow-[0_0_15px_hsl(var(--primary)/0.5)]
+              backdrop-blur-sm
+              group
+            "
+            whileHover={{ 
+              scale: 1.1,
+              boxShadow: "0 0 25px hsl(var(--secondary)/0.8)",
+              rotate: 90
+            }}
+            whileTap={{ scale: 0.9 }}
+            initial={{ opacity: 0, rotate: -90 }}
+            animate={{ opacity: 1, rotate: 0 }}
+            transition={{ type: "spring", stiffness: 300, damping: 20 }}
           >
-            {/* Ícone simples 'X' - legível em qualquer contexto */}
-            <span className="sr-only">Fechar</span>
-            <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <line x1="18" y1="6" x2="6" y2="18" />
-              <line x1="6" y1="6" x2="18" y2="18" />
-            </svg>
-          </button>
+            <X className="w-4 h-4 sm:w-5 sm:h-5 text-background group-hover:text-secondary transition-colors duration-200" />
+            {/* Efeito de brilho */}
+            <span className="absolute inset-0 rounded-lg bg-gradient-to-tr from-transparent via-secondary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          </motion.button>
 
-          <DialogHeader className="mb-2 sm:mb-4">
-            <DialogTitle
-              className="
-          text-lg sm:text-2xl md:text-3xl lg:text-4xl
-          font-orbitron font-extrabold uppercase tracking-wide
-          bg-gradient-to-t from-accent to-secondary bg-clip-text text-transparent
-        "
-            >
+          <DialogHeader className="mb-2 sm:mb-4 pr-10 sm:pr-12">
+            <DialogTitle className="text-sm sm:text-xl md:text-2xl lg:text-3xl font-orbitron font-extrabold uppercase tracking-wide bg-gradient-to-r from-accent via-secondary to-primary bg-clip-text text-transparent">
               {selectedProject?.title}
             </DialogTitle>
           </DialogHeader>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-5 items-start">
             {/* Video / Media Section */}
             <div className="w-full">
               {selectedProject?.videoUrl ? (
-                <div className="relative w-full rounded-lg overflow-hidden glass-card border border-primary/20">
+                <div className="relative w-full rounded-lg overflow-hidden glass-card border border-primary/30 shadow-[0_0_20px_hsl(var(--primary)/0.2)]">
                   <div className="aspect-video">
                     <iframe
                       width="100%"
@@ -521,28 +509,28 @@ const Projects = () => {
                   </div>
                 </div>
               ) : (
-                <div className="w-full h-48 sm:h-56 md:h-64 bg-background/30 rounded-lg flex items-center justify-center">
-                  <span className="text-sm sm:text-base text-muted-foreground">Mídia não disponível</span>
+                <div className="w-full h-36 sm:h-48 md:h-56 bg-background/30 rounded-lg flex items-center justify-center border border-primary/20">
+                  <span className="text-xs sm:text-sm text-muted-foreground">Mídia não disponível</span>
                 </div>
               )}
             </div>
 
             {/* Info Section */}
-            <div className="w-full space-y-4">
-              <DialogDescription className="text-sm sm:text-base text-muted-foreground leading-relaxed whitespace-pre-line">
+            <div className="w-full space-y-3 sm:space-y-4">
+              <DialogDescription className="text-xs sm:text-sm md:text-base text-muted-foreground leading-relaxed whitespace-pre-line">
                 {selectedProject?.details}
               </DialogDescription>
 
               {/* Tags */}
               <div>
-                <h4 className="text-sm sm:text-base font-orbitron font-semibold text-secondary uppercase tracking-wider mb-2">
+                <h4 className="text-xs sm:text-sm font-orbitron font-semibold text-secondary uppercase tracking-wider mb-1.5 sm:mb-2">
                   Tecnologias Utilizadas
                 </h4>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-1.5 sm:gap-2">
                   {selectedProject?.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="text-xs sm:text-sm px-2 sm:px-3 py-1 rounded-full bg-primary/20 text-secondary border border-primary/30 hover:bg-primary/50 transition-colors"
+                      className="text-[10px] sm:text-xs px-1.5 sm:px-2.5 py-0.5 sm:py-1 rounded-full bg-primary/20 text-secondary border border-primary/30 hover:bg-primary/40 hover:shadow-[0_0_10px_hsl(var(--primary)/0.4)] transition-all duration-200"
                     >
                       {tag}
                     </span>
@@ -550,38 +538,41 @@ const Projects = () => {
                 </div>
               </div>
 
-              {/* Action Buttons (stack on mobile, row on sm+) */}
-              <div className="flex flex-col sm:flex-row gap-3 pt-2">
+              {/* Action Buttons */}
+              <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 pt-1 sm:pt-2">
                 {selectedProject?.liveUrl && selectedProject.liveUrl !== "#" && (
                   <Button
                     variant="outline"
-                    className="neon-border w-full sm:flex-1 hover:bg-primary/10"
+                    size="sm"
+                    className="neon-border w-full sm:flex-1 hover:bg-primary/10 text-xs sm:text-sm h-8 sm:h-9"
                     onClick={() => window.open(selectedProject.liveUrl, "_blank")}
                   >
-                    <ExternalLink className="w-4 h-4 mr-2" />
-                    Ver Projeto ao Vivo
+                    <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4 mr-1.5 sm:mr-2" />
+                    Ver Projeto
                   </Button>
                 )}
 
                 {selectedProject?.githubUrl && selectedProject.githubUrl !== "#" && (
                   <Button
                     variant="outline"
-                    className="neon-border w-full sm:flex-1 hover:bg-primary/10"
+                    size="sm"
+                    className="neon-border w-full sm:flex-1 hover:bg-primary/10 text-xs sm:text-sm h-8 sm:h-9"
                     onClick={() => window.open(selectedProject.githubUrl, "_blank")}
                   >
-                    <Github className="w-4 h-4 mr-2" />
-                    Ver Código {selectedProject.githubUrl2 && selectedProject.githubUrl2 !== "#" ? " (Front-end)" : ""}
+                    <Github className="w-3 h-3 sm:w-4 sm:h-4 mr-1.5 sm:mr-2" />
+                    {selectedProject.githubUrl2 && selectedProject.githubUrl2 !== "#" ? "Front-end" : "Código"}
                   </Button>
                 )}
 
                 {selectedProject?.githubUrl2 && selectedProject.githubUrl2 !== "#" && (
                   <Button
                     variant="outline"
-                    className="neon-border w-full sm:flex-1 hover:bg-primary/10"
+                    size="sm"
+                    className="neon-border w-full sm:flex-1 hover:bg-primary/10 text-xs sm:text-sm h-8 sm:h-9"
                     onClick={() => window.open(selectedProject.githubUrl2, "_blank")}
                   >
-                    <Github className="w-4 h-4 mr-2" />
-                    Ver Código (Back-end)
+                    <Github className="w-3 h-3 sm:w-4 sm:h-4 mr-1.5 sm:mr-2" />
+                    Back-end
                   </Button>
                 )}
               </div>
