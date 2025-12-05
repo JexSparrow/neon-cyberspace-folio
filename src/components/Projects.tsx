@@ -446,11 +446,11 @@ const Projects = () => {
         <DialogContent
           hideCloseButton
           className="
-            relative glass-card border-2 border-primary/40 rounded-xl
+            relative bg-card/95 backdrop-blur-xl border-2 border-primary/40 rounded-xl
             max-w-full sm:max-w-2xl md:max-w-4xl lg:max-w-6xl
             w-[96%] sm:w-[92%] md:w-[88%]
             max-h-[85vh] overflow-y-auto
-            shadow-[0_0_30px_hsl(var(--primary)/0.3),0_0_60px_hsl(var(--accent)/0.15)]
+            shadow-[0_0_30px_hsl(var(--primary)/0.5),0_0_60px_hsl(var(--accent)/0.3),inset_0_1px_0_hsl(var(--primary)/0.3)]
             p-3 sm:p-5 lg:p-8
           "
         >
