@@ -70,7 +70,7 @@ const Projects = () => {
         setProjectsToShow(prev => prev < 4 ? 4 : prev);
       }
     };
-    
+
     handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
@@ -312,7 +312,7 @@ const Projects = () => {
               onClick={() => setSelectedProject(project)}
             >
               {/* Project Icon */}
-              <div className="relative h-48 bg-gradient-to-br from-accent/30 to-secondary/20 flex items-center justify-center overflow-hidden">
+              <div className="relative h-32 lg:h-48 bg-gradient-to-br from-accent/30 to-secondary/20 flex items-center justify-center overflow-hidden">
                 <motion.div
                   animate={{
                     y: [0, -10, 0],
@@ -328,7 +328,7 @@ const Projects = () => {
                   <img
                     src={project.icon}
                     alt={`${project.title} logo`}
-                    className="w-40 h-40 object-contain mx-auto"
+                    className="w-28 h-28 lg:w-40 lg:h-40 object-contain mx-auto"
                   />
                 </motion.div>
 
@@ -339,10 +339,10 @@ const Projects = () => {
 
               {/* Project Info */}
               <div className="p-6 space-y-4">
-                <h3 className="text-2xl font-orbitron font-extrabold tracking-wide text-yellow">
+                <h3 className="text-xl text-center lg:text-2xl lg:text-start font-orbitron font-extrabold tracking-wide text-yellow">
                   {project.title}
                 </h3>
-                <p className="text-muted-foreground text-md">
+                <p className="text-muted-foreground text-sm lg:text-md">
                   {project.description}
                 </p>
 
@@ -351,7 +351,7 @@ const Projects = () => {
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="text-sm px-3 py-1 rounded-full bg-primary/20 text-secondary border border-primary/30 hover:bg-primary/50 transition-colors"
+                      className="text-xs lg:text-sm px-2 lg:px-3 py-1 rounded-full bg-primary/20 text-secondary border border-primary/30 hover:bg-primary/50 transition-colors"
                     >
                       {tag}
                     </span>

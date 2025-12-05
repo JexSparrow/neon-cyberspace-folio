@@ -107,7 +107,7 @@ const Contact = () => {
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-orbitron font-bold text-glow-purple">
             Vamos Conversar <span className="text-secondary">?</span>
           </h2>
-          <p className="text-muted-foreground mt-4 text-lg max-w-2xl mx-auto">
+          <p className="text-sm lg:text-lg text-muted-foreground mt-4 max-w-2xl mx-auto">
             Estou sempre aberto a novos projetos e oportunidades. Entre em contato!
           </p>
         </motion.div>
@@ -121,7 +121,7 @@ const Contact = () => {
             className="space-y-6"
           >
             <div className="glass-card p-8 rounded-2xl space-y-6">
-              <h3 className="text-2xl font-orbitron text-center font-bold text-foreground mb-6">
+              <h3 className="text-xl lg:text-2xl font-orbitron text-center font-extrabold lg:font-bold text-foreground mb-6">
                 Informações de Contato
               </h3>
 
@@ -131,11 +131,11 @@ const Contact = () => {
                 className="flex items-center justify-between p-4 bg-primary/10 rounded-lg border border-[#00f0ff]/50 shadow-[0_0_10px_rgba(0,240,255,0.3)] cursor-pointer"
                 onClick={handleCopyEmail}
               >
-                <div className="flex items-center space-x-3">
+                <div className="flex items-center space-x-4 lg:space-x-3">
                   <Mail className="w-5 h-5 text-secondary" />
-                  <div>
-                    <p className="text-sm text-muted-foreground">E-mail</p>
-                    <p className="text-foreground font-medium">contato@jefersondev.com</p>
+                  <div className="">
+                    <p className="text-sm text-center lg:text-start text-muted-foreground">E-mail</p>
+                    <p className="text-sm lg:text-md text-foreground font-semibold">contato@jefersondev.com</p>
                   </div>
                 </div>
                 {copied ? (
@@ -151,11 +151,11 @@ const Contact = () => {
                 className="flex items-center justify-between p-4 bg-primary/10 rounded-lg border border-[#00f0ff]/50 shadow-[0_0_10px_rgba(0,240,255,0.3)] cursor-pointer"
                 onClick={handleWhatsApp}
               >
-                <div className="flex items-center space-x-3">
+                <div className="flex items-center space-x-8 lg:space-x-3">
                   <Phone className="w-5 h-5 text-secondary" />
                   <div>
-                    <p className="text-sm text-muted-foreground">WhatsApp</p>
-                    <p className="text-foreground font-medium">Chamar no WhatsApp</p>
+                    <p className="text-sm text-center lg:text-start text-muted-foreground">WhatsApp</p>
+                    <p className="text-sm lg:text-md text-foreground font-semibold">Chamar no WhatsApp</p>
                   </div>
                 </div>
                 <MessageSquare className="w-5 h-5 text-secondary" />
@@ -164,7 +164,7 @@ const Contact = () => {
               {/* Social Links */}
               <div className="pt-6 border-t border-primary/20">
                 <p className="text-sm text-muted-foreground mb-4 text-center">Me siga nas redes:</p>
-                <div className="flex gap-3 justify-center">
+                <div className="flex gap-6 lg:gap-3 justify-center">
                   {[
                     { icon: Github, label: "GitHub", url: "https://github.com/JexSparrow  " },
                     { icon: Linkedin, label: "LinkedIn", url: "https://www.linkedin.com/in/jexsantos/" },
@@ -189,8 +189,8 @@ const Contact = () => {
 
               <div className="pt-6 border-t border-primary/20">
                 <div className="flex gap-4 justify-center">
-                  <Clock className="w-6 h-6 text-secondary" />
-                  <p className="text-md font-semibold text-foreground mb-4 text-center hover:text-neon-green transition-all duration-300">Sua mensagem será respondida em até 24h</p>
+                  <Clock className="w-10 h-10 lg:w-6 lg:h-6 text-secondary" />
+                  <p className="text-md font-semibold text-foreground font-orbitron mb-4 text-center hover:text-neon-green transition-all duration-300">Sua mensagem será respondida em até 24h</p>
 
                 </div>
 
@@ -329,8 +329,8 @@ const Contact = () => {
             </form>
           </motion.div>
         </div>
-      </div>
-    </section>
+      </div >
+    </section >
   );
 };
 

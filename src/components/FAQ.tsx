@@ -82,7 +82,7 @@ const FAQ = () => {
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-orbitron font-bold text-glow-purple">
             Ficou Alguma Dúvida <span className="text-secondary">?</span>
           </h2>
-          <p className="text-muted-foreground mt-4 text-lg max-w-2xl mx-auto">
+          <p className="text-sm lg:text-lg text-muted-foreground mt-4 max-w-2xl mx-auto">
             Confira as perguntas mais comuns sobre meus serviços e processo de trabalho.
           </p>
         </motion.div>
