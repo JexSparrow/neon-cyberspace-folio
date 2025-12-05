@@ -444,6 +444,7 @@ const Projects = () => {
       {/* Project Detail Modal - Responsivo e Tecnológico */}
       <Dialog open={!!selectedProject} onOpenChange={() => setSelectedProject(null)}>
         <DialogContent
+          hideCloseButton
           className="
             relative glass-card border-2 border-primary/40 rounded-xl
             max-w-full sm:max-w-2xl md:max-w-4xl lg:max-w-6xl
@@ -451,7 +452,6 @@ const Projects = () => {
             max-h-[85vh] overflow-y-auto
             shadow-[0_0_30px_hsl(var(--primary)/0.3),0_0_60px_hsl(var(--accent)/0.15)]
             p-3 sm:p-5 lg:p-8
-            [&>button]:hidden
           "
         >
           {/* Close Button - Tecnológico com animação */}
