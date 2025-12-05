@@ -79,7 +79,7 @@ const FAQ = () => {
           className="text-center mb-16"
         >
 
-          <h2 className="text-4xl md:text-5xl font-orbitron font-bold text-glow-purple">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-orbitron font-bold text-glow-purple">
             Ficou Alguma Dúvida <span className="text-secondary">?</span>
           </h2>
           <p className="text-muted-foreground mt-4 text-lg max-w-2xl mx-auto">
@@ -144,7 +144,7 @@ const FAQ = () => {
                       className="overflow-hidden"
                     >
                       <div className="px-5 md:px-6 pb-5 md:pb-6 pt-0">
-                        <div className="px-10 border-l-2 border-secondary/30 ml-4">
+                        <div className="px-2 sm:px-10 border-l-2 border-secondary/30 ml-2 sm:ml-4">
                           <p className="text-muted-foreground text-sm md:text-base leading-relaxed pl-4">
                             {faq.answer}
                           </p>
