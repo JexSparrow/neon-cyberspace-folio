@@ -190,7 +190,7 @@ const Contact = () => {
               <div className="pt-6 border-t border-primary/20">
                 <div className="flex gap-4 justify-center">
                   <Clock className="w-6 h-6 text-secondary" />
-                  <p className="text-md font-semibold text-foreground mb-4 text-center">Sua mensagem será respondida em até 24h</p>
+                  <p className="text-md font-semibold text-foreground mb-4 text-center hover:text-neon-green transition-all duration-300">Sua mensagem será respondida em até 24h</p>
 
                 </div>
 
@@ -212,19 +212,30 @@ const Contact = () => {
               </h3>
 
               <div className="space-y-2">
-                <label className="text-sm text-muted-foreground">Nome</label>
+                <label className="ml-2 text-sm text-secondary font-semibold">Nome</label>
                 <Input
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   placeholder="Seu nome"
                   required
                   disabled={isLoading}
-                  className="bg-background/50 border border-[#00f0ff]/50 shadow-[0_0_10px_rgba(0,240,255,0.3)] focus:border-[#00f0ff] focus:shadow-[0_0_20px_rgba(0,240,255,0.5)] transition-all duration-300 disabled:opacity-50"
+                  className={`
+                    
+                    bg-background/50 border border-[#00f0ff]/50 
+                    shadow-[0_0_10px_rgba(0,240,255,0.3)] 
+                    focus:border-[#00f0ff] 
+                    focus:shadow-[0_0_50px_rgba(0,240,255,0.5)]
+   
+                    focus-visible:ring-0 !important
+                    focus:ring-offset-0 !important
+                    focus-visible:ring-offset-0 !important 
+    
+                    transition-all duration-300 disabled:opacity-50`}
                 />
               </div>
 
               <div className="space-y-2">
-                <label className="text-sm text-muted-foreground">E-mail</label>
+                <label className=" ml-2 text-sm text-secondary font-semibold">E-mail</label>
                 <Input
                   type="email"
                   value={formData.email}
@@ -232,12 +243,23 @@ const Contact = () => {
                   placeholder="seu@email.com"
                   required
                   disabled={isLoading}
-                  className="bg-background/50 border border-[#00f0ff]/50 shadow-[0_0_10px_rgba(0,240,255,0.3)] focus:border-[#00f0ff] focus:shadow-[0_0_20px_rgba(0,240,255,0.5)] transition-all duration-300 disabled:opacity-50"
+                  className={`
+                    
+                    bg-background/50 border border-[#00f0ff]/50 
+                    shadow-[0_0_10px_rgba(0,240,255,0.3)] 
+                    focus:border-[#00f0ff] 
+                    focus:shadow-[0_0_30px_rgba(0,240,255,0.5)]
+   
+                    focus-visible:ring-0 !important
+                    focus:ring-offset-0 !important
+                    focus-visible:ring-offset-0 !important 
+    
+                    transition-all duration-300 disabled:opacity-50`}
                 />
               </div>
 
               <div className="space-y-2">
-                <label className="text-sm text-muted-foreground">Mensagem</label>
+                <label className="ml-2 text-sm text-secondary font-semibold">Mensagem</label>
                 <Textarea
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
@@ -245,17 +267,53 @@ const Contact = () => {
                   required
                   disabled={isLoading}
                   rows={5}
-                  className="custom-scrollbar bg-background/50 border border-[#00f0ff]/50 shadow-[0_0_10px_rgba(0,240,255,0.3)] focus:border-[#00f0ff] focus:shadow-[0_0_20px_rgba(0,240,255,0.5)] transition-all duration-300 resize-none disabled:opacity-50"
+                  className={`
+                    custom-scrollbar
+                     bg-background/50 border border-[#00f0ff]/50 
+                     shadow-[0_0_10px_rgba(0,240,255,0.3)] 
+                     focus:border-[#00f0ff] focus:shadow-[0_0_40px_rgba(0,240,255,0.5)]
+                     transition-all duration-300 
+
+                     focus-visible:ring-0 !important
+                    focus:ring-offset-0 !important
+                    focus-visible:ring-offset-0 !important 
+
+                     resize-none 
+                     disabled:opacity-50`}
                 />
               </div>
 
               <Button
                 type="submit"
                 disabled={isLoading}
-                className="w-full bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-lg py-6 disabled:opacity-50"
-                size="lg"
+                className={`
+    w-full                     
+    
+    bg-gradient-to-t           
+    from-primary               
+    to-secondary              
 
+    bg-[length:150%_150%]      /* aumenta o tamanho do gradiente → deixa espaço para animar */
+    bg-[position:100%_100%]    /* posição inicial do gradiente (embaixo e à direita) */
+
+    hover:bg-[position:100%_0%] /* ao passar o mouse o gradiente "sobe" suavemente */
+
+    hover:scale-95             /* botão reduz levemente de tamanho no hover */
+    hover: shadow-[0_0_20px_rgba(174,0,255,0.6)] /* sombra de neon no hover */
+    
+    transition-all             /* habilita animação para todas as propriedades */
+    duration-700               /* duração da animação: 700ms (bem suave) */
+    ease-in-out                /* suavização da animação na entrada e saída */
+
+    text-lg 
+    leading-loose
+    font-orbitron                    /* tamanho do texto */
+    py-6                       /* altura vertical do botão */
+    
+    disabled:opacity-50        /* quando desabilitado fica translúcido */
+  `}
               >
+
                 {isLoading ? (
                   <>
                     <Loader2 className="w-5 h-5 mr-2 animate-spin" />
@@ -263,7 +321,7 @@ const Contact = () => {
                   </>
                 ) : (
                   <>
-                    <Send className="w-5 h-5 mr-2" />
+                    <Send className="w-4 h-4 mr-2" />
                     Enviar Mensagem
                   </>
                 )}

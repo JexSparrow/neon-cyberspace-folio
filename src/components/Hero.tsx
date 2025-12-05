@@ -94,7 +94,7 @@ const Hero = () => {
 
               <br></br>
 
-              Criando interfaces interativas e responsivas com foco em UX/UI.
+              Criando interfaces interativas e responsivas com foco em <span className="text-secondary font-semibold">UX/UI</span>.
             </motion.p>
 
           </motion.div>
