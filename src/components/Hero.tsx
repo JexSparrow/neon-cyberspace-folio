@@ -62,7 +62,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
-              className="flex items-center space-x-2"
+              className="flex items-center justify-center lg:justify-start space-x-2"
             >
               <Sparkles className="w-5 h-5 text-secondary" />
               <span className="text-secondary text-sm font-medium tracking-wider uppercase">
@@ -74,7 +74,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.75 }}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-orbitron font-bold leading-tight"
+              className="text-4xl text-center lg:text-start sm:text-4xl md:text-5xl lg:text-7xl font-orbitron font-bold leading-tight"
             >
               <span className="text-foreground text-glow-cyan">Jeferson Santos</span>
               <br />
@@ -87,7 +87,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1 }}
-              className="text-xl text-muted-foreground max-w-x2l"
+              className="text-sm text-center lg:text-start sm:text-xl text-muted-foreground max-w-x2l"
             >
               Transformando ideias em{" "}
               <span className="text-secondary font-semibold">experiências digitais modernas</span>.

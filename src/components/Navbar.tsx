@@ -142,7 +142,7 @@ const Navbar: React.FC = () => {
                 <motion.button
                   key={link.id}
                   type="button"
-                  initial={{ opacity: 0, x: -20 }}
+                  initial={{ opacity: 0, x: -200 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.05 }}
                   onClick={() => scrollToSection(link.id)}
