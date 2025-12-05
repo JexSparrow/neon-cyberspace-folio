@@ -51,7 +51,7 @@ const Projects = () => {
   const isInView = useInView(ref, { once: true });
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
-  const PROJECTS_PER_LOAD = 3;
+  const PROJECTS_PER_LOAD = 4;
   const [projectsToShow, setProjectsToShow] = useState(PROJECTS_PER_LOAD);
 
   const projects: Project[] = [
